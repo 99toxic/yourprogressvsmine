@@ -1,0 +1,107 @@
+// Imports
+@import 'partials/variables';
+@import 'partials/reset.scss';
+// End Imports
+
+body {
+  background: url(../images/background.jpg) no-repeat center center fixed;
+  color: #fff;
+  font-family: cityburn;
+}
+
+header {
+  border: $border2;
+  position: relative;
+  text-align: center;
+  img {
+    display: block;
+    width: 100%;
+  }
+  h1 {
+    font-family: ACIDLABEL;
+    font-size: 5vw;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+}
+
+main {
+  background: rgba($mine-shaft, .97);
+  border: $border2;
+  h2 {
+    font-size: 35px;
+    text-align: center;
+    margin-top: 80px;
+  }
+  .form-message {
+    color: red;
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  form {
+    margin: 40px auto;
+    width: 70%;
+    label {
+      color: $mercury;
+    }
+    input[type=text] {
+      font-size: 15px;
+      font-family: cityburn;
+      margin-bottom: 40px;
+      padding: 10px 0;
+      width: 100%;
+    }
+    input[type=password] {
+      color: black;
+      font-size: 15px;
+      font-family: cityburn;
+      padding: 10px 0;
+      width: 100%;
+    }
+    .submit {
+      margin-top: 80px;
+      overflow: hidden;
+      text-align: center;
+      width: 100%;
+    }
+    input[type=submit] {
+      background: $korma;
+      color: #fff;
+      font-size: 30px;
+      font-family: cityburn;
+      padding: 5px 20px;
+    }
+    a {
+      color: #fff;
+      float: right;
+    }
+    a:hover {
+      color: $hillary;
+    }
+  }
+  .signup {
+    width: 100%;
+    text-align: center;
+    margin: 30px 0;
+    p {
+      font-size: 20px;
+      padding: 20px;
+    }
+    a {
+      color: #fff;
+      padding-left: 10px;
+      font-size: 25px;
+    }
+    a:hover {
+      color: $hillary;
+    }
+  }
+}
+
+/* Welcome Page */
+@import 'partials/desktop';
+/* End Welcome Page */

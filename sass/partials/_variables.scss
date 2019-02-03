@@ -1,0 +1,23 @@
+// Theme Color
+$kenyan-copper: #691d06;
+$mine-shaft: #2a2a2a;
+$korma: #8e320b;
+$hillary: #aba38a;
+$mercury: #e1e1e1;
+// End Theme Color
+
+// Borders
+$border: 1px solid #ffffff;
+$border2: 5px solid $kenyan-copper;
+// End Borders
+
+/* Fonts */
+@font-face {
+  src: url(../fonts/ACIDL___.otf);
+  font-family: ACIDLABEL;
+}
+@font-face {
+  src: url(../fonts/cityburn.ttf);
+  font-family: cityburn;
+}
+/* End Fonts */
