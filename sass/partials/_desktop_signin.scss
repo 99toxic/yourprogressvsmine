@@ -1,0 +1,146 @@
+@media only screen and (min-width: 900px) {
+  #wrapper {
+    background: none;
+    border: none;
+    margin: 0 auto;
+    min-height: 70vh;
+    width: 700px;
+  }
+
+  .mobile_view {
+    display: none;
+  }
+
+  .desktop_view {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+
+  header {
+    border: $border2;
+    margin: 10px 0 20px 0;
+
+    h1 {
+      font-size: 30px;
+    }
+  }
+
+  main {
+    background: rgba($mine-shaft, .9);
+    border: $border2;
+    min-height: 400px;
+    box-sizing: border-box;
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+
+  .content {
+    width: 90%;
+  p {
+    padding-top: 10px;
+  }
+  }
+
+  .logo {
+      position: relative;
+    img {
+      width: 130%;
+      z-index: 1;
+    }
+  }
+
+  .signin {
+  float: right;
+  left: 48px;
+  position: absolute;
+  top: -35px;
+  width: 200px;
+  z-index: 2;
+}
+
+.signup {
+  float: right;
+  position: absolute;
+  left: 215px;
+  top: -35px;
+  width: 200px;
+  z-index: 2;
+}
+
+.signin h2 a,
+.signup h2 a {
+  color: #fff;
+  position: absolute;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px black;
+}
+
+.signin h2 a:hover,
+.signup h2 a:hover {
+  text-shadow: 0 0 25px red, 0 0 25px $hillary;
+}
+
+  footer {
+    display: none;
+  }
+
+
+  /* Floating Login Form */
+.login {
+  form {
+    margin-top: 15px;
+    padding: 0 20px;
+  }
+
+  .uid {
+    margin-left: 35px;
+  }
+
+  .password {
+    margin-left: 40px;
+    padding-top: 10px;
+  }
+
+  input[type=text],
+  input[type=password] {
+    margin-left: 10px;
+  }
+
+
+  input[type=submit] {
+    float: right;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    position: relative;
+    top: 10px;
+  }
+
+  input[type=submit]:hover {
+    cursor: pointer;
+  }
+}
+
+.forgotPassword {
+  float: left;
+  font-size: 10pt;
+  letter-spacing: 3px;
+  margin: 25px 0 10px 20px;
+  text-decoration: none;
+}
+
+
+.forgotPassword:hover {
+  color: $hillary;
+
+}
+
+/* End Floating Login Form */
+
+}

@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  include_once 'include/dbh.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,21 +42,59 @@
       <h1>Your Progress Vs Mine</h1>
     </header>
     <main>
-      <h2>Sign in</h2>
-      <div class="form-message">JAVASCRIPT HERE</div>
-      <form action="" method="">
-        <label for="uid">Username:</label>
-        <input type="text" name="uid" autofocus>
-        <label for="pwd">Password:</label>
-        <input type="password" name="pwd">
-        <a href="#">Forgot Password?</a>
-        <div class="submit"><input type="submit" name="submit" value="Enter"></div>
-      </form>
-      <div class="signup">
-        <p>Don't have an account?<a href="#">Sign up!</a></p>
-        <a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+      <div class="mobile_view">
+        <h2>Sign in</h2>
+        <div class="form-message">JAVASCRIPT HERE</div>
+        <form action="include/login.php" method="post">
+          <label for="uid">Username:</label>
+          <input type="text" name="uid" autofocus>
+          <label for="pwd">Password:</label>
+          <input type="password" name="pwd">
+          <a href="#">Forgot Password?</a>
+          <div class="submit"><input type="submit" name="submit" value="Enter"></div>
+        </form>
       </div>
+      <div class="desktop_view">
+        <div class="content">
+          <h2>Welcome to the home of Your Progress VS Mine </h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. tenetur eveniet, saepe eaque debitis perspiciatis expedita ex rem, facere nesciunt.</p>
+          <a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+        <div class="logo"><img src="images/logo.png" alt="">
+          <div class="signin">
+            <h2><a href="#signin">Sign In</a></h2>
+          </div>
+          <div class="signup">
+            <h2><a href="signup.html">Sign Up</a></h2>
+          </div>
+        </div>
+      </div>
+
+      <!--Floating Login Form-->
+      <div class="container" id="signin">
+        <div class="login">
+          <div class="form-message">JAVASCRIPT HERE</div>
+          <form action="include/login.php" method="post">
+            <div class="uid">
+              <label for="uid">Username:</label>
+              <input type="text" name="uid" autofocus>
+            </div>
+            <div class="password">
+              <label for="pwd">Password:</label>
+              <input type="password" name="pwd">
+            </div>
+            <input id="submit" type="submit" name="submit" value="Enter">
+            <img src="images/signin.png" alt="">
+          </form>
+          <a href="#reset" class="forgotPassword">Forgot Password?</a>
+        </div>
+      </div>
+      <!--End Floating Login Form-->
     </main>
+    <footer>
+      <p>Don't have an account?<a href="signup.html">Sign up!</a></p>
+      <a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+    </footer>
   </div>
 </body>
 

@@ -1,0 +1,107 @@
+/* Jquery UI Dialog Box */
+// Jquery UI Dialog Header
+.ui-dialog-titlebar {
+  background: none;
+  border: none;
+}
+
+.ui-dialog-title {
+  color: #bfc5d1;
+  font-family: ACIDLABEL;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 30px;
+  padding-left: 25px;
+  text-align: center;
+}
+
+// Jquery UI Dialog Close icon
+.ui-dialog-titlebar-close {
+  background: none;
+  border: none;
+  margin-top: -20px !important;
+}
+
+.ui-dialog-titlebar-close:hover {
+  background: none;
+  border: none;
+  color: white;
+}
+
+// Main Jquery UI Dialog box
+.ui-dialog {
+  background: linear-gradient($mine-shaft, $mine-shaft), url(../images/background.jpg);
+  border: $border2 !important;
+}
+
+// fixes dialog box to stay in center of screen
+.fixed-dialog {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+}
+/* End Jquery UI Dialog Box */
+
+/* Jquery UI Tabs */
+.ui-tabs {
+  background: none;
+  border: none !important;
+}
+
+.ui-tabs-nav {
+  background: none;
+  border: none;
+}
+
+.ui-tabs-tab {
+  background: none !important;
+  border: none !important;
+}
+
+.ui-tabs-anchor{
+  background: none;
+  border: none;
+}
+
+.ui-tabs-panel {
+  background: none;
+  border: none;
+}
+/* End Jquery UI Tabs */
+
+/* Jquery UI Datepicker */
+.ui-datepicker {
+  background: linear-gradient($mine-shaft, $mine-shaft), url(../images/background.jpg);
+}
+
+.ui-datepicker-header {
+  background: none;
+  border: none;
+}
+
+.ui-datepicker-month {
+  color: white;
+  font-family: ACIDLABEL;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 30px;
+}
+/* End Jquery UI Datepicker */
+
+/* Validation Error Message */
+.form-message {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+  margin-left: 20px;
+
+  p {
+    color: #f00;
+    font-size: 18px;
+  }
+}
+
+.error {
+  box-shadow: inset 0 0 10px #f00;
+}
+/* End Validation Error Message */

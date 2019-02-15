@@ -3,20 +3,88 @@
 @import 'partials/reset.scss';
 // End Imports
 
+/* Main Eliments */
 body {
   background: url(../images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   color: #fff;
   font-family: cityburn;
 }
 
-header {
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  line-height: 30px;
+}
+
+p {
+  font-size: 15px;
+  letter-spacing: 3px;
+  line-height: 25px;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: $hillary;
+}
+
+i {
+  font-size: 20px;
+  padding: 10px 10px 0 0;
+}
+
+i:hover {
+  color: $hillary;
+}
+
+input,
+select,
+textarea {
+  background: $mercury;
+  border: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: cityburn;
+  font-size: 20px;
+  padding: 5px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: #fff;
+}
+
+.container {
+  display: none;
+}
+/* End Main Eliments */
+
+#wrapper {
+  background: rgba($mine-shaft, .9);
   border: $border2;
+  min-height: 100vh;
+}
+
+// login and signup header
+header {
+  border-bottom: $border2;
   position: relative;
   text-align: center;
+
   img {
     display: block;
     width: 100%;
   }
+
   h1 {
     font-family: ACIDLABEL;
     font-size: 5vw;
@@ -28,80 +96,102 @@ header {
   }
 }
 
+// End login and signup header
+
 main {
-  background: rgba($mine-shaft, .97);
-  border: $border2;
+
   h2 {
     font-size: 35px;
     text-align: center;
-    margin-top: 80px;
+    margin-top: 40px;
   }
+
   .form-message {
     color: red;
     font-size: 20px;
     margin-top: 30px;
     text-align: center;
   }
+
   form {
-    margin: 40px auto;
+    margin: 20px auto;
     width: 70%;
+
     label {
-      color: $mercury;
+      color: #fff;
     }
-    input[type=text] {
-      font-size: 15px;
-      font-family: cityburn;
-      margin-bottom: 40px;
-      padding: 10px 0;
-      width: 100%;
-    }
+
+    input[type=text],
+    select,
     input[type=password] {
-      color: black;
-      font-size: 15px;
-      font-family: cityburn;
-      padding: 10px 0;
       width: 100%;
     }
+
+    input[type=text],
+    select,
+    input[name=pwd] {
+      margin-bottom: 10px;
+    }
+
+    .date_goal {
+      display: flex;
+    }
+
+    .date,
+    .goal {
+      width: 100%;
+    }
+
+    .date {
+      margin-right: 20%;
+    }
+
     .submit {
-      margin-top: 80px;
+      margin-top: 40px;
       overflow: hidden;
       text-align: center;
       width: 100%;
     }
+
     input[type=submit] {
       background: $korma;
+      box-shadow: 3px 5px #000;
       color: #fff;
       font-size: 30px;
       font-family: cityburn;
-      padding: 5px 20px;
+      padding: 5px 40px;
     }
+
+    input[type=submit]:hover {
+      background: $mine-shaft;
+      cursor: pointer;
+    }
+
     a {
-      color: #fff;
       float: right;
     }
-    a:hover {
-      color: $hillary;
-    }
   }
-  .signup {
-    width: 100%;
-    text-align: center;
-    margin: 30px 0;
-    p {
-      font-size: 20px;
-      padding: 20px;
-    }
-    a {
-      color: #fff;
-      padding-left: 10px;
-      font-size: 25px;
-    }
-    a:hover {
-      color: $hillary;
-    }
-  }
+
 }
 
-/* Welcome Page */
-@import 'partials/desktop';
-/* End Welcome Page */
+footer {
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* Sign In / Sign Up Pages Desktop View */
+@import 'partials/desktop_signin';
+/* End Sign In / Sign Up Pages Desktop View */
+
+/* Sign In / Sign Up Pages Tablet View */
+@import 'partials/tablet_signin';
+/* End Sign In / Sign Up Pages Tablet View */
+
+/* Sign In / Sign Up Pages Mobile View */
+@import 'partials/mobile_signin';
+/* End Sign In / Sign Up Pages Mobile View */
+
+/* Sign In / Sign Up Pages Mobile View */
+@import 'partials/myjqueryui';
+/* End Sign In / Sign Up Pages Mobile View */
