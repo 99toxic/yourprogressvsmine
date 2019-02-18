@@ -1,9 +1,9 @@
 -- create the database
-DROP DATABASE IF EXISTS yourprogressvsminetest;
-CREATE DATABASE yourprogressvsminetest;
+DROP DATABASE IF EXISTS yourprogressvsmine;
+CREATE DATABASE yourprogressvsmine;
 
 -- select the database
-USE yourprogressvsminetest;
+USE yourprogressvsmine;
 
 -- create the tables
 CREATE TABLE user_goal

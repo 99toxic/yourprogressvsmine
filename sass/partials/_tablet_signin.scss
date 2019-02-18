@@ -2,4 +2,44 @@
   .desktop_view {
     display: none;
   }
+
+  form {
+  margin: 20px auto;
+  width: 70%;
+
+  input[type=text],
+  select,
+  input[type=password] {
+    width: 100%;
+  }
+
+  input[type=text],
+  select,
+  input[name=pwd] {
+    margin-bottom: 10px;
+  }
+
+  .date_goal {
+    display: flex;
+  }
+
+  .date,
+  .goal {
+    width: 100%;
+  }
+
+  .date {
+    margin-right: 20%;
+  }
+
+  .submit {
+    margin-top: 40px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+  }
+  a {
+    float: right;
+  }
+}
 }

@@ -8,7 +8,7 @@
 define('SERVER', 'localhost');
 define('USER', 'Nick');
 define('PWD', 'ghostski');
-define('DB', 'yourprogressvsminetest');
+define('DB', 'yourprogressvsmine');
 
 $conn = mysqli_connect(SERVER, USER, PWD, DB);
 

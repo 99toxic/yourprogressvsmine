@@ -132,299 +132,32 @@ table {
   border-spacing: 0; }
 
 /* End CSS Reset */
-/* Main Eliments */
-body {
-  background: url(../images/background.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: #fff;
-  font-family: cityburn; }
-
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 400;
-  line-height: 30px; }
-
-p {
-  font-size: 15px;
-  letter-spacing: 3px;
-  line-height: 25px; }
-
-a {
-  color: #fff; }
-
-a:hover {
-  color: #aba38a; }
-
-i {
-  font-size: 20px;
-  padding: 10px 10px 0 0; }
-
-i:hover {
-  color: #aba38a; }
-
-input,
-select,
-textarea {
-  background: #e1e1e1;
-  border: 0;
-  border-radius: 3px;
-  box-sizing: border-box;
-  font-family: cityburn;
-  font-size: 20px;
-  padding: 5px; }
-
-input:focus,
-select:focus,
-textarea:focus {
-  background: #fff; }
-
-.container {
-  display: none; }
-
-/* End Main Eliments */
-#wrapper {
-  background: rgba(42, 42, 42, 0.9);
-  border: 5px solid #691d06;
-  min-height: 100vh; }
-
-header {
-  border-bottom: 5px solid #691d06;
-  position: relative;
-  text-align: center; }
-  header img {
-    display: block;
-    width: 100%; }
-  header h1 {
-    font-family: ACIDLABEL;
-    font-size: 5vw;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; }
-
-main h2 {
-  font-size: 35px;
-  text-align: center;
-  margin-top: 40px; }
-main .form-message {
-  color: red;
-  font-size: 20px;
-  margin-top: 30px;
-  text-align: center; }
-main form {
-  margin: 20px auto;
-  width: 70%; }
-  main form label {
-    color: #fff; }
-  main form input[type=text],
-  main form select,
-  main form input[type=password] {
-    width: 100%; }
-  main form input[type=text],
-  main form select,
-  main form input[name=pwd] {
-    margin-bottom: 10px; }
-  main form .date_goal {
-    display: flex; }
-  main form .date,
-  main form .goal {
-    width: 100%; }
-  main form .date {
-    margin-right: 20%; }
-  main form .submit {
-    margin-top: 40px;
-    overflow: hidden;
-    text-align: center;
-    width: 100%; }
-  main form input[type=submit] {
-    background: #8e320b;
-    box-shadow: 3px 5px #000;
-    color: #fff;
-    font-size: 30px;
-    font-family: cityburn;
-    padding: 5px 40px; }
-  main form input[type=submit]:hover {
-    background: #2a2a2a;
-    cursor: pointer; }
-  main form a {
-    float: right; }
-
-footer {
-  margin: 10px 0;
-  text-align: center;
-  width: 100%; }
-
-/* Sign In / Sign Up Pages Desktop View */
-@media only screen and (min-width: 900px) {
-  #wrapper {
-    background: none;
-    border: none;
-    margin: 0 auto;
-    min-height: 70vh;
-    width: 700px; }
-
-  .mobile_view {
-    display: none; }
-
-  .desktop_view {
-    display: flex;
-    justify-content: center;
-    padding: 20px; }
-
-  header {
-    border: 5px solid #691d06;
-    margin: 10px 0 20px 0; }
-    header h1 {
-      font-size: 30px; }
-
-  main {
-    background: rgba(42, 42, 42, 0.9);
-    border: 5px solid #691d06;
-    min-height: 400px;
-    box-sizing: border-box; }
-    main h2 {
-      font-size: 30px;
-      margin-bottom: 20px;
-      text-align: left; }
-
-  .content {
-    width: 90%; }
-    .content p {
-      padding-top: 10px; }
-
-  .logo {
-    position: relative; }
-    .logo img {
-      width: 130%;
-      z-index: 1; }
-
-  .signin {
-    float: right;
-    left: 48px;
-    position: absolute;
-    top: -35px;
-    width: 200px;
-    z-index: 2; }
-
-  .signup {
-    float: right;
-    position: absolute;
-    left: 215px;
-    top: -35px;
-    width: 200px;
-    z-index: 2; }
-
-  .signin h2 a,
-  .signup h2 a {
-    color: #fff;
-    position: absolute;
-    text-decoration: none;
-    text-shadow: 1px 1px 2px black; }
-
-  .signin h2 a:hover,
-  .signup h2 a:hover {
-    text-shadow: 0 0 25px red, 0 0 25px #aba38a; }
-
-  footer {
-    display: none; }
-
-  /* Floating Login Form */
-  .login form {
-    margin-top: 15px;
-    padding: 0 20px; }
-  .login .uid {
-    margin-left: 35px; }
-  .login .password {
-    margin-left: 40px;
-    padding-top: 10px; }
-  .login input[type=text],
-  .login input[type=password] {
-    margin-left: 10px; }
-  .login input[type=submit] {
-    float: right;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
-    position: relative;
-    top: 10px; }
-  .login input[type=submit]:hover {
-    cursor: pointer; }
-
-  .forgotPassword {
-    float: left;
-    font-size: 10pt;
-    letter-spacing: 3px;
-    margin: 25px 0 10px 20px;
-    text-decoration: none; }
-
-  .forgotPassword:hover {
-    color: #aba38a; }
-
-  /* End Floating Login Form */ }
-/* End Sign In / Sign Up Pages Desktop View */
-/* Sign In / Sign Up Pages Tablet View */
-@media only screen and (max-width: 900px) {
-  .desktop_view {
-    display: none; } }
-/* End Sign In / Sign Up Pages Tablet View */
-/* Sign In / Sign Up Pages Mobile View */
-@media only screen and (max-width: 500px) {
-  main h2 {
-    margin: 10px 0; }
-  main .form-message {
-    font-size: 15px;
-    margin-top: 20px; }
-  main form {
-    margin: 0 auto; }
-    main form label {
-      font-size: 10px; }
-    main form input[type=text],
-    main form select,
-    main form input[type=password] {
-      font-size: 15px; }
-    main form input[type=submit] {
-      font-size: 20px;
-      padding: 5px 20px; }
-
-  footer p {
-    font-size: 15px; }
-  footer a {
-    font-size: 20px; } }
-/* End Sign In / Sign Up Pages Mobile View */
-/* Sign In / Sign Up Pages Mobile View */
 /* Jquery UI Dialog Box */
 .ui-dialog-titlebar {
   background: none;
   border: none; }
 
 .ui-dialog-title {
-  color: #bfc5d1;
-  font-family: ACIDLABEL;
-  font-size: 25px;
+  color: #e1e1e1;
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  font-size: 30px;
   font-weight: 400;
-  line-height: 30px;
-  padding-left: 25px;
+  padding: 0 0 5px 15px;
   text-align: center; }
 
 .ui-dialog-titlebar-close {
   background: none;
   border: none;
-  margin-top: -20px !important; }
+  margin-top: -25px !important; }
 
 .ui-dialog-titlebar-close:hover {
   background: none;
   border: none;
-  color: white; }
+  color: #aba38a; }
 
 .ui-dialog {
-  background: linear-gradient(#2a2a2a, #2a2a2a), url(../images/background.jpg);
-  border: 5px solid #691d06 !important; }
+  background: linear-gradient(rgba(42, 42, 42, 0.9), rgba(42, 42, 42, 0.9)), url(../images/background.jpg);
+  border: 8px solid rgba(105, 29, 6, 0.7) !important; }
 
 .fixed-dialog {
   position: fixed;
@@ -456,34 +189,339 @@ footer {
 /* End Jquery UI Tabs */
 /* Jquery UI Datepicker */
 .ui-datepicker {
-  background: linear-gradient(#2a2a2a, #2a2a2a), url(../images/background.jpg); }
+  background: #2a2a2a; }
 
 .ui-datepicker-header {
   background: none;
   border: none; }
 
 .ui-datepicker-month {
-  color: white;
-  font-family: ACIDLABEL;
-  font-size: 15px;
+  color: #e1e1e1;
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  font-size: 25px;
   font-weight: 400;
   line-height: 30px; }
 
+.ui-datepicker-next, .ui-datepicker-prev {
+  background: #e1e1e1; }
+
+.ui-datepicker-next:hover, .ui-datepicker-prev:hover {
+  background: #aba38a;
+  border: none; }
+
 /* End Jquery UI Datepicker */
-/* Validation Error Message */
-.form-message {
-  align-items: center;
-  display: grid;
-  justify-content: center;
-  margin-left: 20px; }
-  .form-message p {
-    color: #f00;
-    font-size: 18px; }
+/* Global */
+body {
+  background: url(../images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #e1e1e1;
+  font-family: cityburn, Impact, Charcoal, sans-serif; }
 
-.error {
-  box-shadow: inset 0 0 10px #f00; }
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400; }
 
-/* End Validation Error Message */
+h1 {
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  font-size: 35px; }
+
+p {
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  font-size: 15px;
+  letter-spacing: 3px;
+  line-height: 25px; }
+
+th {
+  color: #e1e1e1;
+  font-family: ACIDLABEL, Impact, Charcoal, sans-serif; }
+
+td {
+  font-family: cityburn, Impact, Charcoal, sans-serif; }
+
+label {
+  color: txtCol;
+  font-family: cityburn, Impact, Charcoal, sans-serif; }
+
+a {
+  color: #e1e1e1;
+  text-decoration: none; }
+
+a:hover {
+  color: #aba38a; }
+
+i {
+  font-size: 20px;
+  padding: 10px 0 0 0; }
+
+i:hover {
+  color: #aba38a; }
+
+input,
+select {
+  background: #e1e1e1;
+  border: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  font-size: 20px;
+  padding: 5px; }
+
+input[type=password] {
+  font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+  font-size: 40px; }
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: #fff; }
+
+main {
+  padding: 20px; }
+
+.container {
+  display: none; }
+
+.form-message p {
+  color: #f00;
+  font-size: 20px;
+  text-align: center; }
+
+/* Submit */
+input[type=submit] {
+  background: #8e320b;
+  border: none;
+  color: #e1e1e1;
+  font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px; }
+
+input[type=submit]:hover {
+  color: #aba38a;
+  cursor: pointer; }
+
+/* End Submit */
+/* End Global */
+#wrapper {
+  background: rgba(42, 42, 42, 0.9);
+  border: 8px solid rgba(105, 29, 6, 0.7);
+  min-height: 100vh; }
+
+header {
+  border-bottom: 8px solid rgba(105, 29, 6, 0.7);
+  border-radius: 3px;
+  position: relative;
+  text-align: center; }
+  header img {
+    display: block;
+    width: 100%; }
+  header h1 {
+    font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+    font-size: 5vw;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; }
+
+footer {
+  margin: 10px 0;
+  text-align: center;
+  width: 100%; }
+  footer a {
+    padding-left: 10px;
+    font-size: 20px; }
+
+/* Floating Login Form */
+.login {
+  padding-top: 0px; }
+  .login form {
+    margin: 15px auto 0 auto;
+    padding: 0 20px; }
+  .login .uid,
+  .login .password {
+    display: flex;
+    justify-content: space-between; }
+    .login .uid label,
+    .login .password label {
+      color: #e1e1e1;
+      font-size: 25px; }
+  .login .password {
+    padding-top: 10px; }
+  .login input[type=text],
+  .login input[type=password] {
+    border: 0px;
+    border-radius: 3px;
+    width: 250px;
+    margin-left: 10px; }
+  .login input[type=text] {
+    font-family: cityburn, Impact, Charcoal, sans-serif; }
+  .login input[type=password] {
+    font-size: 30px; }
+  .login input[type=submit] {
+    float: right;
+    position: relative;
+    top: 10px; }
+  .login input[type=submit]:hover {
+    color: #aba38a;
+    cursor: pointer; }
+
+.forgotPassword {
+  color: #e1e1e1 !important;
+  float: left;
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  font-size: 10pt;
+  letter-spacing: 3px;
+  margin-top: 65px;
+  margin-left: 30px;
+  text-decoration: underline; }
+
+.forgotPassword:hover {
+  color: #aba38a !important; }
+
+/* End Floating Login Form */
+/* Sign In / Sign Up Pages Desktop View */
+@media only screen and (min-width: 900px) {
+  #wrapper {
+    background: none;
+    border: none;
+    margin: 0 auto;
+    width: 650px; }
+
+  .mobile_view {
+    display: none; }
+
+  .desktop_view {
+    display: flex;
+    justify-content: center;
+    padding: 20px; }
+
+  header {
+    border: 8px solid rgba(105, 29, 6, 0.7);
+    margin: 10px 0; }
+    header h1 {
+      font-size: 40px; }
+
+  main {
+    background: rgba(42, 42, 42, 0.9);
+    border: 8px solid rgba(105, 29, 6, 0.7);
+    height: 360px;
+    padding: 0; }
+
+  .content {
+    width: 90%; }
+    .content h2 {
+      font-size: 30px;
+      margin: 20px 0;
+      text-align: left; }
+    .content p {
+      padding: 20px 0; }
+
+  .logo {
+    position: relative; }
+    .logo img {
+      width: 130%;
+      z-index: 1; }
+
+  .signin {
+    float: right;
+    left: 36px;
+    position: absolute;
+    top: -3px;
+    width: 200px;
+    z-index: 2; }
+    .signin a {
+      font-size: 35px; }
+
+  .signup {
+    float: right;
+    position: absolute;
+    left: 195px;
+    top: -3px;
+    width: 200px;
+    z-index: 2; }
+    .signup a {
+      font-size: 35px; }
+
+  footer {
+    float: left;
+    position: relative;
+    top: -60px;
+    right: 265px; }
+    footer p {
+      display: none; }
+
+  .signup_form main {
+    padding: 20px;
+    height: auto; }
+  .signup_form form {
+    width: 100%;
+    margin-bottom: 0; }
+  .signup_form .uid_email,
+  .signup_form .pwd_pwd_two {
+    display: flex;
+    justify-content: center; }
+  .signup_form .date {
+    margin-right: 50%; }
+  .signup_form input[type=submit] {
+    margin: 0; } }
+/* End Sign In / Sign Up Pages Desktop View */
+/* Sign In / Sign Up Pages Tablet View */
+@media only screen and (max-width: 900px) {
+  .desktop_view {
+    display: none; }
+
+  form {
+    margin: 20px auto;
+    width: 70%; }
+    form input[type=text],
+    form select,
+    form input[type=password] {
+      width: 100%; }
+    form input[type=text],
+    form select,
+    form input[name=pwd] {
+      margin-bottom: 10px; }
+    form .date_goal {
+      display: flex; }
+    form .date,
+    form .goal {
+      width: 100%; }
+    form .date {
+      margin-right: 20%; }
+    form .submit {
+      margin-top: 40px;
+      overflow: hidden;
+      text-align: center;
+      width: 100%; }
+    form a {
+      float: right; } }
+/* End Sign In / Sign Up Pages Tablet View */
+/* Sign In / Sign Up Pages Mobile View */
+@media only screen and (max-width: 500px) {
+  main .form-message {
+    font-size: 15px;
+    margin-top: 20px; }
+  main form {
+    margin: 0 auto;
+    width: 90%; }
+    main form label {
+      font-size: 10px; }
+    main form input[type=submit] {
+      font-size: 20px;
+      padding: 5px 20px; }
+    main form a {
+      font-size: 15px; }
+
+  footer p {
+    font-size: 10px; }
+  footer a {
+    font-size: 15px; } }
 /* End Sign In / Sign Up Pages Mobile View */
 
 /*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
 $('document').ready(function () {
   showContainer();
+  validForm();
 });
 
 function showContainer() {
@@ -22,3 +23,12 @@ function showContainer() {
     }); // end dialog
   }); // end click
 } // end showContainer
+
+function validForm() {
+  $('#pickDate').datepicker({
+    buttonImageOnly: true,
+    changeYear: true,
+    showOtherMonths: true,
+    yearRange: '-50:+0'
+  }); // end datepicker
+} // end ValidForm

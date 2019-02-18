@@ -1,17 +1,18 @@
 // Imports
 @import 'partials/variables';
 @import 'partials/reset.scss';
+@import 'partials/myjqueryui';
 // End Imports
 
-/* Main Eliments */
+/* Global */
 body {
   background: url(../images/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: #fff;
-  font-family: cityburn;
+  color: $txtCol;
+  font-family: $font2;
 }
 
 h1,
@@ -19,42 +20,66 @@ h2,
 h3,
 h4 {
   font-weight: 400;
-  line-height: 30px;
+}
+
+h1 {
+  font-family: $font2;
+  font-size: 35px;
 }
 
 p {
+  font-family: $font2;
   font-size: 15px;
   letter-spacing: 3px;
   line-height: 25px;
 }
 
+th {
+  color: $txtCol;
+  font-family: $font1;
+}
+
+td {
+  font-family: $font2;
+}
+
+label {
+  color: txtCol;
+  font-family: $font2;
+}
+
 a {
-  color: #fff;
+  color: $txtCol;
+  text-decoration: none;
 }
 
 a:hover {
-  color: $hillary;
+  color: $hover;
 }
 
 i {
   font-size: 20px;
-  padding: 10px 10px 0 0;
+  padding: 10px 0 0 0;
 }
 
 i:hover {
-  color: $hillary;
+  color: $hover;
 }
 
 input,
-select,
-textarea {
-  background: $mercury;
+select {
+  background: $txtCol;
   border: 0;
   border-radius: 3px;
   box-sizing: border-box;
-  font-family: cityburn;
+  font-family: $font2;
   font-size: 20px;
   padding: 5px;
+}
+
+input[type=password] {
+  font-family: $font1;
+  font-size: 40px;
 }
 
 input:focus,
@@ -63,13 +88,43 @@ textarea:focus {
   background: #fff;
 }
 
+main {
+  padding: 20px;
+}
+
 .container {
   display: none;
 }
-/* End Main Eliments */
+
+.form-message {
+  p {
+  color: $errCol;
+  font-size: 20px;
+  text-align: center;
+  }
+}
+
+/* Submit */
+input[type=submit] {
+  background: $butCol;
+  border: none;
+  color: $txtCol;
+  font-family: $font1;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+input[type=submit]:hover {
+  color: $hover;
+  cursor: pointer;
+}
+/* End Submit */
+
+/* End Global */
 
 #wrapper {
-  background: rgba($mine-shaft, .9);
+  background: rgba($bckCol, .9);
   border: $border2;
   min-height: 100vh;
 }
@@ -77,6 +132,7 @@ textarea:focus {
 // login and signup header
 header {
   border-bottom: $border2;
+  border-radius: 3px;
   position: relative;
   text-align: center;
 
@@ -86,7 +142,7 @@ header {
   }
 
   h1 {
-    font-family: ACIDLABEL;
+    font-family: $font1;
     font-size: 5vw;
     left: 50%;
     position: absolute;
@@ -95,90 +151,90 @@ header {
     width: 100%;
   }
 }
-
 // End login and signup header
-
-main {
-
-  h2 {
-    font-size: 35px;
-    text-align: center;
-    margin-top: 40px;
-  }
-
-  .form-message {
-    color: red;
-    font-size: 20px;
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  form {
-    margin: 20px auto;
-    width: 70%;
-
-    label {
-      color: #fff;
-    }
-
-    input[type=text],
-    select,
-    input[type=password] {
-      width: 100%;
-    }
-
-    input[type=text],
-    select,
-    input[name=pwd] {
-      margin-bottom: 10px;
-    }
-
-    .date_goal {
-      display: flex;
-    }
-
-    .date,
-    .goal {
-      width: 100%;
-    }
-
-    .date {
-      margin-right: 20%;
-    }
-
-    .submit {
-      margin-top: 40px;
-      overflow: hidden;
-      text-align: center;
-      width: 100%;
-    }
-
-    input[type=submit] {
-      background: $korma;
-      box-shadow: 3px 5px #000;
-      color: #fff;
-      font-size: 30px;
-      font-family: cityburn;
-      padding: 5px 40px;
-    }
-
-    input[type=submit]:hover {
-      background: $mine-shaft;
-      cursor: pointer;
-    }
-
-    a {
-      float: right;
-    }
-  }
-
-}
 
 footer {
   margin: 10px 0;
   text-align: center;
   width: 100%;
+
+  a {
+    padding-left: 10px;
+    font-size: 20px;
+  }
 }
+
+  /* Floating Login Form */
+
+  .login {
+  padding-top: 0px;
+    form {
+      margin: 15px auto 0 auto;
+      padding: 0 20px;
+    }
+
+    .uid,
+    .password {
+      display: flex;
+      justify-content: space-between;
+
+      label {
+        color: $txtCol;
+        font-size: 25px;
+      }
+    }
+
+    .password {
+      padding-top: 10px;
+    }
+
+    input[type=text],
+    input[type=password] {
+      border: 0px;
+      border-radius: 3px;
+      width: 250px;
+      margin-left: 10px;
+    }
+
+    input[type=text] {
+      font-family: $font2;
+    }
+
+    input[type=password] {
+      font-size: 30px;
+    }
+
+
+    input[type=submit] {
+      float: right;
+      position: relative;
+      top: 10px;
+    }
+
+    input[type=submit]:hover {
+      color: $hover;
+      cursor: pointer;
+    }
+  }
+
+  .forgotPassword {
+    color: $txtCol !important;
+    float: left;
+    font-family: $font2;
+    font-size: 10pt;
+    letter-spacing: 3px;
+    margin-top: 65px;
+    margin-left: 30px;
+    text-decoration: underline;
+  }
+
+
+  .forgotPassword:hover {
+    color: $hover !important;
+
+  }
+
+  /* End Floating Login Form */
 
 /* Sign In / Sign Up Pages Desktop View */
 @import 'partials/desktop_signin';
@@ -190,8 +246,4 @@ footer {
 
 /* Sign In / Sign Up Pages Mobile View */
 @import 'partials/mobile_signin';
-/* End Sign In / Sign Up Pages Mobile View */
-
-/* Sign In / Sign Up Pages Mobile View */
-@import 'partials/myjqueryui';
 /* End Sign In / Sign Up Pages Mobile View */

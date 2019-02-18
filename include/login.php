@@ -42,7 +42,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
             $_SESSION[ 'u_date' ] = $row[ 'user_date' ];
             $_SESSION[ 'u_goal' ] = $row[ 'user_goal' ];
             $_SESSION[ 'u_email' ] = $row[ 'user_email' ];
-            header( "Location: ../profile.html" );
+            header( "Location: ../profile.php" );
             exit();
           }
           else {

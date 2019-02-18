@@ -1,14 +1,15 @@
 // Theme Color
-$kenyan-copper: #691d06;
-$mine-shaft: #2a2a2a;
-$korma: #8e320b;
-$hillary: #aba38a;
-$mercury: #e1e1e1;
+$bckCol: #2a2a2a;
+$brdCol: rgba(105, 29, 6, 0.7);;
+$butCol: #8e320b;
+$errCol: #f00;
+$hover: #aba38a;
+$txtCol: #e1e1e1;
 // End Theme Color
 
 // Borders
-$border: 1px solid #ffffff;
-$border2: 5px solid $kenyan-copper;
+$border: 1px solid $txtCol;
+$border2: 8px solid $brdCol;
 // End Borders
 
 /* Fonts */
@@ -20,4 +21,7 @@ $border2: 5px solid $kenyan-copper;
   src: url(../fonts/cityburn.ttf);
   font-family: cityburn;
 }
+
+$font1: ACIDLABEL, Impact, Charcoal, sans-serif;
+$font2: cityburn, Impact, Charcoal, sans-serif;
 /* End Fonts */

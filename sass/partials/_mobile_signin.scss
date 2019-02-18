@@ -1,8 +1,5 @@
 @media only screen and (max-width: 500px) {
   main {
-    h2 {
-      margin: 10px 0;
-    }
 
     .form-message {
       font-size: 15px;
@@ -11,30 +8,28 @@
 
     form {
       margin: 0 auto;
+      width: 90%;
 
       label {
         font-size: 10px;
-      }
-
-      input[type=text],
-      select,
-      input[type=password] {
-        font-size: 15px;
       }
 
       input[type=submit] {
         font-size: 20px;
         padding: 5px 20px;
       }
+      a {
+        font-size: 15px;
+      }
     }
   }
 
   footer {
     p {
-      font-size: 15px;
+      font-size: 10px;
     }
     a {
-      font-size: 20px;
+      font-size: 15px;
     }
   }
 }

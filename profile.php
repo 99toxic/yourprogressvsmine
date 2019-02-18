@@ -33,8 +33,6 @@
   <body>
     <div id="wrapper">
       <header>
-        <img src="images/header.jpg" alt="people fitness">
-        <h1>You are logged in!</h1>
         <form action="include/logout.php" method="post">
           <button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i> Logout</button>
         </form>

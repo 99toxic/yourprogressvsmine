@@ -31,47 +31,56 @@
 </head>
 
 <body>
-  <div id="wrapper">
+  <div id="wrapper" class="signup_form">
     <header>
       <img src="images/header.jpg" alt="people fitness">
       <h1>Your Progress Vs Mine</h1>
     </header>
     <main>
-      <h2>Sign up</h2>
-      <div class="form-message">JAVASCRIPT HERE</div>
+      <h1>Sign up</h1>
+      <div class="form-message"><p>JAVASCRIPT HERE</p></div>
       <form action="include/signup.php" method="post">
-        <label for="uid">Username:</label>
-        <input type="text" name="uid" autofocus>
-        <label for="email">Email:</label>
-        <input type="text" name="email">
+        <div class="uid_email">
+          <div class="uid">
+            <label for="uid">Username:</label>
+            <input type="text" name="uid" autofocus>
+          </div>
+          <div class="email">
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+          </div>
+        </div>
         <div class="date_goal">
           <div class="date">
             <label for="dob">Date of Birth:</label>
-            <input type="text" name="dob">
+            <input type="text" name="dob" id="pickDate">
           </div>
           <div class="goal">
             <label for="goal">Goal:</label>
             <select name="goal">
-                  <option value="1">Build Muscle</option>
-                  <option value="2">Lose Fat</option>
-                  <option value="3">Transform</option>
-                  <option value="4">Improve</option>
-                  <option value="5">Endurance</option>
-                  <option value="6">Flexibility</option>
-                  <option value="7">Other</option>
-                </select>
+              <option value="1">Build Muscle</option>
+              <option value="2">Lose Fat</option>
+              <option value="3">Transform</option>
+              <option value="4">Improve</option>
+              <option value="5">Endurance</option>
+              <option value="6">Flexibility</option>
+              <option value="7">Other</option>
+            </select>
           </div>
         </div>
+        <div class="pwd_pwd_two">
+        <div class="pwd">
         <label for="pwd">Password:</label>
         <input type="password" name="pwd">
+        </div>
+        <div class="pwd_two">
         <label for="pwd_two">Re enter Password:</label>
         <input type="password" name="pwd_two">
+        </div>
+        </div>
         <div class="submit"><input type="submit" name="submit" value="Enter"></div>
       </form>
     </main>
-    <footer>
-      <a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
-    </footer>
   </div>
 </body>
 
