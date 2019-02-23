@@ -220,21 +220,15 @@ body {
   color: #e1e1e1;
   font-family: cityburn, Impact, Charcoal, sans-serif; }
 
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 400; }
-
 h1 {
   font-family: cityburn, Impact, Charcoal, sans-serif;
-  font-size: 35px; }
+  font-size: 35px;
+  text-align: center; }
 
 p {
   font-family: cityburn, Impact, Charcoal, sans-serif;
   font-size: 15px;
-  letter-spacing: 3px;
-  line-height: 25px; }
+  letter-spacing: 3px; }
 
 th {
   color: #e1e1e1;
@@ -243,16 +237,16 @@ th {
 td {
   font-family: cityburn, Impact, Charcoal, sans-serif; }
 
-label {
-  color: txtCol;
-  font-family: cityburn, Impact, Charcoal, sans-serif; }
-
 a {
   color: #e1e1e1;
-  text-decoration: none; }
+  text-decoration: none;
+  text-shadow: 3px 3px 3px black; }
 
 a:hover {
   color: #aba38a; }
+
+a:active {
+  text-shadow: none; }
 
 i {
   font-size: 20px;
@@ -261,51 +255,87 @@ i {
 i:hover {
   color: #aba38a; }
 
-input,
+main {
+  padding: 20px; }
+
+.form-message p {
+  color: #f00;
+  font-size: 20px;
+  text-align: center;
+  margin: 10px 0 0;
+  visibility: hidden; }
+
+form {
+  margin: 10px auto;
+  width: 280px; }
+  form a {
+    float: right; }
+
+label {
+  color: txtCol;
+  font-family: cityburn, Impact, Charcoal, sans-serif; }
+
+input[type=text],
 select {
   background: #e1e1e1;
   border: 0;
   border-radius: 3px;
   box-sizing: border-box;
   font-family: cityburn, Impact, Charcoal, sans-serif;
-  font-size: 20px;
-  padding: 5px; }
+  font-size: 15px;
+  height: 40px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 100%; }
 
 input[type=password] {
-  font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
-  font-size: 40px; }
+  background: #e1e1e1;
+  border: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 25px;
+  height: 40px;
+  padding: 5px;
+  width: 100%; }
 
 input:focus,
 select:focus,
 textarea:focus {
   background: #fff; }
 
-main {
-  padding: 20px; }
-
-.container {
-  display: none; }
-
-.form-message p {
-  color: #f00;
-  font-size: 20px;
+.submit {
+  margin-top: 60px;
   text-align: center; }
 
-/* Submit */
 input[type=submit] {
   background: #8e320b;
   border: none;
+  box-shadow: 3px 3px 3px black;
   color: #e1e1e1;
   font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
   font-size: 20px;
   font-weight: 400;
-  line-height: 30px; }
+  line-height: 30px;
+  padding: 10px 20px; }
 
 input[type=submit]:hover {
-  color: #aba38a;
   cursor: pointer; }
 
-/* End Submit */
+input[type=submit]:active {
+  box-shadow: none; }
+
+.date_goal {
+  display: flex;
+  justify-content: space-between; }
+
+.date,
+.goal {
+  width: 150px; }
+
+.date {
+  margin-right: 5%; }
+
 /* End Global */
 #wrapper {
   background: rgba(42, 42, 42, 0.9);
@@ -330,61 +360,17 @@ header {
     width: 100%; }
 
 footer {
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   text-align: center;
   width: 100%; }
   footer a {
     padding-left: 10px;
     font-size: 20px; }
 
-/* Floating Login Form */
-.login {
-  padding-top: 0px; }
-  .login form {
-    margin: 15px auto 0 auto;
-    padding: 0 20px; }
-  .login .uid,
-  .login .password {
-    display: flex;
-    justify-content: space-between; }
-    .login .uid label,
-    .login .password label {
-      color: #e1e1e1;
-      font-size: 25px; }
-  .login .password {
-    padding-top: 10px; }
-  .login input[type=text],
-  .login input[type=password] {
-    border: 0px;
-    border-radius: 3px;
-    width: 250px;
-    margin-left: 10px; }
-  .login input[type=text] {
-    font-family: cityburn, Impact, Charcoal, sans-serif; }
-  .login input[type=password] {
-    font-size: 30px; }
-  .login input[type=submit] {
-    float: right;
-    position: relative;
-    top: 10px; }
-  .login input[type=submit]:hover {
-    color: #aba38a;
-    cursor: pointer; }
+.profile_img {
+  border: 1px solid #e1e1e1;
+  object-fit: cover; }
 
-.forgotPassword {
-  color: #e1e1e1 !important;
-  float: left;
-  font-family: cityburn, Impact, Charcoal, sans-serif;
-  font-size: 10pt;
-  letter-spacing: 3px;
-  margin-top: 65px;
-  margin-left: 30px;
-  text-decoration: underline; }
-
-.forgotPassword:hover {
-  color: #aba38a !important; }
-
-/* End Floating Login Form */
 /* Sign In / Sign Up Pages Desktop View */
 @media only screen and (min-width: 900px) {
   #wrapper {
@@ -393,135 +379,92 @@ footer {
     margin: 0 auto;
     width: 650px; }
 
-  .mobile_view {
-    display: none; }
-
-  .desktop_view {
-    display: flex;
-    justify-content: center;
-    padding: 20px; }
-
   header {
     border: 8px solid rgba(105, 29, 6, 0.7);
     margin: 10px 0; }
     header h1 {
       font-size: 40px; }
 
-  main {
+  #signin main {
     background: rgba(42, 42, 42, 0.9);
     border: 8px solid rgba(105, 29, 6, 0.7);
-    height: 360px;
-    padding: 0; }
-
-  .content {
-    width: 90%; }
-    .content h2 {
+    display: flex;
+    height: 350px;
+    justify-content: center;
+    padding: 10px; }
+  #signin .content {
+    width: 80%; }
+    #signin .content h2 {
       font-size: 30px;
       margin: 20px 0;
-      text-align: left; }
-    .content p {
-      padding: 20px 0; }
-
-  .logo {
-    position: relative; }
-    .logo img {
+      text-align: center; }
+  #signin .logo {
+    position: relative;
+    right: 5px; }
+    #signin .logo img {
       width: 130%;
       z-index: 1; }
-
-  .signin {
-    float: right;
-    left: 36px;
-    position: absolute;
-    top: -3px;
-    width: 200px;
-    z-index: 2; }
-    .signin a {
-      font-size: 35px; }
-
-  .signup {
-    float: right;
-    position: absolute;
-    left: 195px;
-    top: -3px;
-    width: 200px;
-    z-index: 2; }
-    .signup a {
-      font-size: 35px; }
-
-  footer {
+  #signin footer {
     float: left;
     position: relative;
-    top: -60px;
-    right: 265px; }
-    footer p {
-      display: none; }
+    top: -80px;
+    right: 150px; }
+  #signin .submit {
+    margin-top: 40px; }
 
-  .signup_form main {
-    padding: 20px;
-    height: auto; }
-  .signup_form form {
-    width: 100%;
-    margin-bottom: 0; }
-  .signup_form .uid_email,
-  .signup_form .pwd_pwd_two {
+  #signup main {
+    background: rgba(42, 42, 42, 0.9);
+    border: 8px solid rgba(105, 29, 6, 0.7);
+    height: 350px;
+    padding: 10px; }
+  #signup form {
+    width: 80%; }
+  #signup .uid_email,
+  #signup .pwd_pwd_two {
     display: flex;
     justify-content: center; }
-  .signup_form .date {
-    margin-right: 50%; }
-  .signup_form input[type=submit] {
-    margin: 0; } }
+  #signup .uid,
+  #signup .email,
+  #signup .pwd,
+  #signup .pwd_two {
+    width: 250px; }
+  #signup .uid {
+    margin-right: 5%; }
+  #signup .pwd {
+    margin-right: 5%; }
+  #signup .submit {
+    margin-top: 25px; } }
 /* End Sign In / Sign Up Pages Desktop View */
+/* Profile Pages Desktop View */
+@media only screen and (min-width: 900px) {
+  #profile #wrapper {
+    background: rgba(42, 42, 42, 0.9);
+    border: 8px solid rgba(105, 29, 6, 0.7);
+    margin: 0 auto;
+    width: 80%; }
+  #profile header {
+    border: none;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 250px;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%; } }
+/* End Profile Pages Desktop View */
 /* Sign In / Sign Up Pages Tablet View */
 @media only screen and (max-width: 900px) {
-  .desktop_view {
+  .logo {
     display: none; }
 
   form {
-    margin: 20px auto;
-    width: 70%; }
-    form input[type=text],
-    form select,
-    form input[type=password] {
-      width: 100%; }
-    form input[type=text],
-    form select,
-    form input[name=pwd] {
-      margin-bottom: 10px; }
-    form .date_goal {
-      display: flex; }
-    form .date,
-    form .goal {
-      width: 100%; }
-    form .date {
-      margin-right: 20%; }
-    form .submit {
-      margin-top: 40px;
-      overflow: hidden;
-      text-align: center;
-      width: 100%; }
-    form a {
-      float: right; } }
+    width: 250px; }
+    form .pwd_two {
+      margin-top: 10px; } }
 /* End Sign In / Sign Up Pages Tablet View */
 /* Sign In / Sign Up Pages Mobile View */
-@media only screen and (max-width: 500px) {
-  main .form-message {
-    font-size: 15px;
-    margin-top: 20px; }
-  main form {
-    margin: 0 auto;
-    width: 90%; }
-    main form label {
-      font-size: 10px; }
-    main form input[type=submit] {
-      font-size: 20px;
-      padding: 5px 20px; }
-    main form a {
-      font-size: 15px; }
-
-  footer p {
-    font-size: 10px; }
-  footer a {
-    font-size: 15px; } }
+@media only screen and (max-width: 450px) {
+  form {
+    width: 90%; } }
 /* End Sign In / Sign Up Pages Mobile View */
 
 /*# sourceMappingURL=style.css.map */

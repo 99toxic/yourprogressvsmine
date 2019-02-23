@@ -15,23 +15,16 @@ body {
   font-family: $font2;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  font-weight: 400;
-}
-
 h1 {
   font-family: $font2;
   font-size: 35px;
+  text-align: center;
 }
 
 p {
   font-family: $font2;
   font-size: 15px;
   letter-spacing: 3px;
-  line-height: 25px;
 }
 
 th {
@@ -43,18 +36,19 @@ td {
   font-family: $font2;
 }
 
-label {
-  color: txtCol;
-  font-family: $font2;
-}
 
 a {
   color: $txtCol;
   text-decoration: none;
+  text-shadow: 3px 3px 3px black;
 }
 
 a:hover {
   color: $hover;
+}
+
+a:active {
+  text-shadow: none;
 }
 
 i {
@@ -66,20 +60,57 @@ i:hover {
   color: $hover;
 }
 
-input,
+main {
+  padding: 20px;
+}
+
+.form-message {
+  p {
+    color: $errCol;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px 0 0;
+    visibility: hidden;
+  }
+}
+
+form {
+  margin: 10px auto;
+  width: 280px;
+  a {
+    float: right;
+  }
+}
+
+label {
+  color: txtCol;
+  font-family: $font2;
+}
+
+input[type=text],
 select {
   background: $txtCol;
   border: 0;
   border-radius: 3px;
   box-sizing: border-box;
   font-family: $font2;
-  font-size: 20px;
+  font-size: 15px;
+  height: 40px;
   padding: 5px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 input[type=password] {
-  font-family: $font1;
-  font-size: 40px;
+  background: $txtCol;
+  border: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 25px;
+  height: 40px;
+  padding: 5px;
+  width: 100%;
 }
 
 input:focus,
@@ -88,38 +119,44 @@ textarea:focus {
   background: #fff;
 }
 
-main {
-  padding: 20px;
-}
-
-.container {
-  display: none;
-}
-
-.form-message {
-  p {
-  color: $errCol;
-  font-size: 20px;
+.submit {
+  margin-top: 60px;
   text-align: center;
-  }
 }
 
-/* Submit */
 input[type=submit] {
   background: $butCol;
   border: none;
+  box-shadow: 3px 3px 3px black;
   color: $txtCol;
   font-family: $font1;
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
+  padding: 10px 20px;
 }
 
 input[type=submit]:hover {
-  color: $hover;
   cursor: pointer;
 }
-/* End Submit */
+
+input[type=submit]:active {
+  box-shadow: none;
+}
+
+.date_goal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date,
+.goal {
+  width: 150px;
+}
+
+  .date {
+    margin-right: 5%;
+  }
 
 /* End Global */
 
@@ -151,10 +188,10 @@ header {
     width: 100%;
   }
 }
-// End login and signup header
 
+// End login and signup header
 footer {
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   text-align: center;
   width: 100%;
 
@@ -164,81 +201,19 @@ footer {
   }
 }
 
-  /* Floating Login Form */
+.profile_img {
+  border: $border;
+  object-fit: cover;
+}
 
-  .login {
-  padding-top: 0px;
-    form {
-      margin: 15px auto 0 auto;
-      padding: 0 20px;
-    }
-
-    .uid,
-    .password {
-      display: flex;
-      justify-content: space-between;
-
-      label {
-        color: $txtCol;
-        font-size: 25px;
-      }
-    }
-
-    .password {
-      padding-top: 10px;
-    }
-
-    input[type=text],
-    input[type=password] {
-      border: 0px;
-      border-radius: 3px;
-      width: 250px;
-      margin-left: 10px;
-    }
-
-    input[type=text] {
-      font-family: $font2;
-    }
-
-    input[type=password] {
-      font-size: 30px;
-    }
-
-
-    input[type=submit] {
-      float: right;
-      position: relative;
-      top: 10px;
-    }
-
-    input[type=submit]:hover {
-      color: $hover;
-      cursor: pointer;
-    }
-  }
-
-  .forgotPassword {
-    color: $txtCol !important;
-    float: left;
-    font-family: $font2;
-    font-size: 10pt;
-    letter-spacing: 3px;
-    margin-top: 65px;
-    margin-left: 30px;
-    text-decoration: underline;
-  }
-
-
-  .forgotPassword:hover {
-    color: $hover !important;
-
-  }
-
-  /* End Floating Login Form */
 
 /* Sign In / Sign Up Pages Desktop View */
 @import 'partials/desktop_signin';
 /* End Sign In / Sign Up Pages Desktop View */
+
+/* Profile Pages Desktop View */
+@import 'partials/desktop_profile';
+/* End Profile Pages Desktop View */
 
 /* Sign In / Sign Up Pages Tablet View */
 @import 'partials/tablet_signin';

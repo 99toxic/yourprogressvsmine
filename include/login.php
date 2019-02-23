@@ -38,7 +38,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
             // Sign user in
             session_start();
             $_SESSION[ 'u_id' ] = $row[ 'user_id' ];
-            $_SESSION[ 'u_uid' ] = $row[ 'user_name' ];
+            $_SESSION[ 'u_name' ] = $row[ 'user_name' ];
             $_SESSION[ 'u_date' ] = $row[ 'user_date' ];
             $_SESSION[ 'u_goal' ] = $row[ 'user_goal' ];
             $_SESSION[ 'u_email' ] = $row[ 'user_email' ];

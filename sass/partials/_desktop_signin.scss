@@ -1,21 +1,11 @@
 @media only screen and (min-width: 900px) {
+
   #wrapper {
     background: none;
     border: none;
     margin: 0 auto;
     width: 650px;
   }
-
-  .mobile_view {
-    display: none;
-  }
-
-  .desktop_view {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-  }
-
 
   header {
     border: $border2;
@@ -26,93 +16,86 @@
     }
   }
 
-  main {
-    background: rgba($bckCol, .9);
-    border: $border2;
-    height: 360px;
-    padding: 0;
-  }
+  #signin {
 
-  .content {
-    width: 90%;
-
-    h2 {
-      font-size: 30px;
-      margin: 20px 0;
-      text-align: left;
-    }
-
-    p {
-      padding: 20px 0;
-    }
-  }
-
-  .logo {
-    position: relative;
-
-    img {
-      width: 130%;
-      z-index: 1;
-    }
-  }
-
-  .signin {
-    float: right;
-    left: 36px;
-    position: absolute;
-    top: -3px;
-    width: 200px;
-    z-index: 2;
-
-    a {
-      font-size: 35px;
-    }
-  }
-
-  .signup {
-    float: right;
-    position: absolute;
-    left: 195px;
-    top: -3px;
-    width: 200px;
-    z-index: 2;
-
-    a {
-      font-size: 35px;
-    }
-  }
-
-  footer {
-    float: left;
-    position: relative;
-    top: -60px;
-    right: 265px;
-
-    p {
-      display: none;
-    }
-  }
-
-
-  .signup_form {
     main {
-      padding: 20px;
-      height: auto;
+      background: rgba($bckCol, .9);
+      border: $border2;
+      display: flex;
+      height: 350px;
+      justify-content: center;
+      padding: 10px;
     }
+
+    .content {
+      width: 80%;
+
+      h2 {
+        font-size: 30px;
+        margin: 20px 0;
+        text-align: center;
+      }
+    }
+
+    .logo {
+      position: relative;
+      right: 5px;
+
+      img {
+        width: 130%;
+        z-index: 1;
+      }
+    }
+
+    footer {
+      float: left;
+      position: relative;
+      top: -80px;
+      right: 150px;
+    }
+
+    .submit {
+      margin-top: 40px;
+    }
+
+  }
+
+  #signup {
+
+    main {
+      background: rgba($bckCol, .9);
+      border: $border2;
+      height: 350px;
+      padding: 10px;
+    }
+
     form {
-      width: 100%;
-      margin-bottom: 0;
+      width: 80%;
     }
+
     .uid_email,
     .pwd_pwd_two {
       display: flex;
       justify-content: center;
     }
-        .date {
-      margin-right: 50%;
+
+    .uid,
+    .email,
+    .pwd,
+    .pwd_two {
+      width: 250px;
     }
-    input[type=submit] {
-      margin: 0;
+
+    .uid {
+      margin-right: 5%;
+    }
+
+    .pwd {
+      margin-right: 5%;
+    }
+
+    .submit {
+      margin-top: 25px;
     }
   }
 
