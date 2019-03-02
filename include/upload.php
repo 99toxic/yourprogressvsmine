@@ -29,12 +29,13 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT * FROM users";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
-        $userName = $_SESSION['user_name'];
+        $userName = $_SESSION['u_name'];
 
         //Puts image in folder location
         $fileDestination = '../uploads/'.$userName.'_profile.'.$fileActualExt;
         move_uploaded_file($fileTmpName, $fileDestination);
-        header('Refresh:0');
+        header( "Location: ../profile.php" );
+        header("Cache-Control: no-cache, must-revalidate");
       } echo 'Your file is to big. Please try a different image.';
     } else {
       echo 'There was an error uploading your file. Please try again.';

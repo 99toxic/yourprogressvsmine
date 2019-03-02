@@ -6,7 +6,7 @@ CREATE DATABASE yourprogressvsmine;
 USE yourprogressvsmine;
 
 -- create the tables
-CREATE TABLE user_goal
+CREATE TABLE goal
 (
   goal_id         INT(11)          PRIMARY KEY           AUTO_INCREMENT          NOT NULL,
   goal_name       TINYTEXT         NOT NULL
@@ -18,6 +18,16 @@ CREATE TABLE workout_type
   type_name        TINYTEXT        NOT NULL
 );
 
+CREATE TABLE exe_details
+(
+  exe_id             INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
+  wrk_id             INT(11)         NOT NULL,
+  exe_name           TINYTEXT        NOT NULL,
+  exe_sets           INT,
+  exe_reps           INT,
+  exe_time           TIME
+);
+
 CREATE TABLE users
 (
   user_id          INT(11)         PRIMARY KEY           AUTO_INCREMENT          NOT NULL,
@@ -26,11 +36,11 @@ CREATE TABLE users
   user_date        DATE            NOT NULL,
   goal_id          INT(11)         NOT NULL,
   user_pwd         LONGTEXT        NOT NULL,
-  user_login       DATETIME        NOT NULL              DEFAULT CURRENT_TIMESTAMP,
+  user_login       DATETIME        NOT NULL,
   user_level       BOOLEAN         NOT NULL              DEFAULT FALSE,
   CONSTRAINT  users_fk_user_goal
     FOREIGN KEY (goal_id)
-    REFERENCES  user_goal (goal_id)
+    REFERENCES  goal (goal_id)
 );
 
 
@@ -38,9 +48,8 @@ CREATE TABLE pwd_reset
 (
   reset_id          INT(11)         PRIMARY KEY           AUTO_INCREMENT          NOT NULL,
   user_id           INT             NOT NULL,
-  user_email        TEXT            NOT NULL,
   reset_selector    TEXT            NOT NULL,
-  reset_Token       LONGTEXT        NOT NULL,
+  reset_token       LONGTEXT        NOT NULL,
   reset_expires     DATETIME        NOT NULL,
   CONSTRAINT  pwd_reset_fk_users
     FOREIGN KEY (user_id)
@@ -52,11 +61,12 @@ CREATE TABLE chat
   chat_id            INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
   user_id            INT(11)         NOT NULL,
   chat_message       TEXT            NOT NULL,
-  chat_timestamp     INT             NOT NULL,
+  chat_timestamp     DATETIME        NOT NULL             DEFAULT CURRENT_TIMESTAMP,
   CONSTRAINT  chat_fk_users
     FOREIGN KEY (user_id)
     REFERENCES  users (user_id)
 );
+
 
 CREATE TABLE workout_desc
 (
@@ -66,30 +76,20 @@ CREATE TABLE workout_desc
   type_id            INT(11)         NOT NULL,
   wrk_sets           INT             NOT NULL,
   wrk_desc           TEXT,
+  exe_id             INT(11)         NOT NULL,
   CONSTRAINT  workout_desc_fk_users
     FOREIGN KEY (user_id)
     REFERENCES  users (user_id),
+  CONSTRAINT  workout_desc_fk_exe_details
+    FOREIGN KEY (exe_id)
+    REFERENCES  exe_details (exe_id),
   CONSTRAINT  workout_desc_fk_workout_type
     FOREIGN KEY (type_id)
     REFERENCES  workout_type (type_id)
 );
 
-CREATE TABLE exe_details
-(
-  exe_id             INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
-  wrk_id             INT(11)         NOT NULL,
-  exe_name           TINYTEXT        NOT NULL,
-  exe_equip          TINYTEXT,
-  exe_sets           INT,
-  exe_reps           INT,
-  exe_time           TIME,
-  CONSTRAINT  exe_details_fk_workout_desc
-    FOREIGN KEY (wrk_id)
-    REFERENCES  workout_desc (wrk_id)
-);
-
 -- Insert data into the tables
-INSERT INTO user_goal (goal_id, goal_name) VALUES
+INSERT INTO goal (goal_id, goal_name) VALUES
 (1, 'Build Muscle'),
 (2, 'Lose Fat'),
 (3, 'Transform'),

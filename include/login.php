@@ -33,15 +33,21 @@ if ( isset( $_POST[ 'submit' ] ) ) {
           }
           else if ($pwdCheck == true) {
 
-            // Insert info for login details here!
+          // Insert when user loged in
+          $userId = $row['user_id'];
+          $loginDetails = ("UPDATE users SET user_login = now() WHERE user_id = '$userId'");
+          mysqli_query( $conn, $loginDetails );
 
             // Sign user in
+            $sqlDate = strtotime($row[ 'user_login' ]);
+            $newDate = date('h:ia', $sqlDate);
             session_start();
             $_SESSION[ 'u_id' ] = $row[ 'user_id' ];
             $_SESSION[ 'u_name' ] = $row[ 'user_name' ];
             $_SESSION[ 'u_date' ] = $row[ 'user_date' ];
-            $_SESSION[ 'u_goal' ] = $row[ 'user_goal' ];
             $_SESSION[ 'u_email' ] = $row[ 'user_email' ];
+            $_SESSION[ 'u_goal' ] = $row[ 'goal_id' ];
+            $_SESSION[ 'u_login' ] = $newDate;
             header( "Location: ../profile.php" );
             exit();
           }

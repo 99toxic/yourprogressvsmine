@@ -21,6 +21,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-size: 20px;
+}
+
 p {
   font-family: $font2;
   font-size: 15px;
@@ -36,11 +40,11 @@ td {
   font-family: $font2;
 }
 
-
 a {
   color: $txtCol;
   text-decoration: none;
   text-shadow: 3px 3px 3px black;
+  cursor: pointer;
 }
 
 a:hover {
@@ -62,6 +66,10 @@ i:hover {
 
 main {
   padding: 20px;
+}
+
+.container {
+  display: none;
 }
 
 .form-message {
@@ -99,6 +107,16 @@ select {
   padding: 5px;
   margin-bottom: 10px;
   width: 100%;
+}
+
+
+input[type=file] {
+  color: $txtCol;
+  font-family: $font2;
+}
+
+input[type=file]:focus {
+  background: none;
 }
 
 input[type=password] {
@@ -157,68 +175,12 @@ input[type=submit]:active {
   .date {
     margin-right: 5%;
   }
-
 /* End Global */
 
-#wrapper {
-  background: rgba($bckCol, .9);
-  border: $border2;
-  min-height: 100vh;
-}
+/* Sign In / Sign Up Pages */
+@import 'partials/welcome';
+/* End Sign In / Sign Up Pages */
 
-// login and signup header
-header {
-  border-bottom: $border2;
-  border-radius: 3px;
-  position: relative;
-  text-align: center;
-
-  img {
-    display: block;
-    width: 100%;
-  }
-
-  h1 {
-    font-family: $font1;
-    font-size: 5vw;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-  }
-}
-
-// End login and signup header
-footer {
-  margin: 10px 0 0 0;
-  text-align: center;
-  width: 100%;
-
-  a {
-    padding-left: 10px;
-    font-size: 20px;
-  }
-}
-
-.profile_img {
-  border: $border;
-  object-fit: cover;
-}
-
-
-/* Sign In / Sign Up Pages Desktop View */
-@import 'partials/desktop_signin';
-/* End Sign In / Sign Up Pages Desktop View */
-
-/* Profile Pages Desktop View */
-@import 'partials/desktop_profile';
-/* End Profile Pages Desktop View */
-
-/* Sign In / Sign Up Pages Tablet View */
-@import 'partials/tablet_signin';
-/* End Sign In / Sign Up Pages Tablet View */
-
-/* Sign In / Sign Up Pages Mobile View */
-@import 'partials/mobile_signin';
-/* End Sign In / Sign Up Pages Mobile View */
+/* Profile Pages */
+@import 'partials/profile';
+/* End Profile Pages */

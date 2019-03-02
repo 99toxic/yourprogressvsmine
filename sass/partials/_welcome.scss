@@ -1,3 +1,45 @@
+
+#wrapper {
+  background: rgba($bckCol, .9);
+  border: $border2;
+  min-height: 100vh;
+}
+
+// login and signup header
+header {
+  border-bottom: $border2;
+  border-radius: 3px;
+  position: relative;
+  text-align: center;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  h1 {
+    font-family: $font1;
+    font-size: 5vw;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+}
+
+// End login and signup header
+footer {
+  margin: 10px 0 0 0;
+  text-align: center;
+  width: 100%;
+
+  a {
+    padding-left: 10px;
+    font-size: 20px;
+  }
+}
+
 @media only screen and (min-width: 900px) {
 
   #wrapper {
@@ -99,4 +141,24 @@
     }
   }
 
+}
+
+@media only screen and (max-width: 900px) {
+  .logo {
+    display: none;
+  }
+
+  form {
+    width: 250px;
+
+    .pwd_two {
+      margin-top: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  form {
+    width: 90%;
+  }
 }

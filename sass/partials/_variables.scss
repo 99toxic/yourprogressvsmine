@@ -5,11 +5,13 @@ $butCol: #8e320b;
 $errCol: #f00;
 $hover: #aba38a;
 $txtCol: #e1e1e1;
+$high: rgba(0, 0, 0, 0.30);
 // End Theme Color
 
 // Borders
 $border: 1px solid $txtCol;
 $border2: 8px solid $brdCol;
+$border3: 1px solid rgba($txtCol, .05);
 // End Borders
 
 /* Fonts */

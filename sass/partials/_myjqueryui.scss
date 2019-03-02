@@ -71,6 +71,14 @@
 /* Jquery UI Datepicker */
 .ui-datepicker {
   background: $bckCol;
+
+  a {
+    text-shadow: none;
+  }
+
+  select {
+    font-family: $font2;
+  }
 }
 
 .ui-datepicker-header {

@@ -190,6 +190,10 @@ table {
 /* Jquery UI Datepicker */
 .ui-datepicker {
   background: #2a2a2a; }
+  .ui-datepicker a {
+    text-shadow: none; }
+  .ui-datepicker select {
+    font-family: cityburn, Impact, Charcoal, sans-serif; }
 
 .ui-datepicker-header {
   background: none;
@@ -225,6 +229,9 @@ h1 {
   font-size: 35px;
   text-align: center; }
 
+h2 {
+  font-size: 20px; }
+
 p {
   font-family: cityburn, Impact, Charcoal, sans-serif;
   font-size: 15px;
@@ -240,7 +247,8 @@ td {
 a {
   color: #e1e1e1;
   text-decoration: none;
-  text-shadow: 3px 3px 3px black; }
+  text-shadow: 3px 3px 3px black;
+  cursor: pointer; }
 
 a:hover {
   color: #aba38a; }
@@ -257,6 +265,9 @@ i:hover {
 
 main {
   padding: 20px; }
+
+.container {
+  display: none; }
 
 .form-message p {
   color: #f00;
@@ -287,6 +298,13 @@ select {
   padding: 5px;
   margin-bottom: 10px;
   width: 100%; }
+
+input[type=file] {
+  color: #e1e1e1;
+  font-family: cityburn, Impact, Charcoal, sans-serif; }
+
+input[type=file]:focus {
+  background: none; }
 
 input[type=password] {
   background: #e1e1e1;
@@ -337,6 +355,7 @@ input[type=submit]:active {
   margin-right: 5%; }
 
 /* End Global */
+/* Sign In / Sign Up Pages */
 #wrapper {
   background: rgba(42, 42, 42, 0.9);
   border: 8px solid rgba(105, 29, 6, 0.7);
@@ -367,11 +386,6 @@ footer {
     padding-left: 10px;
     font-size: 20px; }
 
-.profile_img {
-  border: 1px solid #e1e1e1;
-  object-fit: cover; }
-
-/* Sign In / Sign Up Pages Desktop View */
 @media only screen and (min-width: 900px) {
   #wrapper {
     background: none;
@@ -434,24 +448,6 @@ footer {
     margin-right: 5%; }
   #signup .submit {
     margin-top: 25px; } }
-/* End Sign In / Sign Up Pages Desktop View */
-/* Profile Pages Desktop View */
-@media only screen and (min-width: 900px) {
-  #profile #wrapper {
-    background: rgba(42, 42, 42, 0.9);
-    border: 8px solid rgba(105, 29, 6, 0.7);
-    margin: 0 auto;
-    width: 80%; }
-  #profile header {
-    border: none;
-    display: flex;
-    flex-flow: row nowrap;
-    height: 250px;
-    justify-content: flex-start;
-    padding: 10px;
-    width: 100%; } }
-/* End Profile Pages Desktop View */
-/* Sign In / Sign Up Pages Tablet View */
 @media only screen and (max-width: 900px) {
   .logo {
     display: none; }
@@ -460,11 +456,453 @@ footer {
     width: 250px; }
     form .pwd_two {
       margin-top: 10px; } }
-/* End Sign In / Sign Up Pages Tablet View */
-/* Sign In / Sign Up Pages Mobile View */
 @media only screen and (max-width: 450px) {
   form {
     width: 90%; } }
-/* End Sign In / Sign Up Pages Mobile View */
+/* End Sign In / Sign Up Pages */
+/* Profile Pages */
+#profile {
+  /* Live Update */
+  /* End Live Update */
+  /* Chatbox Area */
+  /* End Chat Box Area */
+  /* Who's Online */
+  /* End Who's Online */
+  /* End Social Media Area */ }
+  #profile #wrapper {
+    background: rgba(42, 42, 42, 0.9);
+    border: 8px solid rgba(105, 29, 6, 0.7);
+    margin: 0 auto;
+    width: 80%; }
+  #profile header {
+    border: none;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px 10px 0 10px;
+    width: 100%; }
+  #profile .profile_img {
+    border: 1px solid #e1e1e1;
+    object-fit: cover;
+    margin-right: 10px;
+    overflow: hidden;
+    height: 300px;
+    width: 185px; }
+  #profile .view {
+    border: 1px solid #e1e1e1;
+    display: block;
+    height: 300px;
+    margin: 0 auto;
+    width: 550px; }
+    #profile .view .view_heading {
+      display: flex;
+      text-align: left; }
+    #profile .view .view-icon {
+      border-bottom: 1px solid #e1e1e1;
+      border-right: 1px solid #e1e1e1;
+      text-align: center; }
+      #profile .view .view-icon h4 {
+        background: rgba(105, 29, 6, 0.7);
+        padding: 3px 0;
+        text-align: center; }
+      #profile .view .view-icon p {
+        border-bottom: 1px solid #e1e1e1;
+        font-size: 15px;
+        margin: 0px;
+        padding: 3px 0; }
+      #profile .view .view-icon .edit {
+        border-top: 1px solid #e1e1e1;
+        display: flex;
+        justify-content: space-around; }
+        #profile .view .view-icon .edit a {
+          flex: 1 1 20em;
+          padding: 10px 0; }
+      #profile .view .view-icon a:first-child {
+        border-right: 1px solid #e1e1e1; }
+      #profile .view .view-icon img {
+        margin: 0 auto;
+        padding: 5px 0;
+        width: 60%; }
+    #profile .view .view_content {
+      padding: 15px; }
+    #profile .view .workout {
+      height: 45%;
+      overflow: scroll; }
+    #profile .view .workout::-webkit-scrollbar {
+      width: 10px; }
+    #profile .view .workout::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px; }
+    #profile .view table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      text-align: center;
+      width: 90%; }
+    #profile .view th {
+      border: 0px;
+      padding-bottom: 20px; }
+    #profile .view td {
+      border-right: 1px solid #e1e1e1;
+      padding: 10px; }
+    #profile .view tr {
+      border-bottom: 1px solid #e1e1e1; }
+    #profile .view tr:first-child,
+    #profile .view tr:last-child {
+      border-bottom: 0px; }
+    #profile .view table,
+    #profile .view td:last-child,
+    #profile .view th:last-child {
+      border-right: 0px; }
+    #profile .view th,
+    #profile .view td:first-child {
+      color: #e1e1e1;
+      font-family: cityburn, Impact, Charcoal, sans-serif;
+      font-weight: 40; }
+  #profile nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px; }
+    #profile nav a {
+      font-size: 20px;
+      padding-top: 20px;
+      width: 90px; }
+    #profile nav form {
+      margin: 0;
+      padding-top: 15px;
+      width: 90px; }
+    #profile nav button {
+      background: none;
+      border: none;
+      color: #e1e1e1;
+      font-family: cityburn, Impact, Charcoal, sans-serif;
+      font-size: 20px;
+      text-shadow: 3px 3px 3px black; }
+    #profile nav button:hover {
+      color: #aba38a;
+      cursor: pointer; }
+  #profile .week,
+  #profile .rank,
+  #profile .follow {
+    padding: 5px;
+    text-align: center;
+    width: 90px; }
+    #profile .week h2,
+    #profile .rank h2,
+    #profile .follow h2 {
+      padding-bottom: 5px; }
+  #profile .rank {
+    border: 1px solid #e1e1e1; }
+  #profile main {
+    padding: 10px; }
+  #profile #sunday,
+  #profile #monday,
+  #profile #tuesday,
+  #profile #wednesday,
+  #profile #thursday,
+  #profile #friday,
+  #profile #saturday {
+    border: 1px solid #e1e1e1;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: 100%; }
+  #profile .schedule {
+    display: flex; }
+    #profile .schedule img {
+      margin: 10px;
+      padding: 20px 0;
+      width: 80px; }
+    #profile .schedule h4 {
+      background: rgba(105, 29, 6, 0.7);
+      padding: 5px 0;
+      text-shadow: none; }
+    #profile .schedule p {
+      border-bottom: 1px solid #e1e1e1;
+      color: #e1e1e1;
+      font-size: 15px;
+      margin: 0px;
+      padding: 3px;
+      text-align: center; }
+  #profile .view_day:hover,
+  #profile .add_day:hover {
+    box-shadow: 0 0 15px #e1e1e1;
+    cursor: pointer; }
+  #profile .current_day {
+    background: rgba(0, 0, 0, 0.3); }
+  #profile .add_day {
+    height: 100%; }
+    #profile .add_day h1 {
+      font-size: 120px;
+      margin: 0; }
+  #profile .rest_day h1 {
+    padding-top: 40%; }
+  #profile .flex {
+    display: flex;
+    justify-content: space-between;
+    clear: both; }
+  #profile .find,
+  #profile .leader {
+    border: 1px solid #e1e1e1;
+    height: 250px;
+    margin: 80px 0px;
+    width: 45%; }
+  #profile .find h1 {
+    border-bottom: 1px solid #e1e1e1;
+    font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+    font-size: 25px;
+    margin: 0;
+    padding: 5px; }
+  #profile .find form {
+    width: 80%; }
+  #profile .find .submit {
+    text-align: right;
+    margin-top: -55px; }
+  #profile .search {
+    width: 240px; }
+  #profile .type {
+    margin-top: 20px;
+    width: 120px; }
+  #profile .leader {
+    text-align: center; }
+    #profile .leader h1 {
+      border-bottom: 1px solid #e1e1e1;
+      font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+      font-size: 25px;
+      margin: 0;
+      padding: 5px; }
+    #profile .leader table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%; }
+    #profile .leader th {
+      border: 0px;
+      font-family: cityburn, Impact, Charcoal, sans-serif;
+      padding-bottom: 15px; }
+    #profile .leader td {
+      border-right: 1px solid #e1e1e1;
+      padding: 10px; }
+    #profile .leader tr {
+      border-bottom: 1px solid #e1e1e1; }
+    #profile .leader tr:first-child,
+    #profile .leader tr:last-child {
+      border-bottom: 0px; }
+    #profile .leader table,
+    #profile .leader td:last-child,
+    #profile .leader th:last-child {
+      border-right: 0px; }
+  #profile .score {
+    height: 180px;
+    padding: 10px 10px 10px 20px;
+    overflow-x: hidden;
+    overflow-y: scroll; }
+  #profile .score::-webkit-scrollbar {
+    width: 10px; }
+  #profile .score::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; }
+  #profile .social {
+    border: 1px solid #e1e1e1;
+    display: flex;
+    height: 566px; }
+    #profile .social h2 {
+      border-bottom: 1px solid #e1e1e1;
+      font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+      margin: 0;
+      padding: 5px 0;
+      text-align: center; }
+    #profile .social aside {
+      flex-basis: 30%; }
+  #profile .update {
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px 10px 10px 20px; }
+  #profile .update::-webkit-scrollbar {
+    width: 10px; }
+  #profile .update::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; }
+  #profile .user_update {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 20px; }
+    #profile .user_update .name {
+      margin: 5px 0px 0px 10px;
+      padding: 5px;
+      width: 100%; }
+      #profile .user_update .name span {
+        font-size: 18px;
+        text-decoration: underline; }
+  #profile .messenger {
+    border-left: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    flex-basis: 50%;
+    height: auto; }
+  #profile .chatbox {
+    display: grid;
+    padding: 0 50px 0 30px; }
+  #profile .chatlogs {
+    height: 463px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+    width: 100%; }
+  #profile .chatlogs::-webkit-scrollbar {
+    width: 10px; }
+  #profile .chatlogs::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; }
+  #profile .chat {
+    align-items: flex-start;
+    display: flex;
+    flext-flow: row wrap;
+    margin-bottom: 10px; }
+    #profile .chat .user-photo {
+      background: #ccc;
+      border-radius: 50%;
+      height: 60px;
+      overflow: hidden;
+      width: 60px; }
+    #profile .chat .user-photo img {
+      width: 100%; }
+    #profile .chat .chat-message {
+      border: 1px solid #e1e1e1;
+      border-radius: 10px;
+      margin: 5px 10px 0;
+      padding: 15px;
+      width: 80%; }
+  #profile .friend .chat-message {
+    background: rgba(0, 0, 0, 0.7); }
+  #profile .self .chat-message {
+    background: rgba(105, 29, 6, 0.7);
+    order: -1; }
+  #profile .chat-form {
+    align-items: flex-start;
+    border-top: 1px solid #e1e1e1;
+    display: flex;
+    padding-bottom: 0;
+    width: 100%; }
+    #profile .chat-form textarea {
+      font-family: cityburn, Impact, Charcoal, sans-serif;
+      font-size: 18px;
+      height: 30px;
+      padding: 10px;
+      width: 75%; }
+    #profile .chat-form textarea:focus {
+      background: #fff; }
+    #profile .chat-form textarea::-webkit-scrollbar {
+      width: 10px; }
+    #profile .chat-form textarea::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px; }
+    #profile .chat-form button {
+      background: none;
+      border: none;
+      color: #e1e1e1;
+      font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+      font-size: 20px;
+      margin: 0 10px;
+      padding: 15px; }
+    #profile .chat-form button:hover {
+      color: #aba38a;
+      cursor: pointer; }
+    #profile .chat-form button:onclick {
+      border: none; }
+  #profile .users {
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px 10px 10px 20px; }
+  #profile .users::-webkit-scrollbar {
+    width: 10px; }
+  #profile .users::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; }
+  #profile .online {
+    align-items: flex-start;
+    display: flex;
+    flext-flow: row wrap;
+    margin-bottom: 20px; }
+    #profile .online .user-photo {
+      background: #ccc;
+      border-radius: 50%;
+      height: 50px;
+      overflow: hidden;
+      width: 50px; }
+    #profile .online .user-photo img {
+      width: 100%; }
+    #profile .online .name {
+      margin: 5px 0px 0px 10px;
+      padding: 5px;
+      width: 80%; }
+      #profile .online .name span {
+        font-size: 10px;
+        padding-left: 10px; }
+  @media only screen and (max-width: 980px) {
+    #profile #wrapper {
+      width: 100%;
+      box-sizing: border-box; }
+    #profile .view {
+      width: 450px; }
+    #profile .social aside:first-child {
+      display: none; }
+    #profile .messenger {
+      border-left: none;
+      flex-basis: 70%; } }
+  @media only screen and (max-width: 690px) {
+    #profile header {
+      padding: 0;
+      height: auto; }
+    #profile .profile_img {
+      height: 250px;
+      margin-right: 0;
+      width: 100%; }
+    #profile .view_content,
+    #profile .workout {
+      display: none; }
+    #profile .view {
+      flex: 0 0 50%;
+      height: 250px; }
+      #profile .view .view-icon {
+        border: none;
+        width: 100%; }
+        #profile .view .view-icon h4 {
+          font-size: 20px;
+          padding: 10px 0; }
+        #profile .view .view-icon a {
+          font-size: 20px; }
+        #profile .view .view-icon img {
+          padding: 20px 0;
+          width: 110px; }
+    #profile nav {
+      border-bottom: 1px solid rgba(225, 225, 225, 0.05); }
+      #profile nav a,
+      #profile nav form {
+        width: auto; }
+      #profile nav a span,
+      #profile nav form button span {
+        display: none; }
+    #profile main {
+      padding: 0; }
+    #profile .schedule {
+      display: none; }
+    #profile .find,
+    #profile .leader,
+    #profile .social aside,
+    #profile .social h2 {
+      display: none; }
+    #profile .social {
+      border: none;
+      display: block;
+      height: auto; }
+    #profile .chat-form {
+      border: 1px solid #e1e1e1; }
+    #profile .messenger {
+      border-right: none; } }
+
+/* End Profile Pages */
 
 /*# sourceMappingURL=style.css.map */

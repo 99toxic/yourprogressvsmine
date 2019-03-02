@@ -1,0 +1,726 @@
+#profile {
+
+  #wrapper {
+    background: rgba($bckCol, .9);
+    border: $border2;
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  // Header
+  header {
+    border: none;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px 10px 0 10px;
+    width: 100%;
+  }
+
+  .profile_img {
+    border: $border;
+    object-fit: cover;
+    margin-right: 10px;
+    overflow: hidden;
+    height: 300px;
+    width: 185px;
+  }
+
+  .view {
+    border: $border;
+    display: block;
+    height: 300px;
+    margin: 0 auto;
+    width: 550px;
+
+    .view_heading {
+      display: flex;
+      text-align: left;
+    }
+
+    .view-icon {
+      border-bottom: $border;
+      border-right: $border;
+      text-align: center;
+
+      h4 {
+        background: $brdCol;
+        padding: 3px 0;
+        text-align: center;
+      }
+
+      p {
+        border-bottom: $border;
+        font-size: 15px;
+        margin: 0px;
+        padding: 3px 0;
+      }
+
+      .edit {
+        border-top: $border;
+        display: flex;
+        justify-content: space-around;
+
+        a {
+          flex: 1 1 20em;
+          padding: 10px 0;
+        }
+      }
+
+      a:first-child {
+        border-right: $border;
+      }
+
+      img {
+        margin: 0 auto;
+        padding: 5px 0;
+        width: 60%;
+      }
+    }
+
+    .view_content {
+      padding: 15px;
+    }
+
+    .workout {
+      height: 45%;
+      overflow: scroll;
+    }
+
+    .workout::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .workout::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .1);
+      border-radius: 5px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      text-align: center;
+      width: 90%;
+    }
+
+    th {
+      border: 0px;
+      padding-bottom: 20px;
+    }
+
+    td {
+      border-right: $border;
+      padding: 10px;
+    }
+
+    tr {
+      border-bottom: $border;
+    }
+
+    tr:first-child,
+    tr:last-child {
+      border-bottom: 0px;
+    }
+
+    table,
+    td:last-child,
+    th:last-child {
+      border-right: 0px;
+    }
+
+    th,
+    td:first-child {
+      color: $txtCol;
+      font-family: $font2;
+      font-weight: 40;
+    }
+  }
+
+  // End
+  // End Header
+
+  // Navigation
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    a {
+      font-size: 20px;
+      padding-top: 20px;
+      width: 90px;
+    }
+
+    form {
+      margin: 0;
+      padding-top: 15px;
+      width: 90px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: $txtCol;
+      font-family: $font2;
+      font-size: 20px;
+      text-shadow: 3px 3px 3px black;
+    }
+
+    button:hover {
+      color: $hover;
+      cursor: pointer;
+    }
+  }
+
+  .week,
+  .rank,
+  .follow {
+    padding: 5px;
+    text-align: center;
+    width: 90px;
+
+    h2 {
+      padding-bottom: 5px;
+    }
+  }
+
+  .rank {
+    border: $border;
+  }
+
+  // End Navigation
+
+  main {
+    padding: 10px;
+  }
+
+  // Schedule
+  #sunday,
+  #monday,
+  #tuesday,
+  #wednesday,
+  #thursday,
+  #friday,
+  #saturday {
+    border: $border;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+
+  .schedule {
+    display: flex;
+
+    img {
+      margin: 10px;
+      padding: 20px 0;
+      width: 80px;
+
+    }
+
+    h4 {
+      background: $brdCol;
+      padding: 5px 0;
+      text-shadow: none;
+    }
+
+    p {
+      border-bottom: $border;
+      color: $txtCol;
+      font-size: 15px;
+      margin: 0px;
+      padding: 3px;
+      text-align: center;
+    }
+  }
+
+  .view_day:hover,
+  .add_day:hover {
+    box-shadow: 0 0 15px $txtCol;
+    cursor: pointer;
+  }
+
+  .current_day {
+    background: $high;
+  }
+
+  .add_day {
+    height: 100%;
+
+    h1 {
+      font-size: 120px;
+      margin: 0;
+    }
+  }
+
+  .rest_day {
+    h1 {
+      padding-top: 40%;
+    }
+  }
+
+  // End Schedule
+
+  // Find a workout
+
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    clear: both;
+  }
+
+  .find,
+  .leader {
+    border: $border;
+    height: 250px;
+    margin: 80px 0px;
+    width: 45%;
+  }
+
+  .find {
+
+    h1 {
+      border-bottom: $border;
+      font-family: $font1;
+      font-size: 25px;
+      margin: 0;
+      padding: 5px;
+    }
+
+    form {
+      width: 80%;
+    }
+
+    .submit {
+      text-align: right;
+    margin-top: -55px;
+    }
+  }
+
+  .search {
+    width: 240px;
+  }
+
+  .type {
+    margin-top: 20px;
+    width: 120px;
+  }
+
+  // End Find a Workout
+
+  // Scoreboard
+  .leader {
+    text-align: center;
+
+    h1 {
+      border-bottom: $border;
+      font-family: $font1;
+      font-size: 25px;
+      margin: 0;
+      padding: 5px;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 0 auto;
+      text-align: center;
+      width: 100%;
+    }
+
+    th {
+      border: 0px;
+      font-family: $font2;
+      padding-bottom: 15px;
+    }
+
+    td {
+      border-right: $border;
+      padding: 10px;
+    }
+
+    tr {
+      border-bottom: $border;
+    }
+
+    tr:first-child,
+    tr:last-child {
+      border-bottom: 0px;
+    }
+
+    table,
+    td:last-child,
+    th:last-child {
+      border-right: 0px;
+    }
+  }
+
+  .score {
+
+    height: 180px;
+    padding: 10px 10px 10px 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  .score::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .score::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  // End Scoreboard
+
+  // Social Media Area
+  .social {
+    border: $border;
+    display: flex;
+    height: 566px;
+
+    h2 {
+      border-bottom: $border;
+      font-family: $font1;
+      margin: 0;
+      padding: 5px 0;
+      text-align: center;
+    }
+
+    aside {
+      flex-basis: 30%;
+    }
+  }
+
+  /* Live Update */
+  .update {
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px 10px 10px 20px;
+  }
+
+  .update::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .update::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  .user_update {
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 20px;
+
+    .name {
+      margin: 5px 0px 0px 10px;
+      padding: 5px;
+      width: 100%;
+
+      span {
+        font-size: 18px;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  /* End Live Update */
+
+  /* Chatbox Area */
+  .messenger {
+    border-left: $border;
+    border-right: $border;
+    flex-basis: 50%;
+    height: auto;
+  }
+
+  .chatbox {
+    display: grid;
+    padding: 0 50px 0 30px;
+  }
+
+  .chatlogs {
+    height: 463px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px;
+    width: 100%;
+  }
+
+  .chatlogs::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .chatlogs::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+
+  .chat {
+    align-items: flex-start;
+    display: flex;
+    flext-flow: row wrap;
+    margin-bottom: 10px;
+
+    .user-photo {
+      background: #ccc;
+      border-radius: 50%;
+      height: 60px;
+      overflow: hidden;
+      width: 60px;
+    }
+
+    .user-photo img {
+      width: 100%;
+    }
+
+    .chat-message {
+      border: $border;
+      border-radius: 10px;
+      margin: 5px 10px 0;
+      padding: 15px;
+      width: 80%;
+    }
+  }
+
+  .friend {
+
+    .chat-message {
+      background: rgba(0, 0, 0, .7);
+    }
+  }
+
+  .self {
+    .chat-message {
+      background: $brdCol;
+      order: -1;
+    }
+  }
+
+  .chat-form {
+    align-items: flex-start;
+    border-top: $border;
+    display: flex;
+    padding-bottom: 0;
+    width: 100%;
+
+    textarea {
+      font-family: $font2;
+      font-size: 18px;
+      height: 30px;
+      padding: 10px;
+      width: 75%;
+    }
+
+    textarea:focus {
+      background: #fff;
+    }
+
+    textarea::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, .1);
+      border-radius: 5px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: $txtCol;
+      font-family: $font1;
+      font-size: 20px;
+      margin: 0 10px;
+      padding: 15px;
+
+    }
+
+    button:hover {
+      color: $hover;
+      cursor: pointer;
+    }
+
+    button:onclick {
+      border: none;
+    }
+  }
+
+  /* End Chat Box Area */
+
+  /* Who's Online */
+  .users {
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px 10px 10px 20px;
+  }
+
+  .users::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .users::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  .online {
+    align-items: flex-start;
+    display: flex;
+    flext-flow: row wrap;
+    margin-bottom: 20px;
+
+    .user-photo {
+      background: #ccc;
+      border-radius: 50%;
+      height: 50px;
+      overflow: hidden;
+      width: 50px;
+    }
+
+    .user-photo img {
+      width: 100%;
+    }
+
+    .name {
+      margin: 5px 0px 0px 10px;
+      padding: 5px;
+      width: 80%;
+
+      span {
+        font-size: 10px;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  /* End Who's Online */
+
+  /* End Social Media Area */
+
+  // Tablet Profile
+  @media only screen and (max-width: 980px) {
+
+    #wrapper {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .view {
+      width: 450px;
+    }
+
+    .social aside:first-child {
+      display: none;
+    }
+
+    .messenger {
+      border-left: none;
+      flex-basis: 70%;
+    }
+
+  }
+
+  // end Tablet Profile
+
+  // Mobile Profile
+  @media only screen and (max-width: 690px) {
+
+    header {
+      padding: 0;
+      height: auto;
+    }
+
+    .profile_img {
+      height: 250px;
+      margin-right: 0;
+      width: 100%; //keeps changing
+    }
+
+    .view_content,
+    .workout {
+      display: none;
+    }
+
+    .view {
+      flex: 0 0 50%;
+      height: 250px;
+
+      .view-icon {
+        border: none;
+        width: 100%;
+
+        h4 {
+          font-size: 20px;
+          padding: 10px 0;
+        }
+
+        a {
+          font-size: 20px;
+        }
+
+        img {
+          padding: 20px 0;
+          width: 110px;
+        }
+      }
+    }
+
+    nav {
+      border-bottom: $border3;
+
+      a,
+      form {
+        width: auto;
+      }
+
+      a span,
+      form button span {
+        display: none;
+      }
+    }
+
+    main {
+      padding: 0;
+    }
+
+    .schedule {
+      display: none;
+    }
+
+    .find,
+    .leader,
+    .social aside,
+    .social h2 {
+      display: none;
+    }
+
+    .social {
+      border: none;
+      display: block;
+      height: auto;
+
+    }
+
+    .chat-form {
+      border: $border;
+    }
+
+    .messenger {
+      border-right: none;
+    }
+
+  }
+
+
+  // end Mobile Profile
+
+}
