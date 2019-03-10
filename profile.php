@@ -16,7 +16,7 @@
   <!--End Stylesheets-->
 
   <!--Favicon-->
-  <link href="php/img/favicon.ico" rel="icon" type="image/x-icon">
+  <!--  <link href="php/img/favicon.ico" rel="icon" type="image/x-icon">-->
   <!--End Favicon-->
 
   <!--Font Awesome-->
@@ -26,7 +26,7 @@
   <!--JavaScript-->
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
-  <script src="js/jquery.validate.js"></script>
+  <!--  <script src="js/jquery.validate.js"></script>-->
   <script src="js/main.js"></script>
   <!--JavaScript-->
 
@@ -37,23 +37,168 @@
 
 <body id="profile">
   <!--Floating Add Image Form-->
-
   <div class="container" id="userPic">
     <form action="include/upload.php" method="post" enctype="multipart/form-data">
       <input type="file" name="file">
       <button type="submit" name="submit">Upload</button>
     </form>
   </div>
-
   <!--End Floating Add Image Form-->
+
+  <!--Floating Add Workout Form-->
+  <div class="container" id="add">
+    <div class="add">
+      <div class="overlay"><a href="#" class="close">X</a>
+        <div id="add_tab">
+          <div class="form-message"></div>
+          <ul class="add_heading">
+            <li class="desc-h"><a href="#desc_tab">Workout Description</a></li>
+            <li class="details"><a href="#details_tab">Workout Details</a></li>
+          </ul>
+          <div id="desc_tab">
+            <form action="include/workout-desc.php" method="post">
+              <div class="add_top">
+                <div class="name">
+                  <h3>Name:</h3>
+                  <input type="text" name="name">
+                </div>
+                <div class="type">
+                  <h3>Type:</h3>
+                  <select name="type">
+                    <option value="1">Strength</option>
+                    <option value="2">Cardio</option>
+                    <option value="3">Stretching</option>
+                    <option value="4">Plyometrics</option>
+                    <option value="5">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="sets">
+                <h3>Sets:</h3>
+                <input type="text" name="sets">
+              </div>
+              <div class="desc">
+                <h3>Description:</h3>
+                <textarea id="desc" name="desc"></textarea>
+              </div>
+              <input type="submit" name="submit">
+            </form>
+          </div>
+          <div id="details_tab">
+            <form action="include/workout_detail.php" method="post">
+              <div class="add_top">
+                <div class="name">
+                  <h3>Name:</h3>
+                  <input type="text" name="name">
+                </div>
+                <div class="equipment">
+                  <h3>Equipment:</h3>
+                  <input type="text" name="equipment">
+                </div>
+              </div>
+              <div class="setup">
+                <div class="sets_two">
+                  <h3>Sets:</h3>
+                  <input type="text" name="sets">
+                </div>
+                <div class="reps">
+                  <h3>Reps:</h3>
+                  <input type="text" name="reps">
+                </div>
+                <div class="time">
+                  <h3>Time:</h3>
+                  <input type="text" name="time">
+                </div>
+                <input type="submit" name="submit">
+              </div>
+            </form>
+
+            <div class="workout">
+              <table>
+                <tr>
+                  <th></th>
+                  <th>Sets</th>
+                  <th>Reps</th>
+                  <th>Time</th>
+                  <th></th>
+                </tr>
+                <tr>
+                  <td>Name of Exercise</td>
+                  <td>5</td>
+                  <td>12</td>
+                  <td></td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name Of Exercise</td>
+                  <td>3</td>
+                  <td>10</td>
+                  <td></td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name of Exercise</td>
+                  <td>8</td>
+                  <td></td>
+                  <td>1:00</td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name of Exercise</td>
+                  <td>2</td>
+                  <td></td>
+                  <td></td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name of Exercise</td>
+                  <td>2</td>
+                  <td></td>
+                  <td></td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name of Exercise</td>
+                  <td>2</td>
+                  <td></td>
+                  <td></td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Name of Exercise</td>
+                  <td>2</td>
+                  <td></td>
+                  <td></td>
+                  <td><a href="#">Edit</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="done"><a>Done</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Floating Add Workout Form-->
+
   <div id="wrapper">
     <header>
-      <?php
+
+<!-- View the profile image or default image if not logged in -->
+<?php
   $fileExt = 'jpg' or 'jpeg' or 'png' or 'gif';
   if (isset($_SESSION['u_id'])) {
     echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'"></a>';
   } else {
-    echo '<img class="profile_img" src="uploads/profiledefault.png" alt="">';
+    echo '<img class="profile_img" src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine">';
   }
 ?>
 
@@ -142,8 +287,22 @@
       </div>
     </header>
 
+    <!-- Navigation -->
     <nav>
-      <a><i class="fa fa-bars"></i> <span>Menu</span></a>
+      <a class='mobile_btn'><i class="fa fa-bars"></i></a>
+
+      <img src="images/icon/Strength.png" alt="">
+
+      <div id="mobile_menu">
+        <nav>
+          <ul>
+            <li>Find a workout</li>
+            <li>Leader Board</li>
+            <li>Live Updates</li>
+            <li>Who's Online</li>
+          </ul>
+        </nav>
+      </div>
 
       <div class="week">
         <h2>Week</h2>
@@ -165,6 +324,7 @@
         <button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout</span></button>
       </form>
     </nav>
+    <!-- End Navigation -->
 
     <main>
 
@@ -237,8 +397,6 @@
             <a href="#add">
               <h1>+</h1>
             </a>
-
-
           </div>
         </div>
       </div>
@@ -254,21 +412,21 @@
             <p>Javascript Here!</p>
           </div>
           <form action="include/search.php" method="post">
-           <div class="search_type">
-            <div class="search">
-              <label for="search">Search:</label>
-              <input type="text" name="search">
-            </div>
-            <div class="type">
-              <label for="type">Type:</label>
-              <select name="type">
-                <option value="1">Strength</option>
-                <option value="2">Cardio</option>
-                <option value="3">Stretching</option>
-                <option value="4">Plyometrics</option>
-                <option value="5">Other</option>
-              </select>
-            </div>
+            <div class="search_type">
+              <div class="search">
+                <label for="search">Search:</label>
+                <input type="text" name="search">
+              </div>
+              <div class="type">
+                <label for="type">Type:</label>
+                <select name="type">
+                  <option value="1">Strength</option>
+                  <option value="2">Cardio</option>
+                  <option value="3">Stretching</option>
+                  <option value="4">Plyometrics</option>
+                  <option value="5">Other</option>
+                </select>
+              </div>
             </div>
             <div class="submit"><input type="submit" name="submit" value="Search"></div>
           </form>
@@ -349,7 +507,6 @@
 
               <?php
   include 'include/chat.php';
-  echo $message;
 ?>
             </div>
           </div>
@@ -365,14 +522,7 @@
           <h2>Who's Online</h2>
           <div class="users">
             <?php
-  if (isset($_SESSION['u_id'])) {
-    echo '<div class="online">';
-    echo '<div class="user-photo"><a href="#userPic"><img src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'"></a></div>';
-    echo '<p class="name">'.$_SESSION['u_name'].'<span>('.$_SESSION['u_login'].')<span></p>' ;
-    echo '</div>';
-  } else {
-    echo '<div class="online"><p class="name">You are not logged in!</p></div>';
-  }
+  include 'include/user-online.php';
 ?>
           </div>
         </aside>

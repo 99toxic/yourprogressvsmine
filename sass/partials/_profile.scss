@@ -7,6 +7,10 @@
     width: 80%;
   }
 
+
+
+
+
   // Header
   header {
     border: none;
@@ -27,6 +31,13 @@
     width: 185px;
   }
 
+
+
+
+
+
+
+  // View Workout
   .view {
     border: $border;
     display: block;
@@ -137,8 +148,15 @@
     }
   }
 
-  // End
+  // End View Workout
+
   // End Header
+
+
+
+
+
+
 
   // Navigation
   nav {
@@ -146,10 +164,9 @@
     justify-content: space-between;
     padding: 10px;
 
-    a {
-      font-size: 20px;
-      padding-top: 20px;
+    img {
       width: 90px;
+      height: 80px;
     }
 
     form {
@@ -177,6 +194,7 @@
   .rank,
   .follow {
     padding: 5px;
+    height: 70px;
     text-align: center;
     width: 90px;
 
@@ -189,11 +207,40 @@
     border: $border;
   }
 
+  .mobile_btn,
+  #mobile_menu {
+    display: none;
+  }
+
   // End Navigation
+
+
+
+
+
+
+
+
+
+
+
 
   main {
     padding: 10px;
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Schedule
   #sunday,
@@ -263,9 +310,17 @@
 
   // End Schedule
 
+
+
+
+
+
+
+
+
+
+
   // Find a workout
-
-
   .flex {
     display: flex;
     justify-content: space-between;
@@ -296,7 +351,7 @@
 
     .submit {
       text-align: right;
-    margin-top: -55px;
+      margin-top: -55px;
     }
   }
 
@@ -310,6 +365,19 @@
   }
 
   // End Find a Workout
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Scoreboard
   .leader {
@@ -376,6 +444,25 @@
 
   // End Scoreboard
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   // Social Media Area
   .social {
     border: $border;
@@ -394,6 +481,24 @@
       flex-basis: 30%;
     }
   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   /* Live Update */
   .update {
@@ -432,6 +537,19 @@
 
   /* End Live Update */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* Chatbox Area */
   .messenger {
     border-left: $border;
@@ -442,7 +560,7 @@
 
   .chatbox {
     display: grid;
-    padding: 0 50px 0 30px;
+    padding: 0 20px 0 10px;
   }
 
   .chatlogs {
@@ -466,7 +584,6 @@
   .chat {
     align-items: flex-start;
     display: flex;
-    flext-flow: row wrap;
     margin-bottom: 10px;
 
     .user-photo {
@@ -555,6 +672,24 @@
 
   /* End Chat Box Area */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* Who's Online */
   .users {
     height: 500px;
@@ -604,6 +739,22 @@
 
   /* End Who's Online */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* End Social Media Area */
 
   // Tablet Profile
@@ -630,6 +781,19 @@
   }
 
   // end Tablet Profile
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // Mobile Profile
   @media only screen and (max-width: 690px) {
@@ -677,14 +841,50 @@
     nav {
       border-bottom: $border3;
 
-      a,
+      padding: 10px 5px;
+
+      h2 {
+        font-size: 15px;
+      }
+
+      img {
+        display: none;
+      }
+
       form {
         width: auto;
       }
 
-      a span,
       form button span {
         display: none;
+      }
+
+      form {
+        padding-top: 5px;
+      }
+
+      form button,
+      .mobile_btn {
+        font-size: 25px;
+      }
+    }
+
+
+    .mobile_btn {
+      display: block;
+      margin-top: 10px;
+    }
+
+    .week,
+    .rank,
+    .follow {
+      padding: 5px;
+      height: 60px;
+      text-align: center;
+      width: 90px;
+
+      h2 {
+        padding-bottom: 5px;
       }
     }
 

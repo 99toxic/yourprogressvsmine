@@ -1,10 +1,13 @@
 <?php
 
+// Check if user clicked a submit button.
 if ( isset( $_POST[ 'submit' ] ) ) {
 
+  // Call connection to database and functions
   require 'dbh.php';
   include 'functions.php';
 
+  // Fetch information from form.
   $uid = mysqli_real_escape_string( $conn, $_POST[ 'uid' ] );
   $pwd = mysqli_real_escape_string( $conn, $_POST[ 'pwd' ] );
 
@@ -12,6 +15,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 
   foreach ($var as $empty);
 
+    // Use error handler functions
     if (emptyFields($empty) == false ) {
 
       // Prepare SQL
@@ -22,11 +26,13 @@ if ( isset( $_POST[ 'submit' ] ) ) {
         echo '<p>Connection error!</p>';
       }
       else {
+        // Pass parameters and run inside the database
         mysqli_stmt_bind_param($stmt, 'ss', $uid, $uid);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
-        // Check if hashed password is correct
+        // Check if get result from database.
         if ($row = mysqli_fetch_assoc($result)) {
+          // Check if hashed password is correct
           $pwdCheck = password_verify($pwd, $row['user_pwd']);
           if ($pwdCheck == false) {
             echo '<p>Wrong Password!</p>';
@@ -48,8 +54,17 @@ if ( isset( $_POST[ 'submit' ] ) ) {
             $_SESSION[ 'u_email' ] = $row[ 'user_email' ];
             $_SESSION[ 'u_goal' ] = $row[ 'goal_id' ];
             $_SESSION[ 'u_login' ] = $newDate;
-            header( "Location: ../profile.php" );
-            exit();
+            $_SESSION[ 'u_level' ] = $row[ 'user_level' ];
+
+            // Check user level for admin users and log in.
+            if ($row['user_level'] == 1) {
+              header( "Location: ../sponsor.php" );
+              exit();
+            }
+            else {
+              header( "Location: ../profile.php" );
+              exit();
+            }
           }
           else {
             echo '<p>Wrong Password!</p>';

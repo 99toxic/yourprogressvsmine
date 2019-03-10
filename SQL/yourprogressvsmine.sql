@@ -18,16 +18,6 @@ CREATE TABLE workout_type
   type_name        TINYTEXT        NOT NULL
 );
 
-CREATE TABLE exe_details
-(
-  exe_id             INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
-  wrk_id             INT(11)         NOT NULL,
-  exe_name           TINYTEXT        NOT NULL,
-  exe_sets           INT,
-  exe_reps           INT,
-  exe_time           TIME
-);
-
 CREATE TABLE users
 (
   user_id          INT(11)         PRIMARY KEY           AUTO_INCREMENT          NOT NULL,
@@ -67,7 +57,6 @@ CREATE TABLE chat
     REFERENCES  users (user_id)
 );
 
-
 CREATE TABLE workout_desc
 (
   wrk_id             INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
@@ -76,17 +65,27 @@ CREATE TABLE workout_desc
   type_id            INT(11)         NOT NULL,
   wrk_sets           INT             NOT NULL,
   wrk_desc           TEXT,
-  exe_id             INT(11)         NOT NULL,
   CONSTRAINT  workout_desc_fk_users
     FOREIGN KEY (user_id)
     REFERENCES  users (user_id),
-  CONSTRAINT  workout_desc_fk_exe_details
-    FOREIGN KEY (exe_id)
-    REFERENCES  exe_details (exe_id),
   CONSTRAINT  workout_desc_fk_workout_type
     FOREIGN KEY (type_id)
     REFERENCES  workout_type (type_id)
 );
+
+CREATE TABLE exe_details
+(
+  exe_id             INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
+  wrk_id             INT(11)         NOT NULL,
+  exe_name           TINYTEXT        NOT NULL,
+  exe_sets           INT,
+  exe_reps           INT,
+  exe_time           TIME,
+  CONSTRAINT  exe_details_fk_workout_desc
+    FOREIGN KEY (wrk_id)
+    REFERENCES  workout_desc (wrk_id)
+);
+
 
 -- Insert data into the tables
 INSERT INTO goal (goal_id, goal_name) VALUES

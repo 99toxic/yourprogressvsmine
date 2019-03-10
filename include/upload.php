@@ -29,13 +29,24 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT * FROM users";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
+
         $userName = $_SESSION['u_name'];
+        $userLevel = $_SESSION['u_level'];
 
         //Puts image in folder location
         $fileDestination = '../uploads/'.$userName.'_profile.'.$fileActualExt;
         move_uploaded_file($fileTmpName, $fileDestination);
-        header( "Location: ../profile.php" );
-        header("Cache-Control: no-cache, must-revalidate");
+
+        //Check for user level and refresh browser page & cache
+        if ($userLevel == 1) {
+          header("Refresh:0; url= ../sponsor.php" );
+          header("Cache-Control: no-cache, must-revalidate");
+        }
+        else {
+          header("Refresh:0; url= ../profile.php" );
+          header("Cache-Control: no-cache, must-revalidate");
+        }
+
       } echo 'Your file is to big. Please try a different image.';
     } else {
       echo 'There was an error uploading your file. Please try again.';
