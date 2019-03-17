@@ -65,6 +65,7 @@ CREATE TABLE workout_desc
   type_id            INT(11)         NOT NULL,
   wrk_sets           INT             NOT NULL,
   wrk_desc           TEXT,
+  active             BOOLEAN         NOT NULL             DEFAULT FALSE,
   CONSTRAINT  workout_desc_fk_users
     FOREIGN KEY (user_id)
     REFERENCES  users (user_id),
@@ -78,6 +79,7 @@ CREATE TABLE exe_details
   exe_id             INT(11)         PRIMARY KEY          AUTO_INCREMENT          NOT NULL,
   wrk_id             INT(11)         NOT NULL,
   exe_name           TINYTEXT        NOT NULL,
+  exe_equip          TINYTEXT        NOT NULL,
   exe_sets           INT,
   exe_reps           INT,
   exe_time           TIME,

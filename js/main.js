@@ -29,10 +29,15 @@ function showContainer() {
       width: 'auto'
     }); // end dialog
   }); // end click
+
+
+  $('.view_day').draggable();
+
+  $('#add_tab').tabs();
 } // end showContainer
 
 function validForm() {
-  $('#pickDate').datepicker({
+  $('#dob').datepicker({
     buttonImageOnly: true,
     changeYear: true,
     showOtherMonths: true,

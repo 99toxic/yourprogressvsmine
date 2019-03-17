@@ -1,8 +1,3 @@
-<?php
-  session_start();
-  include_once 'include/dbh.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,21 +37,25 @@
       <h1>Your Progress Vs Mine</h1>
     </header>
     <main>
-        <div class="content login">
-          <h1>Sign in</h1>
-        <div class="form-message"><p>Javascript Here!</p></div>
+      <div class="content login">
+        <h1>Sign in</h1>
+        <div class="form-message">
+          <p>Javascript Here!</p>
+        </div>
         <form action="include/login.php" method="post">
           <label for="uid">Username:</label>
-          <input type="text" name="uid" autofocus>
+          <input id="uid" type="text" name="uid" autofocus>
           <label for="pwd">Password:</label>
-          <input type="password" name="pwd">
+          <input id="pwd" type="password" name="pwd">
           <a href="#">Forgot Password?</a>
-          <div class="submit"><input type="submit" name="submit" value="Enter"></div>
+          <div class="submit">
+            <input type="submit" name="submit" value="Enter">
+          </div>
         </form>
-        </div>
-        <div class="logo"><img src="images/logo.png" alt="">
-
-        </div>
+      </div>
+      <div class="logo">
+        <img src="images/logo.png" alt="">
+      </div>
     </main>
     <footer>
       <p>Don't have an account?<a href="signup.html">Sign up!</a></p>

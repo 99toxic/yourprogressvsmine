@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
           // Sign up the user
           mysqli_stmt_bind_param( $stmt, 'sssss', $uid, $email, $dob, $goal, $hashedPwd );
           mysqli_stmt_execute( $stmt );
-          header( 'Location: ../profile.php' );
+          header( 'Location: ../?msg="Success"' );
           exit();
          }
       }

@@ -2,7 +2,9 @@
 
 include_once 'dbh.php';
 
-session_start();
+if(!isset($_SESSION)) {
+  session_start();
+}
 
     // Select from users and chat table
     $sql = 'SELECT u.user_id, c.user_id, u.user_name, c.chat_message, c.chat_timestamp FROM users u, chat c WHERE c.user_id = u.user_id ORDER BY c.chat_timestamp LIMIT 30';

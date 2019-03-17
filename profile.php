@@ -48,140 +48,88 @@
   <!--Floating Add Workout Form-->
   <div class="container" id="add">
     <div class="add">
-      <div class="overlay"><a href="#" class="close">X</a>
-        <div id="add_tab">
-          <div class="form-message"></div>
-          <ul class="add_heading">
-            <li class="desc-h"><a href="#desc_tab">Workout Description</a></li>
-            <li class="details"><a href="#details_tab">Workout Details</a></li>
-          </ul>
-          <div id="desc_tab">
-            <form action="include/workout-desc.php" method="post">
-              <div class="add_top">
-                <div class="name">
-                  <h3>Name:</h3>
-                  <input type="text" name="name">
-                </div>
-                <div class="type">
-                  <h3>Type:</h3>
-                  <select name="type">
-                    <option value="1">Strength</option>
-                    <option value="2">Cardio</option>
-                    <option value="3">Stretching</option>
-                    <option value="4">Plyometrics</option>
-                    <option value="5">Other</option>
-                  </select>
-                </div>
+      <div id="add_tab">
+        <div class="form-message">JAVASCRIPT HERE!</div>
+        <ul class="add_heading">
+          <li><a href="#desc_tab">Workout Description</a></li>
+          <li><a href="#details_tab">Workout Details</a></li>
+        </ul>
+        <div id="desc_tab">
+          <form action="include/workout-desc.php" method="post">
+            <div class="add_top">
+              <div class="name">
+                <label>Name:</label>
+                <input type="text" name="name">
               </div>
-              <div class="sets">
-                <h3>Sets:</h3>
+              <div>
+                <label>Type:</label>
+                <select name="type">
+                  <option value="1">Strength</option>
+                  <option value="2">Cardio</option>
+                  <option value="3">Stretching</option>
+                  <option value="4">Plyometrics</option>
+                  <option value="5">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="sets">
+              <label>Sets:</label>
+              <input type="text" name="sets">
+            </div>
+            <div class="flex">
+              <div class="desc">
+                <label>Description:</label>
+                <textarea name="desc"></textarea>
+              </div>
+              <input type="submit" name="submit" value="Next">
+            </div>
+          </form>
+        </div>
+        <div id="details_tab">
+          <form action="include/exe-details.php" method="post">
+            <div class="add_top">
+              <div class="name">
+                <label>Name:</label>
+                <input type="text" name="name">
+              </div>
+              <div class="equipment">
+                <label>Equipment:</label>
+                <input type="text" name="equip">
+              </div>
+            </div>
+            <div class="flex">
+              <div class="sets_two">
+                <label>Sets:</label>
                 <input type="text" name="sets">
               </div>
-              <div class="desc">
-                <h3>Description:</h3>
-                <textarea id="desc" name="desc"></textarea>
+              <div class="reps">
+                <label>Reps:</label>
+                <input type="text" name="reps">
               </div>
-              <input type="submit" name="submit">
-            </form>
-          </div>
-          <div id="details_tab">
-            <form action="include/workout_detail.php" method="post">
-              <div class="add_top">
-                <div class="name">
-                  <h3>Name:</h3>
-                  <input type="text" name="name">
-                </div>
-                <div class="equipment">
-                  <h3>Equipment:</h3>
-                  <input type="text" name="equipment">
-                </div>
+              <div class="time">
+                <label>Time:</label>
+                <input type="text" name="time">
               </div>
-              <div class="setup">
-                <div class="sets_two">
-                  <h3>Sets:</h3>
-                  <input type="text" name="sets">
-                </div>
-                <div class="reps">
-                  <h3>Reps:</h3>
-                  <input type="text" name="reps">
-                </div>
-                <div class="time">
-                  <h3>Time:</h3>
-                  <input type="text" name="time">
-                </div>
-                <input type="submit" name="submit">
-              </div>
-            </form>
+              <input type="submit" name="submit" value="Next">
+            </div>
+          </form>
 
-            <div class="workout">
-              <table>
-                <tr>
-                  <th></th>
-                  <th>Sets</th>
-                  <th>Reps</th>
-                  <th>Time</th>
-                  <th></th>
-                </tr>
-                <tr>
-                  <td>Name of Exercise</td>
-                  <td>5</td>
-                  <td>12</td>
-                  <td></td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name Of Exercise</td>
-                  <td>3</td>
-                  <td>10</td>
-                  <td></td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Exercise</td>
-                  <td>8</td>
-                  <td></td>
-                  <td>1:00</td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Exercise</td>
-                  <td>2</td>
-                  <td></td>
-                  <td></td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Exercise</td>
-                  <td>2</td>
-                  <td></td>
-                  <td></td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Exercise</td>
-                  <td>2</td>
-                  <td></td>
-                  <td></td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Name of Exercise</td>
-                  <td>2</td>
-                  <td></td>
-                  <td></td>
-                  <td><a href="#">Edit</a>
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div class="done"><a>Done</a>
-            </div>
+          <div class="workout">
+          <table>
+        <tr>
+          <th></th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Time</th>
+          <th></th>
+        </tr>
+<?php
+  include 'include/view-workout.php';
+?>
+            </table>
+          </div>
+          <div class="done">
+            <a>Done</a>
           </div>
         </div>
       </div>
@@ -192,8 +140,8 @@
   <div id="wrapper">
     <header>
 
-<!-- View the profile image or default image if not logged in -->
-<?php
+      <!-- View the profile image or default image if not logged in -->
+      <?php
   $fileExt = 'jpg' or 'jpeg' or 'png' or 'gif';
   if (isset($_SESSION['u_id'])) {
     echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'"></a>';
@@ -201,7 +149,7 @@
     echo '<img class="profile_img" src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine">';
   }
 ?>
-
+      <!-- View Workout -->
       <div class="view">
         <div class="view_heading">
           <div class="view-icon">
@@ -219,72 +167,21 @@
         </div>
         <div class="workout">
           <table>
-            <tr>
-              <th></th>
-              <th>Sets</th>
-              <th>Reps</th>
-              <th>Time</th>
-              <th></th>
-            </tr>
-            <tr>
-              <td>Name of Exercise</td>
-              <td>5</td>
-              <td>12</td>
-              <td></td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Name Of Exercise</td>
-              <td>3</td>
-              <td>10</td>
-              <td></td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Name of Exercise</td>
-              <td>8</td>
-              <td></td>
-              <td>1:00</td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Name of Exercise</td>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Name of Exercise</td>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Name of Exercise</td>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Name of Exercise</td>
-              <td>2</td>
-              <td></td>
-              <td></td>
-              <td><a href="#">View</a>
-              </td>
-            </tr>
-          </table>
+        <tr>
+          <th></th>
+          <th>Sets</th>
+          <th>Reps</th>
+          <th>Time</th>
+          <th></th>
+        </tr>
+<?php
+  include 'include/view-workout.php';
+?>
+            </table>
         </div>
       </div>
+      <!-- End View Workout -->
+
     </header>
 
     <!-- Navigation -->
@@ -517,7 +414,7 @@
         </div>
         <!-- End Chat Box -->
 
-        <!-- Who's Online -->
+        <!-- Who is Online -->
         <aside>
           <h2>Who's Online</h2>
           <div class="users">
@@ -526,7 +423,7 @@
 ?>
           </div>
         </aside>
-        <!-- End Who's Online -->
+        <!-- End Who is Online -->
 
       </div>
       <!-- End Social Area -->

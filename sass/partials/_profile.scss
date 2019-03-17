@@ -11,6 +11,135 @@
 
 
 
+
+
+
+
+  /* Floating Add */
+  .add {
+    height: 430px;
+    width: 600px;
+
+    input[type=submit] {
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      text-shadow: 3px 3px 3px black;
+    }
+
+    select,
+    textarea {
+      font-family: $font2;
+    }
+  }
+
+  .add_heading {
+    display: flex;
+    justify-content: space-between;
+
+    li {
+
+      a {
+        color: $txtCol;
+        font-family: $font2;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .add_top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .desc {
+    width: 50%;
+
+    textarea {
+      height: 100px;
+    }
+  }
+
+  .sets,
+  .sets_two,
+  .reps {
+    width: 50px;
+  }
+
+  .time {
+    width: 100px;
+  }
+
+
+  .workout {
+    height: 150px;
+    margin: 0 auto;
+    overflow: scroll;
+  }
+
+  .workout::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .workout::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, .1);
+    border-radius: 5px;
+  }
+
+  table {
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+  }
+
+  th {
+    border: 0px;
+    padding-bottom: 20px;
+  }
+
+  td {
+    border-right: $border;
+    padding: 10px;
+  }
+
+  tr {
+    border-bottom: $border;
+  }
+
+  tr:first-child,
+  tr:last-child {
+    border-bottom: 0px;
+  }
+
+  table,
+  td:last-child,
+  th:last-child {
+    border-right: 0px;
+  }
+
+  .done {
+    display: flex;
+    justify-content: center;
+
+    a {
+      color: $txtCol;
+      font-family: $font2;
+      font-size: 20px;
+    }
+  }
+
+  /* End Floating Add_Two */
+
+
+
+
+
+
+
+
+
+
+
   // Header
   header {
     border: none;
@@ -54,6 +183,7 @@
       border-bottom: $border;
       border-right: $border;
       text-align: center;
+      flex: 1 1 75%;
 
       h4 {
         background: $brdCol;
@@ -85,7 +215,7 @@
 
       img {
         margin: 0 auto;
-        padding: 5px 0;
+        padding: 10px 0;
         width: 60%;
       }
     }
@@ -144,7 +274,6 @@
     td:first-child {
       color: $txtCol;
       font-family: $font2;
-      font-weight: 40;
     }
   }
 
@@ -357,11 +486,6 @@
 
   .search {
     width: 240px;
-  }
-
-  .type {
-    margin-top: 20px;
-    width: 120px;
   }
 
   // End Find a Workout
@@ -629,10 +753,7 @@
     width: 100%;
 
     textarea {
-      font-family: $font2;
-      font-size: 18px;
       height: 30px;
-      padding: 10px;
       width: 75%;
     }
 
@@ -663,10 +784,6 @@
     button:hover {
       color: $hover;
       cursor: pointer;
-    }
-
-    button:onclick {
-      border: none;
     }
   }
 
@@ -710,7 +827,6 @@
   .online {
     align-items: flex-start;
     display: flex;
-    flext-flow: row wrap;
     margin-bottom: 20px;
 
     .user-photo {
