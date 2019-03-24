@@ -6,7 +6,9 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   include_once 'dbh.php';
   include 'functions.php';
 
-   session_start();
+  if(!isset($_SESSION)) {
+  session_start();
+  }
 
   $name = mysqli_real_escape_string( $conn, $_POST[ 'name' ] );
   $equip = mysqli_real_escape_string( $conn, $_POST[ 'equip' ] );

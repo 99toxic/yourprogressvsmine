@@ -475,17 +475,32 @@
     }
 
     form {
-      width: 80%;
+      border-bottom: $border;
+      display: flex;
+      margin: 0 0 13px 0;
+
+      input[type=submit] {
+        box-shadow: none;
+        height: 50px;
+        width: 30%;
+      }
     }
 
-    .submit {
-      text-align: right;
-      margin-top: -55px;
+    #search {
+      border-radius: 0;
+      height: 50px;
+      margin: 0;
+      width: 45%;
     }
-  }
 
-  .search {
-    width: 240px;
+    #type {
+      border-radius: 0;
+      margin-bottom: 0;
+      margin-left: 1px;
+      height: 50px;
+      width: 30%;
+    }
+
   }
 
   // End Find a Workout
@@ -688,7 +703,7 @@
   }
 
   .chatlogs {
-    height: 463px;
+    height: 453px;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 10px;
@@ -749,12 +764,9 @@
     align-items: flex-start;
     border-top: $border;
     display: flex;
-    padding-bottom: 0;
-    width: 100%;
 
     textarea {
-      height: 30px;
-      width: 75%;
+      height: 29px;
     }
 
     textarea:focus {
@@ -770,18 +782,16 @@
       border-radius: 5px;
     }
 
-    button {
-      background: none;
-      border: none;
+    #btn {
+      box-shadow: none;
       color: $txtCol;
       font-family: $font1;
       font-size: 20px;
-      margin: 0 10px;
-      padding: 15px;
+      padding: 10px 20px;
 
     }
 
-    button:hover {
+    #btn:hover {
       color: $hover;
       cursor: pointer;
     }

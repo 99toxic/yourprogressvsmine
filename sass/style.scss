@@ -43,6 +43,7 @@ td {
 
 a {
   color: $txtCol;
+  letter-spacing: 3px;
   text-decoration: none;
   text-shadow: 3px 3px 3px black;
   cursor: pointer;
@@ -79,7 +80,6 @@ main {
     font-size: 20px;
     text-align: center;
     margin: 10px 0 0;
-    visibility: hidden;
   }
 }
 
@@ -93,6 +93,7 @@ form {
 label {
   color: $txtCol;
   font-family: $font2;
+  letter-spacing: 3px;
 }
 
 input[type=text],
@@ -107,6 +108,10 @@ select {
   padding: 5px;
   margin-bottom: 10px;
   width: 100%;
+}
+
+.error {
+  box-shadow: inset 0 0 10px $errCol;
 }
 
 textarea {
@@ -180,9 +185,15 @@ input[type=submit]:active {
   width: 150px;
 }
 
-  .date {
-    margin-right: 5%;
-  }
+.date {
+  margin-right: 5%;
+}
+
+.back {
+  float: left;
+  margin-right: -80px;
+  font-size: 20px;
+}
 /* End Global */
 
 /* Sign In / Sign Up Pages */

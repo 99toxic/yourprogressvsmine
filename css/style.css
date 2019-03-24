@@ -247,6 +247,7 @@ td {
 
 a {
   color: #e1e1e1;
+  letter-spacing: 3px;
   text-decoration: none;
   text-shadow: 3px 3px 3px black;
   cursor: pointer; }
@@ -274,8 +275,7 @@ main {
   color: #f00;
   font-size: 20px;
   text-align: center;
-  margin: 10px 0 0;
-  visibility: hidden; }
+  margin: 10px 0 0; }
 
 form {
   margin: 10px auto; }
@@ -284,7 +284,8 @@ form {
 
 label {
   color: #e1e1e1;
-  font-family: cityburn, Impact, Charcoal, sans-serif; }
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  letter-spacing: 3px; }
 
 input[type=text],
 select {
@@ -298,6 +299,9 @@ select {
   padding: 5px;
   margin-bottom: 10px;
   width: 100%; }
+
+.error {
+  box-shadow: inset 0 0 10px #f00; }
 
 textarea {
   background: #e1e1e1;
@@ -360,6 +364,11 @@ input[type=submit]:active {
 
 .date {
   margin-right: 5%; }
+
+.back {
+  float: left;
+  margin-right: -80px;
+  font-size: 20px; }
 
 /* End Global */
 /* Sign In / Sign Up Pages */
@@ -732,12 +741,24 @@ footer {
     margin: 0;
     padding: 5px; }
   #profile .find form {
-    width: 80%; }
-  #profile .find .submit {
-    text-align: right;
-    margin-top: -55px; }
-  #profile .search {
-    width: 240px; }
+    border-bottom: 1px solid #e1e1e1;
+    display: flex;
+    margin: 0 0 13px 0; }
+    #profile .find form input[type=submit] {
+      box-shadow: none;
+      height: 50px;
+      width: 30%; }
+  #profile .find #search {
+    border-radius: 0;
+    height: 50px;
+    margin: 0;
+    width: 45%; }
+  #profile .find #type {
+    border-radius: 0;
+    margin-bottom: 0;
+    margin-left: 1px;
+    height: 50px;
+    width: 30%; }
   #profile .leader {
     text-align: center; }
     #profile .leader h1 {
@@ -820,7 +841,7 @@ footer {
     display: grid;
     padding: 0 20px 0 10px; }
   #profile .chatlogs {
-    height: 463px;
+    height: 453px;
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 10px;
@@ -856,12 +877,9 @@ footer {
   #profile .chat-form {
     align-items: flex-start;
     border-top: 1px solid #e1e1e1;
-    display: flex;
-    padding-bottom: 0;
-    width: 100%; }
+    display: flex; }
     #profile .chat-form textarea {
-      height: 30px;
-      width: 75%; }
+      height: 29px; }
     #profile .chat-form textarea:focus {
       background: #fff; }
     #profile .chat-form textarea::-webkit-scrollbar {
@@ -869,15 +887,13 @@ footer {
     #profile .chat-form textarea::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 5px; }
-    #profile .chat-form button {
-      background: none;
-      border: none;
+    #profile .chat-form #btn {
+      box-shadow: none;
       color: #e1e1e1;
       font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
       font-size: 20px;
-      margin: 0 10px;
-      padding: 15px; }
-    #profile .chat-form button:hover {
+      padding: 10px 20px; }
+    #profile .chat-form #btn:hover {
       color: #aba38a;
       cursor: pointer; }
   #profile .users {

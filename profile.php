@@ -59,7 +59,7 @@
             <div class="add_top">
               <div class="name">
                 <label>Name:</label>
-                <input type="text" name="name">
+                <input type="text" name="name" autofocus>
               </div>
               <div>
                 <label>Type:</label>
@@ -90,7 +90,7 @@
             <div class="add_top">
               <div class="name">
                 <label>Name:</label>
-                <input type="text" name="name">
+                <input type="text" name="name" autofocus>
               </div>
               <div class="equipment">
                 <label>Equipment:</label>
@@ -114,20 +114,7 @@
             </div>
           </form>
 
-          <div class="workout">
-          <table>
-        <tr>
-          <th></th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Time</th>
-          <th></th>
-        </tr>
-<?php
-  include 'include/view-workout.php';
-?>
-            </table>
-          </div>
+          <div class="workout"></div>
           <div class="done">
             <a>Done</a>
           </div>
@@ -165,20 +152,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum veritatis asperiores tempore, atque modi, voluptatum a magni suscipit, repudiandae culpa esse. Placeat, doloremque?</p>
           </div>
         </div>
-        <div class="workout">
-          <table>
-        <tr>
-          <th></th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Time</th>
-          <th></th>
-        </tr>
-<?php
-  include 'include/view-workout.php';
-?>
-            </table>
-        </div>
+        <div class="workout"></div>
       </div>
       <!-- End View Workout -->
 
@@ -304,29 +278,33 @@
         <!-- Find a Workout -->
         <div class="find">
           <h1>Find a Workout</h1>
-
-          <div class="form-message">
-            <p>Javascript Here!</p>
-          </div>
           <form action="include/search.php" method="post">
-            <div class="search_type">
-              <div class="search">
-                <label for="search">Search:</label>
-                <input type="text" name="search">
-              </div>
-              <div class="type">
-                <label for="type">Type:</label>
-                <select name="type">
+                <input id="search" type="text" name="search" value="Search">
+                <select id="type" name="type">
                   <option value="1">Strength</option>
                   <option value="2">Cardio</option>
                   <option value="3">Stretching</option>
                   <option value="4">Plyometrics</option>
                   <option value="5">Other</option>
                 </select>
-              </div>
-            </div>
-            <div class="submit"><input type="submit" name="submit" value="Search"></div>
+                <input type="submit" name="submit" value="Search">
           </form>
+          <div class="workout">
+          <table>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Sets</th>
+          <th>Desc</th>
+          <th>By</th>
+          <th></th>
+        </tr>
+<?php
+  include 'include/search.php';
+?>
+            </table>
+          </div>
         </div>
         <!-- End User Info -->
 
@@ -407,10 +385,10 @@
 ?>
             </div>
           </div>
-          <div class="chat-form">
+           <form class="chat-form" action="include/chat-add.php" method="post">
             <textarea></textarea>
-            <button id="btn">Submit</button>
-          </div>
+            <input id="btn" type="submit">
+            </form>
         </div>
         <!-- End Chat Box -->
 

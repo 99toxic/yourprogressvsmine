@@ -7,7 +7,7 @@ if(!isset($_SESSION)) {
 }
 
     // Select from users and chat table
-    $sql = 'SELECT u.user_id, c.user_id, u.user_name, c.chat_message, c.chat_timestamp FROM users u, chat c WHERE c.user_id = u.user_id ORDER BY c.chat_timestamp LIMIT 30';
+    $sql = 'SELECT u.user_id, c.user_id, u.user_name, c.chat_message, c.chat_timestamp FROM users u, chat c WHERE c.user_id = u.user_id ORDER BY c.chat_timestamp';
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
       while ($row = mysqli_fetch_assoc($result)) {

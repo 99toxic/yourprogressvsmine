@@ -18,12 +18,12 @@ if (isset($_POST['submit'])) {
   // convert date to mysql
   $dob = date('Y-m-d', strtotime($date));
 
-  $var = array($uid, $email, $dob, $pwd, $pwd_two);
+  $var = array($uid, $email, $date, $pwd, $pwd_two);
 
   foreach ($var as $empty);
 
   // Use error handler functions
-  if (emptyFields($empty) != true & nameEmailValid($uid, $email) != true & emailValid($email) != true & nameValid($uid) != true & pwdMatch($pwd, $pwd_two) != true) {
+  if (validFields($empty, $email, $uid, $pwd, $pwd_two) != true) {
     // Prepare SQL
     $sql = 'SELECT user_name FROM users WHERE user_name=? OR user_email=?';
     $stmt = mysqli_stmt_init( $conn );
@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
       $resultCheck = mysqli_stmt_num_rows( $stmt );
       // Check if user is being used
       if ( $resultCheck > 0 ) {
-        echo '<p>The username or email already exist</p>';
+        echo '<p>The username or email already exist!</p>';
       }
       else {
         // Insert the user into the database
@@ -55,7 +55,9 @@ if (isset($_POST['submit'])) {
           // Sign up the user
           mysqli_stmt_bind_param( $stmt, 'sssss', $uid, $email, $dob, $goal, $hashedPwd );
           mysqli_stmt_execute( $stmt );
-          header( 'Location: ../?msg="Success"' );
+
+          echo '<p style="color:green;">Signup Success!</p>';
+//          header( 'Location: ../?msg="Success"' );
           exit();
          }
       }

@@ -4,7 +4,7 @@
 if ( isset( $_POST[ 'submit' ] ) ) {
 
   // Call connection to database and functions
-  require 'dbh.php';
+  include_once 'dbh.php';
   include 'functions.php';
 
   // Fetch information from form.
@@ -16,7 +16,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   foreach ($var as $empty);
 
     // Use error handler functions
-    if (emptyFields($empty) == false ) {
+    if (emptyFields($empty) !== true ) {
 
       // Prepare SQL
       $sql = "SELECT * FROM users WHERE user_name =? OR user_email =?;";
@@ -56,15 +56,9 @@ if ( isset( $_POST[ 'submit' ] ) ) {
             $_SESSION[ 'u_login' ] = $newDate;
             $_SESSION[ 'u_level' ] = $row[ 'user_level' ];
 
-            // Check user level for admin users and log in.
-            if ($row['user_level'] == 1) {
-              header( "Location: ../sponsor.php" );
-              exit();
-            }
-            else {
-              header( "Location: ../profile.php" );
-              exit();
-            }
+            echo '<p style="color:green;">Login success!</p>';
+//            header( "Location: ../profile.php" );
+            exit();
           }
           else {
             echo '<p>Wrong Password!</p>';
