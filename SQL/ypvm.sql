@@ -61,6 +61,7 @@ CREATE TABLE workout_desc
   type_id            INT(11)         NOT NULL,
   wrk_sets           INT             NOT NULL,
   wrk_desc           TEXT,
+  day                INT(1)          NOT NULL,
   active             BOOLEAN         NOT NULL             DEFAULT FALSE,
   CONSTRAINT  workout_desc_fk_users
     FOREIGN KEY (user_id)

@@ -33,7 +33,8 @@ p {
 
 th {
   color: $txtCol;
-  font-family: $font1;
+  font-family: $font2;
+  letter-spacing: 3px;
 }
 
 td {
@@ -93,7 +94,7 @@ form {
 label {
   color: $txtCol;
   font-family: $font2;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 }
 
 input[type=text],

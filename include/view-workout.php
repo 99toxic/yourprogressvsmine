@@ -46,7 +46,7 @@ if ($result->num_rows > 0) {
               <td>'.$exeSets.'</td>
               <td>'.$exeReps.'</td>
               <td>'.$exeTime.'</td>
-              <td><a href="#">View</a>
+              <td><a href="#">Edit</a>
               </td>
             </tr>';
 

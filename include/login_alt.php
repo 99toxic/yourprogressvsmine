@@ -56,7 +56,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
             $_SESSION[ 'u_login' ] = $newDate;
             $_SESSION[ 'u_level' ] = $row[ 'user_level' ];
 
-            echo '<p style="color:green;">Login success!</p>';
+            header( "Location: ../profile.php" );
             exit();
           }
           else {

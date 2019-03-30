@@ -9,7 +9,6 @@ function emptyFields($empty) {
   }
 }
 
-
 function validFields($empty, $email, $uid, $pwd, $pwd_two) {
   if ( empty( $empty ) ) {
     echo '<p>Please fill in all fields!</p>';

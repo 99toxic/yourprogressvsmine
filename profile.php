@@ -114,7 +114,7 @@
             </div>
           </form>
 
-          <div class="workout"></div>
+          <div class="workout exe"></div>
           <div class="done">
             <a>Done</a>
           </div>
@@ -136,8 +136,10 @@
     echo '<img class="profile_img" src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine">';
   }
 ?>
-      <!-- View Workout -->
-      <div class="view">
+<!-- View Workout -->
+<?php
+      if (isset($_SESSION['u_id'])) {
+      echo '<div class="view">
         <div class="view_heading">
           <div class="view-icon">
             <p>Tuesday</p>
@@ -153,9 +155,13 @@
           </div>
         </div>
         <div class="workout"></div>
-      </div>
-      <!-- End View Workout -->
-
+      </div>';
+}
+else {
+  echo '<h1>You are not logged in!</h1>';
+}
+?>
+<!-- End View Workout -->
     </header>
 
     <!-- Navigation -->
@@ -167,10 +173,11 @@
       <div id="mobile_menu">
         <nav>
           <ul>
-            <li>Find a workout</li>
-            <li>Leader Board</li>
-            <li>Live Updates</li>
-            <li>Who's Online</li>
+            <li><a href="#" class="find_workout">Find a workout</a></li>
+            <li><a href="#" class="display_leader">Leader Board</a></li>
+            <li><a href="#" class="view_updates">Live Updates</a></li>
+            <li><a href="#" class="view_online">Who's Online</a></li>
+            <li><a href="#" class="view_chat">Chat</a></li>
           </ul>
         </nav>
       </div>
@@ -191,84 +198,63 @@
         <h2>24</h2>
       </div>
 
-      <form action="include/logout.php" method="post">
-        <button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout</span></button>
-      </form>
+<?php
+      if (isset($_SESSION['u_id'])) {
+
+        echo '<form action="include/logout.php" method="post">
+              <button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span> '.$_SESSION['u_name'].'</span></button>
+              </form>';
+      }
+      else {
+        echo '<form action="include/logout.php" method="post">
+              <button type="submit" name="submitLogout"><i class="fa fa-sign-in"></i><span> Login</span></button>
+              </form>';
+      }
+
+?>
     </nav>
     <!-- End Navigation -->
-
+<?php
+      if (isset($_SESSION['u_id'])) {
+?>
     <main>
 
       <!-- Schedule -->
       <div class="schedule">
         <div id="sunday">
-          <p>Sunday</p>
-          <div class="rest_day">
-            <h1>Rest</h1>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
         <div id="monday">
-          <div class="view_day">
-            <p>Monday</p>
-            <a href="#view">
-              <img src="images/icon/Plyometrics.png" alt="">
-              <div>
-                <h4>Plyo</h4>
-              </div>
-            </a>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
         <div id="tuesday">
-          <div class="view_day">
-            <p>Tuesday</p>
-            <a href="#view">
-              <img src="images/icon/Other.png" alt="">
-              <div>
-                <h4>Strength</h4>
-              </div>
-            </a>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
         <div id="wednesday">
-          <div class="view_day">
-            <p>Wednesday</p>
-            <a href="#view">
-              <img src="images/icon/Cardio.png" alt="">
-              <div>
-                <h4>Cardio</h4>
-              </div>
-            </a>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
         <div id="thursday">
-          <div class="view_day">
-            <p>Thursday</p>
-            <a href="#view">
-              <img src="images/icon/Abs.png" alt="">
-              <div>
-                <h4>Abs</h4>
-              </div>
-            </a>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
         <div id="friday">
-          <div class="view_day">
-            <p>Friday</p>
-            <a href="#view">
-              <img src="images/icon/Stretching.png" alt="">
-              <div>
-                <h4>Stretch</h4>
-              </div>
-            </a>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
         <div id="saturday">
-          <div class="add_day">
-            <p>Saturday</p>
-            <a href="#add">
-              <h1>+</h1>
-            </a>
-          </div>
+              <?php
+  include 'include/schedule.php';
+?>
         </div>
       </div>
       <!-- End Schedule -->
@@ -289,71 +275,15 @@
                 </select>
                 <input type="submit" name="submit" value="Search">
           </form>
-          <div class="workout">
-          <table>
-        <tr>
-          <th></th>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Sets</th>
-          <th>Desc</th>
-          <th>By</th>
-          <th></th>
-        </tr>
-<?php
-  include 'include/search.php';
-?>
-            </table>
-          </div>
+          <div class="workout search"></div>
         </div>
         <!-- End User Info -->
 
         <!-- Leader Board -->
         <div class="leader">
-          <h1>Leader Board</h1>
-          <div class="score">
-            <table>
-              <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Week</th>
-                <th>Followers</th>
-                <th></th>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Ross Stevens</td>
-                <td>45</td>
-                <td>223</td>
-                <td><a href="#">View</a>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jason Roberts</td>
-                <td>55</td>
-                <td>103</td>
-                <td><a href="#">View</a>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Anna Nichole </td>
-                <td>33</td>
-                <td>44</td>
-                <td><a href="#">View</a>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Nick Simpson</td>
-                <td>2</td>
-                <td>15</td>
-                <td><a href="#">View</a>
-                </td>
-              </tr>
-            </table>
-          </div>
+<?php
+  include 'include/admin.php';
+?>
         </div>
         <!-- End Leader Board -->
 
@@ -387,7 +317,7 @@
           </div>
            <form class="chat-form" action="include/chat-add.php" method="post">
             <textarea></textarea>
-            <input id="btn" type="submit">
+            <input id="btn" type="submit" value="Send">
             </form>
         </div>
         <!-- End Chat Box -->
@@ -407,7 +337,14 @@
       <!-- End Social Area -->
 
     </main>
+<?php
+      }
+    else {
+      echo '<main><p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 
+<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</main></p>';
+    }
+?>
   </div>
 </body>
 

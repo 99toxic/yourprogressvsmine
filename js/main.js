@@ -7,7 +7,11 @@ $('document').ready(function () {
   viewToday();
   chatBox();
   viewExercise();
+  search();
   //  schedule();
+mobileMenu();
+  hide();
+setInterval('rotateAd()', 50000);
 });
 
 function autoFocus(focusField) {
@@ -216,16 +220,37 @@ function viewExercise() {
     var exeSets = $('#details_tab .sets_two input').val();
     var exeReps = $('#details_tab .reps input').val();
     var exeTime = $('#details_tab .time input').val();
+    var submit = $('#details_tab .flex input[type=submit]').val();
     $.post('include/exe-details.php', {
       name: exeName,
       equip: exeEquip,
       sets: exeSets,
       reps: exeReps,
-      time: exeTime
+      time: exeTime,
+      submit: submit
+    });
+    $('.exe').load('include/view-workout.php');
+  });
+  setInterval(function () {
+    $('.exe').load('include/view-workout.php');
+  }, 1000);
+} // end viewExercise
+
+function search() {
+  $('.find form').submit(function (evt) {
+    evt.preventDefault();
+    var searchExe = $('.find #search').val();
+    var searchType = $('.find #type').val();
+    var submit = $('.find form input[type=submit]').val();
+    $.post('include/search.php', {
+      search: searchExe,
+      type: searchType,
+      submit: submit
+    }, function(data, status) {
+      $('.search').html(data);
     });
   });
-    $('.workout').load('include/view-workout.php');
-}
+} // end search
 
 function schedule() {
 
@@ -243,3 +268,33 @@ function schedule() {
   })
 
 } // end schedule
+
+function mobileMenu() {
+  $('#mobile_menu').hide();
+  $('.mobile_btn').click(function(evt) {
+    evt.preventDefault();
+    $('#mobile_menu').toggle();
+  });
+
+  $('.find_workout').click(function() {
+    $('.messenger').hide();
+
+  });
+}
+
+function hide() {
+  var currentPhoto = $('.advertise.current');
+  $('.advertise:not(:first)').css({opacity: 0.0});
+}
+
+function rotateAd() {
+  var currentPhoto = $('.advertise.current');
+  var nextPhoto = currentPhoto.next();
+  if (nextPhoto.length == 0) {
+    nextPhoto = $('.advertise:first');
+  }
+
+  currentPhoto.css({opacity: 0.0}).removeClass('current');
+
+    nextPhoto.css({opacity: 0.0}).addClass('current').animate({opacity: 1.0}, 2000); // end callback
+}

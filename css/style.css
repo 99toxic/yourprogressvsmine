@@ -239,7 +239,8 @@ p {
 
 th {
   color: #e1e1e1;
-  font-family: ACIDLABEL, Impact, Charcoal, sans-serif; }
+  font-family: cityburn, Impact, Charcoal, sans-serif;
+  letter-spacing: 3px; }
 
 td {
   color: #e1e1e1;
@@ -285,7 +286,7 @@ form {
 label {
   color: #e1e1e1;
   font-family: cityburn, Impact, Charcoal, sans-serif;
-  letter-spacing: 3px; }
+  letter-spacing: 2px; }
 
 input[type=text],
 select {
@@ -469,7 +470,7 @@ footer {
     display: none; }
 
   form {
-    width: 250px; }
+    width: 280px; }
     form .pwd_two {
       margin-top: 10px; } }
 @media only screen and (max-width: 450px) {
@@ -542,6 +543,8 @@ footer {
   #profile td {
     border-right: 1px solid #e1e1e1;
     padding: 10px; }
+    #profile td a {
+      color: #e1e1e1; }
   #profile tr {
     border-bottom: 1px solid #e1e1e1; }
   #profile tr:first-child,
@@ -677,9 +680,18 @@ footer {
       padding-bottom: 5px; }
   #profile .rank {
     border: 1px solid #e1e1e1; }
-  #profile .mobile_btn,
-  #profile #mobile_menu {
+  #profile .mobile_btn {
     display: none; }
+  #profile #mobile_menu {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #e1e1e1;
+    float: left;
+    font-size: 35px;
+    padding: 10px;
+    position: absolute;
+    top: 354px; }
+    #profile #mobile_menu li {
+      padding-bottom: 50px; }
   #profile main {
     padding: 10px; }
   #profile #sunday,
@@ -691,7 +703,7 @@ footer {
   #profile #saturday {
     border: 1px solid #e1e1e1;
     display: inline-block;
-    position: relative;
+    height: 190px;
     text-align: center;
     width: 100%; }
   #profile .schedule {
@@ -699,7 +711,7 @@ footer {
     #profile .schedule img {
       margin: 10px;
       padding: 20px 0;
-      width: 80px; }
+      width: 83px; }
     #profile .schedule h4 {
       background: rgba(105, 29, 6, 0.7);
       padding: 5px 0;
@@ -752,7 +764,7 @@ footer {
     border-radius: 0;
     height: 50px;
     margin: 0;
-    width: 45%; }
+    width: 40%; }
   #profile .find #type {
     border-radius: 0;
     margin-bottom: 0;
@@ -760,34 +772,39 @@ footer {
     height: 50px;
     width: 30%; }
   #profile .leader {
-    text-align: center; }
+    text-align: center;
+    position: relative; }
     #profile .leader h1 {
       border-bottom: 1px solid #e1e1e1;
       font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
       font-size: 25px;
       margin: 0;
       padding: 5px; }
-    #profile .leader table {
-      border-collapse: collapse;
-      margin: 0 auto;
-      text-align: center;
-      width: 100%; }
-    #profile .leader th {
-      border: 0px;
+    #profile .leader input[type=text] {
+      background: #e1e1e1;
+      border: none;
+      border-radius: 3px;
+      box-sizing: border-box;
       font-family: cityburn, Impact, Charcoal, sans-serif;
-      padding-bottom: 15px; }
-    #profile .leader td {
-      border-right: 1px solid #e1e1e1;
-      padding: 10px; }
-    #profile .leader tr {
-      border-bottom: 1px solid #e1e1e1; }
-    #profile .leader tr:first-child,
-    #profile .leader tr:last-child {
-      border-bottom: 0px; }
-    #profile .leader table,
-    #profile .leader td:last-child,
-    #profile .leader th:last-child {
-      border-right: 0px; }
+      font-size: 15px;
+      height: 30px;
+      margin: 5px;
+      padding: 5px;
+      width: 35%; }
+    #profile .leader .advertise_img {
+      width: 100%;
+      height: 100%; }
+    #profile .leader .advertise {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0; }
+    #profile .leader .admin_img {
+      width: 50%;
+      height: 45%; }
+    #profile .leader input[type=file] {
+      width: 35%; }
   #profile .score {
     height: 180px;
     padding: 10px 10px 10px 20px;
@@ -877,7 +894,8 @@ footer {
   #profile .chat-form {
     align-items: flex-start;
     border-top: 1px solid #e1e1e1;
-    display: flex; }
+    display: flex;
+    width: 100%; }
     #profile .chat-form textarea {
       height: 29px; }
     #profile .chat-form textarea:focus {
@@ -935,7 +953,14 @@ footer {
       display: none; }
     #profile .messenger {
       border-left: none;
-      flex-basis: 70%; } }
+      flex-basis: 70%; }
+    #profile .find,
+    #profile .leader {
+      width: 50%; }
+    #profile .find form {
+      width: 100%; }
+      #profile .find form input[type=submit] {
+        font-size: 18px; } }
   @media only screen and (max-width: 690px) {
     #profile header {
       padding: 0;
@@ -1005,7 +1030,8 @@ footer {
       display: block;
       height: auto; }
     #profile .chat-form {
-      border: 1px solid #e1e1e1; }
+      border: 1px solid #e1e1e1;
+      margin-bottom: 0; }
     #profile .messenger {
       border-right: none; } }
 

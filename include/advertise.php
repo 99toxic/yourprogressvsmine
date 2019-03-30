@@ -1,10 +1,11 @@
 <?php
 
- require 'dbh.php';
+require 'dbh.php';
 
 if (isset($_POST['submit'])) {
   session_start();
   $file = $_FILES['file'];
+  $url = $_POST['url'];
 
   $fileName = $_FILES['file']['name'];
   $fileTmpName = $_FILES['file']['tmp_name'];
@@ -31,10 +32,9 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($result);
 
         $userName = $_SESSION['u_name'];
-        $userLevel = $_SESSION['u_level'];
 
         //Puts image in folder location
-        $fileDestination = '../uploads/'.$userName.'_profile.'.$fileActualExt;
+        $fileDestination = '../sponsor/'.$userName.'_ad.png';
         move_uploaded_file($fileTmpName, $fileDestination);
 
           header("Refresh:0; url= ../profile.php" );
