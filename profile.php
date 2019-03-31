@@ -166,20 +166,21 @@ else {
 
     <!-- Navigation -->
     <nav>
-      <a class='mobile_btn'><i class="fa fa-bars"></i></a>
-
       <img src="images/icon/Strength.png" alt="">
 
       <div id="mobile_menu">
         <nav>
-          <ul>
-            <li><a href="#" class="find_workout">Find a workout</a></li>
-            <li><a href="#" class="display_leader">Leader Board</a></li>
-            <li><a href="#" class="view_updates">Live Updates</a></li>
-            <li><a href="#" class="view_online">Who's Online</a></li>
-            <li><a href="#" class="view_chat">Chat</a></li>
-          </ul>
-        </nav>
+  <input type="checkbox" id="nav" class="hidden"/>
+  <label for="nav" class="nav-open"><i class="fa fa-bars"></i></label>
+  <div class="nav-container">
+    <ul>
+      <li><a href="#find" class="view_find">Find a workout</a></li>
+      <li><a href="#updates" class="view_update">Live Updates</a></li>
+      <li><a href="#online_users" class="view_online">Who's Online</a></li>
+      <li><a href="#messenger" class="view_chat">Chat</a></li>
+    </ul>
+  </div>
+</nav>
       </div>
 
       <div class="week">
@@ -262,7 +263,7 @@ else {
       <div class="flex">
 
         <!-- Find a Workout -->
-        <div class="find">
+        <div id="find">
           <h1>Find a Workout</h1>
           <form action="include/search.php" method="post">
                 <input id="search" type="text" name="search" value="Search">
@@ -293,7 +294,7 @@ else {
       <div class="social">
 
         <!-- Live Updates -->
-        <aside>
+        <aside id="updates">
           <h2>Live Update</h2>
           <div class="update">
             <div class="user_update">
@@ -305,7 +306,7 @@ else {
         <!-- End Live Updates -->
 
         <!-- Chat Box -->
-        <div class="messenger">
+        <div id="messenger">
           <h2>Chat</h2>
           <div class="chatbox">
             <div class="chatlogs">
@@ -323,7 +324,7 @@ else {
         <!-- End Chat Box -->
 
         <!-- Who is Online -->
-        <aside>
+        <aside id="online_users">
           <h2>Who's Online</h2>
           <div class="users">
             <?php

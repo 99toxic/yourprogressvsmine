@@ -84,7 +84,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
               <td>'.$wrkSets.'</td>
               <td>'.$wrkDesc.'</td>
               <td>'.$userName.'</td>
-              <td><a href="#">View</a></td>
+              <td><a href="#">view</a></td>
             </tr>';
       }
 

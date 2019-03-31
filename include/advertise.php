@@ -32,6 +32,19 @@ if (isset($_POST['submit'])) {
         $row = mysqli_fetch_assoc($result);
 
         $userName = $_SESSION['u_name'];
+        $userId = $_SESSION['u_id'];
+
+        // insert admin url link to admin table
+        $sqll = "SELECT * FROM admin WHERE user_id='$userId';";
+        $result = mysqli_query($conn, $sqll);
+        if (mysqli_num_rows($result) > 0) {
+          $sqll = "UPDATE admin SET ad_url='$url' WHERE user_id='$userId';";
+          mysqli_query( $conn, $sqll );
+        }
+        else {
+          $sqll = "INSERT INTO admin (user_id, ad_url) VALUES ('$userId', '$url');";
+          mysqli_query( $conn, $sqll );
+        }
 
         //Puts image in folder location
         $fileDestination = '../sponsor/'.$userName.'_ad.png';

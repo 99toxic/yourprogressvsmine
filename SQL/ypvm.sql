@@ -29,6 +29,15 @@ CREATE TABLE users
     REFERENCES  goal (goal_id)
 );
 
+CREATE TABLE admin
+(
+  admin_id          INT(11)         PRIMARY KEY           AUTO_INCREMENT          NOT NULL,
+  user_id           INT             NOT NULL,
+  ad_url            TEXT            NOT NULL,
+  CONSTRAINT  admin_fk_users
+    FOREIGN KEY (user_id)
+    REFERENCES  users (user_id)
+);
 
 CREATE TABLE pwd_reset
 (

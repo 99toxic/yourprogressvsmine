@@ -340,23 +340,8 @@
     border: $border;
   }
 
-  .mobile_btn {
-    display: none;
-  }
-
-
   #mobile_menu {
-    background: $mobile;
-    border: $border;
-    float: left;
-    font-size: 35px;
-    padding: 10px;
-    position: absolute;
-    top: 354px;
-
-    li {
-      padding-bottom: 50px;
-    }
+    display: none;
   }
 
   // End Navigation
@@ -474,7 +459,7 @@
     clear: both;
   }
 
-  .find,
+  #find,
   .leader {
     border: $border;
     height: 250px;
@@ -482,7 +467,7 @@
     width: 45%;
   }
 
-  .find {
+  #find {
 
     h1 {
       border-bottom: $border;
@@ -711,10 +696,10 @@
 
 
   /* Chatbox Area */
-  .messenger {
+  #messenger {
     border-left: $border;
     border-right: $border;
-    flex-basis: 50%;
+    flex-basis: 55%;
     height: auto;
   }
 
@@ -921,17 +906,17 @@
       display: none;
     }
 
-    .messenger {
+    #messenger {
       border-left: none;
       flex-basis: 70%;
     }
 
-    .find,
+    #find,
     .leader {
       width: 50%;
     }
 
-    .find {
+    #find {
       form {
         width: 100%;
 
@@ -1026,17 +1011,94 @@
         padding-top: 5px;
       }
 
-      form button,
-      .mobile_btn {
+      form button {
         font-size: 25px;
       }
     }
 
-
-    .mobile_btn {
+    // Mobile Menu
+    #mobile_menu {
       display: block;
-      margin-top: 10px;
+
+      .nav-container {
+        position: absolute;
+        top: 353px;
+        left: 8px;
+        height: 480px;
+        width: 250px;
+        z-index: -1;
+        background: $mobile;
+        opacity: 0;
+        transition: all 0.2s ease;
+      }
+
+      .nav-container ul {
+        position: absolute;
+        top: 180px;
+        transform: translateY(-50%);
+        width: 100%;
+      }
+
+      .nav-container ul li {
+        display: block;
+        margin-bottom: 50px;
+        width: 100%;
+        text-align: left;
+      }
+
+      .nav-container ul li:nth-child(1) a {
+        transition-delay: 0.2s;
+      }
+
+      .nav-container ul li:nth-child(2) a {
+        transition-delay: 0.3s;
+      }
+
+      .nav-container ul li:nth-child(3) a {
+        transition-delay: 0.4s;
+      }
+
+      .nav-container ul li:nth-child(4) a {
+        transition-delay: 0.5s;
+      }
+
+      .nav-container ul li:not(:first-child) {
+        margin-left: 0;
+      }
+
+      .nav-container ul li a {
+        padding: 10px 25px;
+        opacity: 0;
+        color: $txtCol;
+        font-size: 25px;
+        font-weight: 200;
+        letter-spacing: 3px;
+        transform: translateY(-20px);
+        transition: all 0.2s ease;
+      }
+
+      .nav-open {
+        cursor: pointer;
+        font-size: 30px;
+        z-index: 9999;
+      }
+
+      #nav:checked ~ .nav-container {
+        z-index: 9990;
+        opacity: 1;
+      }
+
+      #nav:checked ~ .nav-container ul li a {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     }
+
+      .hidden {
+        display: none;
+      }
+    // end Mobiel Menu
 
     .week,
     .rank,
@@ -1059,18 +1121,37 @@
       display: none;
     }
 
-    .find,
-    .leader,
-    .social aside,
-    .social h2 {
+    .leader {
       display: none;
+    }
+
+    #find,
+    #updates,
+    #online_users {
+      border: none;
+      height: 480px;
+      margin: 0;
+      width: 100%;
+      z-index: 5;
+    }
+
+    #messenger {
+      border-right: none;
+    }
+
+    .social h2,
+    #find h1 {
+      display: none;
+    }
+
+    .flex {
+      flex-flow: wrap;
     }
 
     .social {
       border: none;
       display: block;
       height: auto;
-
     }
 
     .chat-form {
@@ -1078,8 +1159,9 @@
       margin-bottom: 0;
     }
 
-    .messenger {
-      border-right: none;
+    .workout {
+      height: 410px;
+      width: 100%;
     }
 
   }

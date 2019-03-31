@@ -9,9 +9,9 @@ $('document').ready(function () {
   viewExercise();
   search();
   //  schedule();
-mobileMenu();
+  mobileMenu();
   hide();
-setInterval('rotateAd()', 50000);
+  setInterval('rotateAd()', 30000);
 });
 
 function autoFocus(focusField) {
@@ -69,7 +69,7 @@ function showContainer() {
 function validLogin() {
   $('.login .form-message p').css('visibility', 'hidden');
   /* Login Validation */
-  $('.login form').submit (function (evt) {
+  $('.login form').submit(function (evt) {
     evt.preventDefault();
 
     $('#uid, #pwd').removeClass('error');
@@ -83,10 +83,10 @@ function validLogin() {
       pwd: pwd,
       submit: submit
     }, function () {
-    $('.login .form-message p').css('visibility', 'visible');
+      $('.login .form-message p').css('visibility', 'visible');
 
       if ($('.login .form-message p').text() === 'Login success!') {
-        window.location.href="profile.php";
+        window.location.href = "profile.php";
       }
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
@@ -117,7 +117,7 @@ function validLogin() {
 
 function validSignup() {
   $('#signup .form-message p').css('visibility', 'hidden');
-  $('#signup form').submit (function (evt) {
+  $('#signup form').submit(function (evt) {
     evt.preventDefault();
 
     $('#uid, #email, #dob, #pwd, #pwd_two').removeClass('error');
@@ -138,11 +138,11 @@ function validSignup() {
       pwd: pwd_one,
       pwd_two: pwd_two,
       submit: submit
-    }, function() {
-       $('#signup .form-message p').css('visibility', 'visible');
+    }, function () {
+      $('#signup .form-message p').css('visibility', 'visible');
 
       if ($('#signup .form-message p').text() === 'Signup Success!') {
-        window.location.href="../yourprogressvsmine.com";
+        window.location.href = "../yourprogressvsmine.com";
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
@@ -237,16 +237,16 @@ function viewExercise() {
 } // end viewExercise
 
 function search() {
-  $('.find form').submit(function (evt) {
+  $('#find form').submit(function (evt) {
     evt.preventDefault();
-    var searchExe = $('.find #search').val();
-    var searchType = $('.find #type').val();
-    var submit = $('.find form input[type=submit]').val();
+    var searchExe = $('#find #search').val();
+    var searchType = $('#find #type').val();
+    var submit = $('#find form input[type=submit]').val();
     $.post('include/search.php', {
       search: searchExe,
       type: searchType,
       submit: submit
-    }, function(data, status) {
+    }, function (data, status) {
       $('.search').html(data);
     });
   });
@@ -270,22 +270,50 @@ function schedule() {
 } // end schedule
 
 function mobileMenu() {
-  $('#mobile_menu').hide();
-  $('.mobile_btn').click(function(evt) {
-    evt.preventDefault();
-    $('#mobile_menu').toggle();
-  });
 
-  $('.find_workout').click(function() {
-    $('.messenger').hide();
+  var width = $(window).width();
 
-  });
+  if (width < 690) {
+    $('#online_users, #updates, #find').addClass('hidden');
+
+    $('.nav-open').click(function () {
+      $('.nav-container').removeClass('hidden');
+    });
+
+    $('.view_find').click(function () {
+      $('#messenger, #updates, #online_users').addClass('hidden');
+      $('#find').removeClass('hidden');
+      $('#workout').removeClass('hidden');
+      $('.nav-container').addClass('hidden');
+      $('.workout').show();
+    });
+
+    $('.view_update').click(function () {
+      $('#messenger, #find, #online_users').addClass('hidden');
+      $('#updates').removeClass('hidden');
+      $('.nav-container').addClass('hidden');
+    });
+
+    $('.view_online').click(function () {
+      $('#messenger, #find, #updates').addClass('hidden');
+      $('#online_users').removeClass('hidden');
+      $('.nav-container').addClass('hidden');
+    });
+
+    $('.view_chat').click(function () {
+      $('#online_users, #updates, #find').addClass('hidden');
+      $('#messenger').removeClass('hidden');
+      $('.nav-container').addClass('hidden');
+    });
+  }
 }
 
 function hide() {
   var currentPhoto = $('.advertise.current');
-  $('.advertise:not(:first)').css({opacity: 0.0});
-}
+  $('.advertise:not(:first)').css({
+    opacity: 0.0
+  });
+} // end hide
 
 function rotateAd() {
   var currentPhoto = $('.advertise.current');
@@ -294,7 +322,13 @@ function rotateAd() {
     nextPhoto = $('.advertise:first');
   }
 
-  currentPhoto.css({opacity: 0.0}).removeClass('current');
+  currentPhoto.css({
+    opacity: 0.0
+  }).removeClass('current');
 
-    nextPhoto.css({opacity: 0.0}).addClass('current').animate({opacity: 1.0}, 2000); // end callback
-}
+  nextPhoto.css({
+    opacity: 0.0
+  }).addClass('current').animate({
+    opacity: 1.0
+  }, 2000); // end callback
+} // end rotateAd
