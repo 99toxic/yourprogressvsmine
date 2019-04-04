@@ -3,13 +3,6 @@
   // Call connection to database and functions
   include_once 'dbh.php';
 
-  // Fetch the day.
-//  $day = mysqli_real_escape_string( $conn, $_POST[ 'day' ] );
-//  $weekDay = mysqli_real_escape_string( $conn, $_POST[ 'week_day' ] );
-
-  $day = '';
-  $weekDay = 'Saturday';
-
   $userId = $_SESSION['u_id'];
 
   // Prepare SQL
@@ -34,11 +27,12 @@
       $wrkType = $row['type_name'];
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];
+      $wrkDay = $row['day'];
 
       echo '<div class="view_day">
               <p>'.$weekDay.'</p>
               <a href="#view">
-              <img src="images/icon/'.$wrkType.'.png" alt="">
+              <img src="images/icon/'.$wrkType.'.png" alt="'.$wrkType.'">
               <div>
                 <h4>'.$wrkType.'</h4>
               </div>

@@ -37,7 +37,7 @@ function autoClear() {
 }
 
 function showContainer() {
-  $('.forgotPassword, .proPic, .schedule a').click(function () {
+  $('.forgotPassword, .proPic, #schedule a').click(function () {
     var linkPath = $(this).attr('href');
     var titleName = [];
 
@@ -48,6 +48,83 @@ function showContainer() {
     } else if (linkPath === '#add') {
       titleName = 'Create Workout';
     }
+    $('#sunday').click(function () {
+      $('.desc_submit').attr('name', 'sunday');
+      var day = '1';
+      var weekDay = 'Sunday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
+    $('#monday').click(function () {
+      $('.desc_submit').attr('name', 'monday');
+      var day = '2';
+      var weekDay = 'Monday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
+    $('#tuesday').click(function () {
+      $('.desc_submit').attr('name', 'tuesday');
+      var day = '3';
+      var weekDay = 'Tuesday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
+    $('#wednesday').click(function () {
+      $('.desc_submit').attr('name', 'wednesday');
+      var day = '4';
+      var weekDay = 'Wednesday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
+    $('#thursday').click(function () {
+      $('.desc_submit').attr('name', 'thursday');
+      var day = '5';
+      var weekDay = 'Thursday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
+    $('#friday').click(function () {
+      $('.desc_submit').attr('name', 'friday');
+      var day = '6';
+      var weekDay = 'Friday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
+    $('#saturday').click(function () {
+      $('.desc_submit').attr('name', 'saturday');
+      var day = '7';
+      var weekDay = 'Saturday';
+      $.post('include/view.php', {
+        day: day,
+        weekDay: weekDay
+      }, function (data, status) {
+        $('.view').html(data);
+      });
+    });
 
     $(linkPath).dialog({
       title: titleName,
@@ -59,9 +136,6 @@ function showContainer() {
       width: 'auto'
     }); // end dialog
   }); // end click
-
-
-  $('.view_day').draggable();
 
   $('#add_tab').tabs();
 } // end showContainer
@@ -142,7 +216,7 @@ function validSignup() {
       $('#signup .form-message p').css('visibility', 'visible');
 
       if ($('#signup .form-message p').text() === 'Signup Success!') {
-        window.location.href = "../yourprogressvsmine.com";
+        window.location.href = "../";
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
@@ -212,7 +286,45 @@ function chatBox() {
 } // end chatBox
 
 function viewExercise() {
-  // For view workout function!
+
+  $('#details_tab').hide();
+
+  $('#desc_tab form').submit(function (evt) {
+    evt.preventDefault();
+    $('#desc_tab').hide();
+    $('#details_tab').show();
+
+    var name = $('#desc_tab .name input').val();
+    var type = $('#desc_tab .add_top select').val();
+    var sets = $('#desc_tab .sets input').val();
+    var desc = $('#desc_tab .desc textarea').val();
+
+    var sunday = $('#desc_tab input[name=sunday]').val();
+    var monday = $('#desc_tab input[name=monday]').val();
+    var tuesday = $('#desc_tab input[name=tuesday]').val();
+    var wednesday = $('#desc_tab input[name=wednesday]').val();
+    var thursday = $('#desc_tab input[name=thursday]').val();
+    var friday = $('#desc_tab input[name=friday]').val();
+    var saturday = $('#desc_tab input[name=saturday]').val();
+
+
+    $.post('include/workout-desc.php', {
+      name: name,
+      type: type,
+      sets: sets,
+      desc: desc,
+      sunday: sunday,
+      monday: monday,
+      tuesday: tuesday,
+      wednesday: wednesday,
+      thursday: thursday,
+      friday: friday,
+      saturday: saturday
+    });
+
+  });
+
+  // To view exercises in add execerises section
   $('#details_tab form').submit(function (evt) {
     evt.preventDefault();
     var exeName = $('#details_tab .name input').val();
@@ -234,6 +346,10 @@ function viewExercise() {
   setInterval(function () {
     $('.exe').load('include/view-workout.php');
   }, 1000);
+
+  $('.done').click(function () {
+    location.reload();
+  });
 } // end viewExercise
 
 function search() {
@@ -248,13 +364,39 @@ function search() {
       submit: submit
     }, function (data, status) {
       $('.search').html(data);
+
+      $('.viewSearch').click(function (evt) {
+        evt.preventDefault();
+        var thePath = $(this).attr('href');
+        var submit = thePath.split('#')[1];
+        var wrkId = $(this).attr('id');
+
+        $(thePath).dialog({
+          autoOpen: true,
+          dialogClass: 'fixed-dialog',
+          draggable: true,
+          modal: true,
+          resizable: false,
+          width: 'auto'
+        }); // end dialog
+
+        $.post('include/view-exercise.php', {
+          wrkid: wrkId,
+          submit: submit
+        });
+
+        $('#viewSearch').load('include/view-exercise.php');
+
+      });
+
     });
   });
+
 } // end search
 
 function schedule() {
 
-  var weekDay = $('.schedule').children();
+  var weekDay = $('#schedule').children();
 
   $(weekDay).click(function () {
 
@@ -274,14 +416,20 @@ function mobileMenu() {
   var width = $(window).width();
 
   if (width < 690) {
-    $('#online_users, #updates, #find').addClass('hidden');
+    $('#online_users, #updates, #find, #schedule').addClass('hidden');
 
     $('.nav-open').click(function () {
       $('.nav-container').removeClass('hidden');
     });
 
+    $('.view_schedule').click(function () {
+      $('#messenger, #updates, #online_users, #find').addClass('hidden');
+      $('#schedule').removeClass('hidden');
+      $('.nav-container').addClass('hidden');
+    });
+
     $('.view_find').click(function () {
-      $('#messenger, #updates, #online_users').addClass('hidden');
+      $('#messenger, #updates, #online_users, #schedule').addClass('hidden');
       $('#find').removeClass('hidden');
       $('#workout').removeClass('hidden');
       $('.nav-container').addClass('hidden');
@@ -289,19 +437,19 @@ function mobileMenu() {
     });
 
     $('.view_update').click(function () {
-      $('#messenger, #find, #online_users').addClass('hidden');
+      $('#messenger, #find, #online_users, #schedule').addClass('hidden');
       $('#updates').removeClass('hidden');
       $('.nav-container').addClass('hidden');
     });
 
     $('.view_online').click(function () {
-      $('#messenger, #find, #updates').addClass('hidden');
+      $('#messenger, #find, #updates, #schedule').addClass('hidden');
       $('#online_users').removeClass('hidden');
       $('.nav-container').addClass('hidden');
     });
 
     $('.view_chat').click(function () {
-      $('#online_users, #updates, #find').addClass('hidden');
+      $('#online_users, #updates, #find, #schedule').addClass('hidden');
       $('#messenger').removeClass('hidden');
       $('.nav-container').addClass('hidden');
     });

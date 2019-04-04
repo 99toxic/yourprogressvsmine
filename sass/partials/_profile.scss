@@ -4,7 +4,7 @@
     background: rgba($bckCol, .9);
     border: $border2;
     margin: 0 auto;
-    width: 80%;
+    width: 85%;
   }
 
 
@@ -160,7 +160,7 @@
     object-fit: cover;
     margin-right: 10px;
     overflow: hidden;
-    height: 300px;
+    height: 315px;
     width: 185px;
   }
 
@@ -174,11 +174,11 @@
   .view {
     border: $border;
     display: block;
-    height: 300px;
+    height: 315px;
     margin: 0 auto;
-    width: 550px;
+    width: 560px;
 
-    .view_heading {
+    .view_schedule {
       display: flex;
       text-align: left;
     }
@@ -187,7 +187,7 @@
       border-bottom: $border;
       border-right: $border;
       text-align: center;
-      flex: 1 1 75%;
+      width: 120px;
 
       h4 {
         background: $brdCol;
@@ -299,7 +299,7 @@
 
     img {
       width: 90px;
-      height: 80px;
+      height: 90px;
     }
 
     form {
@@ -389,7 +389,7 @@
     width: 100%;
   }
 
-  .schedule {
+  #schedule {
     display: flex;
 
     img {
@@ -1021,6 +1021,7 @@
       display: block;
 
       .nav-container {
+        border: $border;
         position: absolute;
         top: 353px;
         left: 8px;
@@ -1034,14 +1035,15 @@
 
       .nav-container ul {
         position: absolute;
-        top: 180px;
+        top: 190px;
         transform: translateY(-50%);
         width: 100%;
       }
 
       .nav-container ul li {
+        border-bottom: $border;
         display: block;
-        margin-bottom: 50px;
+        padding: 25px 0;
         width: 100%;
         text-align: left;
       }
@@ -1079,7 +1081,7 @@
 
       .nav-open {
         cursor: pointer;
-        font-size: 30px;
+        font-size: 25px;
         z-index: 9999;
       }
 
@@ -1095,9 +1097,6 @@
 
     }
 
-      .hidden {
-        display: none;
-      }
     // end Mobiel Menu
 
     .week,
@@ -1117,8 +1116,24 @@
       padding: 0;
     }
 
-    .schedule {
-      display: none;
+    #schedule {
+      flex-flow: wrap;
+      justify-content: space-between;
+    }
+
+      .hidden {
+        display: none!important;
+      }
+
+    #sunday,
+    #monday,
+    #tuesday,
+    #wednesday,
+    #thursday,
+    #friday,
+    #saturday {
+      margin-bottom: 35px;
+      width: 200px;
     }
 
     .leader {

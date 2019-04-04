@@ -492,7 +492,7 @@ footer {
     background: rgba(42, 42, 42, 0.9);
     border: 8px solid rgba(105, 29, 6, 0.7);
     margin: 0 auto;
-    width: 80%; }
+    width: 85%; }
   #profile .add {
     height: 430px;
     width: 600px; }
@@ -574,22 +574,22 @@ footer {
     object-fit: cover;
     margin-right: 10px;
     overflow: hidden;
-    height: 300px;
+    height: 315px;
     width: 185px; }
   #profile .view {
     border: 1px solid #e1e1e1;
     display: block;
-    height: 300px;
+    height: 315px;
     margin: 0 auto;
-    width: 550px; }
-    #profile .view .view_heading {
+    width: 560px; }
+    #profile .view .view_schedule {
       display: flex;
       text-align: left; }
     #profile .view .view-icon {
       border-bottom: 1px solid #e1e1e1;
       border-right: 1px solid #e1e1e1;
       text-align: center;
-      flex: 1 1 75%; }
+      width: 120px; }
       #profile .view .view-icon h4 {
         background: rgba(105, 29, 6, 0.7);
         padding: 3px 0;
@@ -652,7 +652,7 @@ footer {
     padding: 10px; }
     #profile nav img {
       width: 90px;
-      height: 80px; }
+      height: 90px; }
     #profile nav form {
       margin: 0;
       padding-top: 15px;
@@ -696,17 +696,17 @@ footer {
     height: 190px;
     text-align: center;
     width: 100%; }
-  #profile .schedule {
+  #profile #schedule {
     display: flex; }
-    #profile .schedule img {
+    #profile #schedule img {
       margin: 10px;
       padding: 20px 0;
       width: 83px; }
-    #profile .schedule h4 {
+    #profile #schedule h4 {
       background: rgba(105, 29, 6, 0.7);
       padding: 5px 0;
       text-shadow: none; }
-    #profile .schedule p {
+    #profile #schedule p {
       border-bottom: 1px solid #e1e1e1;
       color: #e1e1e1;
       font-size: 15px;
@@ -994,6 +994,7 @@ footer {
     #profile #mobile_menu {
       display: block; }
       #profile #mobile_menu .nav-container {
+        border: 1px solid #e1e1e1;
         position: absolute;
         top: 353px;
         left: 8px;
@@ -1005,12 +1006,13 @@ footer {
         transition: all 0.2s ease; }
       #profile #mobile_menu .nav-container ul {
         position: absolute;
-        top: 180px;
+        top: 190px;
         transform: translateY(-50%);
         width: 100%; }
       #profile #mobile_menu .nav-container ul li {
+        border-bottom: 1px solid #e1e1e1;
         display: block;
-        margin-bottom: 50px;
+        padding: 25px 0;
         width: 100%;
         text-align: left; }
       #profile #mobile_menu .nav-container ul li:nth-child(1) a {
@@ -1034,7 +1036,7 @@ footer {
         transition: all 0.2s ease; }
       #profile #mobile_menu .nav-open {
         cursor: pointer;
-        font-size: 30px;
+        font-size: 25px;
         z-index: 9999; }
       #profile #mobile_menu #nav:checked ~ .nav-container {
         z-index: 9990;
@@ -1042,8 +1044,6 @@ footer {
       #profile #mobile_menu #nav:checked ~ .nav-container ul li a {
         opacity: 1;
         transform: translateY(0); }
-    #profile .hidden {
-      display: none; }
     #profile .week,
     #profile .rank,
     #profile .follow {
@@ -1057,8 +1057,20 @@ footer {
         padding-bottom: 5px; }
     #profile main {
       padding: 0; }
-    #profile .schedule {
-      display: none; }
+    #profile #schedule {
+      flex-flow: wrap;
+      justify-content: space-between; }
+    #profile .hidden {
+      display: none !important; }
+    #profile #sunday,
+    #profile #monday,
+    #profile #tuesday,
+    #profile #wednesday,
+    #profile #thursday,
+    #profile #friday,
+    #profile #saturday {
+      margin-bottom: 35px;
+      width: 200px; }
     #profile .leader {
       display: none; }
     #profile #find,

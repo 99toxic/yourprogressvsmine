@@ -50,14 +50,14 @@ if ( isset( $_POST[ 'submit' ] ) ) {
               <td>'.$wrkSets.'</td>
               <td>'.$wrkDesc.'</td>
               <td>'.$userName.'</td>
-              <td><a href="#">View</a></td>
+              <td><a class="viewSearch" href="#workout'.$wrkId.'>View</a></td>
             </tr>';
     }
     echo '</table>';
   }
   else {
     // Prepare SQL
-    $sql = "SELECT w.user_id, wrk_name, w.type_id, wrk_sets, wrk_desc, u.user_id, user_name, t.type_id, type_name FROM workout_desc w LEFT JOIN users u ON w.user_id = u.user_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE w.type_id=$type ORDER BY wrk_name;";
+    $sql = "SELECT w.user_id, wrk_id, wrk_name, w.type_id, wrk_sets, wrk_desc, u.user_id, user_name, t.type_id, type_name FROM workout_desc w LEFT JOIN users u ON w.user_id = u.user_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE w.type_id=$type ORDER BY wrk_name;";
     $result = mysqli_query($conn, $sql);
     if (mysqli_num_rows($result) > 0) {
 
@@ -72,7 +72,8 @@ if ( isset( $_POST[ 'submit' ] ) ) {
               </tr>';
 
       while ($row = mysqli_fetch_assoc($result)) {
-              $wrkName = $row['wrk_name'];
+      $wrkId = $row['wrk_id'];
+      $wrkName = $row['wrk_name'];
       $wrkType = $row['type_name'];
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];
@@ -84,7 +85,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
               <td>'.$wrkSets.'</td>
               <td>'.$wrkDesc.'</td>
               <td>'.$userName.'</td>
-              <td><a href="#">view</a></td>
+              <td><a class="viewSearch" id="'.$wrkId.'" href="#viewSearch">view</a></td>
             </tr>';
       }
 

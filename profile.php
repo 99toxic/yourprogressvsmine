@@ -16,7 +16,7 @@
     <!--End Stylesheets-->
 
     <!--Favicon-->
-    <!--  <link href="php/img/favicon.ico" rel="icon" type="image/x-icon">-->
+      <link href="images/Group%203.png" rel="icon" type="image/x-icon">
     <!--End Favicon-->
 
     <!--Font Awesome-->
@@ -81,7 +81,7 @@
                   <label>Description:</label>
                   <textarea name="desc"></textarea>
                 </div>
-                <input type="submit" name="submit" value="Next">
+                <input  class="desc_submit" type="submit" name="submit" value="Next">
               </div>
             </form>
           </div>
@@ -124,6 +124,10 @@
     </div>
     <!--End Floating Add Workout Form-->
 
+    <!--Floating View Workout-->
+    <div class="container" id="viewSearch"></div>
+    <!--End Floating View Workout-->
+
     <div id="wrapper">
       <header>
 
@@ -137,36 +141,13 @@
   }
 ?>
         <!-- View Workout -->
-<?php
-  if (isset($_SESSION['u_id'])) {
-    echo '<div class="view">
-      <div class="view_heading">
-        <div class="view-icon">
-          <p>Tuesday</p>
-          <img src="images/icon/Other.png" alt="">
-          <div class="edit">
-            <a href="#view">View</a> <a href="#">Edit</a>
-          </div>
-          <h4>Strength</h4>
-        </div>
-        <div class="view_content">
-          <h2>Name</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum veritatis asperiores tempore, atque modi, voluptatum a magni suscipit, repudiandae culpa esse. Placeat, doloremque?</p>
-        </div>
-      </div>
-      <div class="workout"></div>
-    </div>';
-  }
-  else {
-    echo '<h1>You are not logged in!</h1>';
-  }
-?>
+<div class="view"></div>
         <!-- End View Workout -->
       </header>
 
       <!-- Navigation -->
       <nav>
-        <img src="images/icon/Strength.png" alt="">
+        <img src="images/Group%203.png" alt="">
 
         <div id="mobile_menu">
           <nav>
@@ -175,6 +156,7 @@
             <div class="nav-container">
               <ul>
                 <li><a href="#find" class="view_find">Find a workout</a></li>
+                <li><a href="#schedule" class="view_schedule">Schedule</a></li>
                 <li><a href="#updates" class="view_update">Live Updates</a></li>
                 <li><a href="#online_users" class="view_online">Who's Online</a></li>
                 <li><a href="#messenger" class="view_chat">Chat</a></li>
@@ -183,6 +165,7 @@
           </nav>
         </div>
 
+<!--
         <div class="week">
           <h2>Week</h2>
           <h2>4</h2>
@@ -198,6 +181,7 @@
           <h2>Followers</h2>
           <h2>24</h2>
         </div>
+-->
 
 <?php
   if (isset($_SESSION['u_id'])) {
@@ -221,39 +205,53 @@
       <main>
 
         <!-- Schedule -->
-        <div class="schedule">
+        <div id="schedule">
           <div id="sunday">
             <?php
+    $day = '1';
+    $weekDay = 'Sunday';
     include 'include/schedule.php';
   ?>
           </div>
           <div id="monday">
             <?php
+    $day = '2';
+    $weekDay = 'Monday';
     include 'include/schedule.php';
   ?>
           </div>
           <div id="tuesday">
             <?php
+    $day = '3';
+    $weekDay = 'Tuesday';
     include 'include/schedule.php';
   ?>
           </div>
           <div id="wednesday">
             <?php
+    $day = '4';
+    $weekDay = 'Wednesday';
     include 'include/schedule.php';
   ?>
           </div>
           <div id="thursday">
             <?php
+    $day = '5';
+    $weekDay = 'Thursday';
     include 'include/schedule.php';
   ?>
           </div>
           <div id="friday">
             <?php
+    $day = '6';
+    $weekDay = 'Friday';
     include 'include/schedule.php';
   ?>
           </div>
           <div id="saturday">
             <?php
+    $day = '7';
+    $weekDay = 'Saturday';
     include 'include/schedule.php';
   ?>
           </div>
