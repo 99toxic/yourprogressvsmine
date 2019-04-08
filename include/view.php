@@ -1,11 +1,13 @@
 <?php
 
-  // Call connection to database and functions
+  // Call connection to database
   include_once 'dbh.php';
 
 if(!isset($_SESSION)) {
   session_start();
 }
+
+if ( isset( $_POST[ 'day' ] ) ) {
 
   $userId = $_SESSION['u_id'];
 
@@ -29,19 +31,14 @@ if(!isset($_SESSION)) {
     if (mysqli_num_rows($result) > 0) {
 
       $row = mysqli_fetch_assoc($result);
-
+      // Call workout description
       $wrkName = $row['wrk_name'];
       $wrkType = $row['type_name'];
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];
-      $exeName = $row['exe_name'];
-    $exeEquip = $row['exe_equip'];
-    $exeSets = $row['exe_sets'];
-    $exeReps = $row['exe_reps'];
-    $exeTime = $row['exe_time'];
 
-      echo '<div class="view">
-      <div class="view_schedule">
+      // Show workout field
+      echo '<div class="view_schedule">
         <div class="view-icon">
           <p>'.$weekDay.'</p>
           <img src="images/icon/'.$wrkType.'.png" alt="'.$wrkType.'">
@@ -64,22 +61,32 @@ if(!isset($_SESSION)) {
               <th>Time</th>
             </tr>';
 
-    while ($row = $result->fetch_assoc()) {
-            echo '<tr>
-              <td>'.$exeName.'</td>
-              <td>'.$exeSets.'</td>
-              <td>'.$exeReps.'</td>
-              <td>'.$exeTime.'</td>
-            </tr>';
+    while ($row = mysqli_fetch_assoc($result)) {
+
+      //Call exercises
+      $exeName = $row['exe_name'];
+      $exeEquip = $row['exe_equip'];
+      $exeSets = $row['exe_sets'];
+      $exeReps = $row['exe_reps'];
+      $exeTime = $row['exe_time'];
+
+      // Show exercises
+      echo '<tr>
+        <td>'.$exeName.'</td>
+        <td>'.$exeSets.'</td>
+        <td>'.$exeReps.'</td>
+        <td>'.$exeTime.'</td>
+      </tr>';
     }
     echo '</table>
-      </div>
-    </div>';
+      </div>';
     }
+    // If no workouts have been created give message
     else {
-      echo '';
+      echo '<h2 style="font-size: 30px; padding-top: 100px;">No workout for '.$weekDay.' has been added</h2>';
     }
   }
+}
 
 //          <div class="rest_day">
 //          <p>Sunday</p>

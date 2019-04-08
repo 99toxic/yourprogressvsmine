@@ -2,7 +2,11 @@
 
 include_once 'dbh.php';
 
-session_start();
+if(!isset($_SESSION)) {
+  session_start();
+}
+
+if ( isset( $_POST[ 'submitLogout' ] ) ) {
 
 // Update when user logged out
 $userId = $_SESSION['u_id'];
@@ -13,3 +17,4 @@ header("Location: ../");
 
 session_unset();
 session_destroy();
+}

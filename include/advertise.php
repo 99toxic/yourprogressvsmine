@@ -7,6 +7,12 @@ if (isset($_POST['submit'])) {
   $file = $_FILES['file'];
   $url = $_POST['url'];
 
+  // auto load http to url if need it
+  $newUrl = parse_url($url);
+  if (empty($newUrl['scheme'])) {
+    $url = 'http://' . ltrim($url, '/');
+}
+
   $fileName = $_FILES['file']['name'];
   $fileTmpName = $_FILES['file']['tmp_name'];
   $fileSize = $_FILES['file']['size'];
@@ -24,7 +30,7 @@ if (isset($_POST['submit'])) {
     if ($fileError === 0) {
 
       // Checks for file size
-      if ($fileSize < 1000000) {
+      if ($fileSize < 10000000) {
 
         // Prepares database
         $sql = "SELECT * FROM users";
@@ -37,6 +43,9 @@ if (isset($_POST['submit'])) {
         // insert admin url link to admin table
         $sqll = "SELECT * FROM admin WHERE user_id='$userId';";
         $result = mysqli_query($conn, $sqll);
+
+
+
         if (mysqli_num_rows($result) > 0) {
           $sqll = "UPDATE admin SET ad_url='$url' WHERE user_id='$userId';";
           mysqli_query( $conn, $sqll );
@@ -47,7 +56,7 @@ if (isset($_POST['submit'])) {
         }
 
         //Puts image in folder location
-        $fileDestination = '../sponsor/'.$userName.'_ad.png';
+        $fileDestination = '../uploads/'.$userName.'_ad.png';
         move_uploaded_file($fileTmpName, $fileDestination);
 
           header("Refresh:0; url= ../profile.php" );

@@ -305,7 +305,15 @@
     form {
       margin: 0;
       padding-top: 15px;
-      width: 90px;
+      padding-right: 0;
+      width: 160px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: 10px;
+      }
     }
 
     button {
@@ -314,7 +322,13 @@
       color: $txtCol;
       font-family: $font2;
       font-size: 20px;
+      padding: 10px 10px 0 20px;
+      position: absolute;
       text-shadow: 3px 3px 3px black;
+
+      span {
+        padding-left: 10px;
+      }
     }
 
     button:hover {
@@ -423,6 +437,10 @@
 
   .current_day {
     background: $high;
+  }
+
+  .view_day {
+    height: 100%;
   }
 
   .add_day {
@@ -558,11 +576,16 @@
       position: absolute;
       right: 0;
       top: 0;
+      z-index: 1;
     }
 
     .admin_img {
       width: 50%;
       height: 45%;
+    }
+
+    .current {
+      z-index: 19;
     }
 
     input[type=file] {
@@ -1000,19 +1023,17 @@
       }
 
       form {
-        width: auto;
+        padding: 0 3px 0 0;
+        width: 28px;
       }
 
       form button span {
         display: none;
       }
 
-      form {
-        padding-top: 5px;
-      }
-
       form button {
-        font-size: 25px;
+        font-size: 30px;
+        padding: 0;
       }
     }
 
@@ -1081,7 +1102,7 @@
 
       .nav-open {
         cursor: pointer;
-        font-size: 25px;
+        font-size: 30px;
         z-index: 9999;
       }
 

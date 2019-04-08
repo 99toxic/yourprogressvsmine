@@ -473,7 +473,10 @@ footer {
     width: 280px; }
     form .pwd_two {
       margin-top: 10px; } }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
+  header h1 {
+    font-size: 29px; }
+
   form {
     width: 90%; } }
 /* End Sign In / Sign Up Pages */
@@ -656,14 +659,24 @@ footer {
     #profile nav form {
       margin: 0;
       padding-top: 15px;
-      width: 90px; }
+      padding-right: 0;
+      width: 160px; }
+      #profile nav form img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-top: 10px; }
     #profile nav button {
       background: none;
       border: none;
       color: #e1e1e1;
       font-family: cityburn, Impact, Charcoal, sans-serif;
       font-size: 20px;
+      padding: 10px 10px 0 20px;
+      position: absolute;
       text-shadow: 3px 3px 3px black; }
+      #profile nav button span {
+        padding-left: 10px; }
     #profile nav button:hover {
       color: #aba38a;
       cursor: pointer; }
@@ -719,6 +732,8 @@ footer {
     cursor: pointer; }
   #profile .current_day {
     background: rgba(0, 0, 0, 0.3); }
+  #profile .view_day {
+    height: 100%; }
   #profile .add_day {
     height: 100%; }
     #profile .add_day h1 {
@@ -789,10 +804,13 @@ footer {
       left: 0;
       position: absolute;
       right: 0;
-      top: 0; }
+      top: 0;
+      z-index: 1; }
     #profile .leader .admin_img {
       width: 50%;
       height: 45%; }
+    #profile .leader .current {
+      z-index: 19; }
     #profile .leader input[type=file] {
       width: 35%; }
   #profile .score {
@@ -984,13 +1002,13 @@ footer {
       #profile nav img {
         display: none; }
       #profile nav form {
-        width: auto; }
+        padding: 0 3px 0 0;
+        width: 28px; }
       #profile nav form button span {
         display: none; }
-      #profile nav form {
-        padding-top: 5px; }
       #profile nav form button {
-        font-size: 25px; }
+        font-size: 30px;
+        padding: 0; }
     #profile #mobile_menu {
       display: block; }
       #profile #mobile_menu .nav-container {
@@ -1036,7 +1054,7 @@ footer {
         transition: all 0.2s ease; }
       #profile #mobile_menu .nav-open {
         cursor: pointer;
-        font-size: 25px;
+        font-size: 30px;
         z-index: 9999; }
       #profile #mobile_menu #nav:checked ~ .nav-container {
         z-index: 9990;

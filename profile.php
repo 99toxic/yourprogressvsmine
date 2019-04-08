@@ -26,7 +26,7 @@
     <!--JavaScript-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-ui.js"></script>
-    <!--  <script src="js/jquery.validate.js"></script>-->
+    <script src="js/jquery.idle.js"></script>
     <script src="js/main.js"></script>
     <!--JavaScript-->
 
@@ -135,7 +135,12 @@
 <?php
   $fileExt = 'jpg' or 'jpeg' or 'png' or 'gif';
   if (isset($_SESSION['u_id'])) {
-    echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'"></a>';
+    if (file_exists('uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt)) {
+      echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'"></a>';
+    }
+    else {
+      echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine"></a>';
+    }
   } else {
     echo '<img class="profile_img" src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine">';
   }
@@ -186,8 +191,14 @@
 <?php
   if (isset($_SESSION['u_id'])) {
 
-    echo '<form action="include/logout.php" method="post">
-          <button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span> '.$_SESSION['u_name'].'</span></button>
+    echo '<form action="include/logout.php" method="post">';
+        if (file_exists('uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt)) {
+        echo '<img src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'">';
+        }
+        else {
+        echo '<img src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine">';
+        }
+    echo '<button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout</span></button>
           </form>';
   }
   else {

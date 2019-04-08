@@ -12,9 +12,15 @@ if (mysqli_num_rows($result) > 0) {
     $fileExt = 'jpg' or 'jpeg' or 'png' or 'gif';
     $newDate = date('h:ia', $sqlDate);
 
-    if ($row['user_login'] !== '0000-00-00 00:00:00') {
+    if ($row['user_login'] !== '0000-00-00 00:00:00' & file_exists('../uploads/'.$row['user_name'].'_profile.'.$fileExt)) {
       echo '<div class="online">';
       echo '<div class="user-photo"><a href="#userPic"><img src="uploads/'.$row['user_name'].'_profile.'.$fileExt.'" alt="'.$row['user_name'].'"></a></div>';
+      echo '<p class="name">'.$row['user_name'].'<span>('.$newDate.')<span></p>' ;
+      echo '</div>';
+    }
+    else if ($row['user_login'] !== '0000-00-00 00:00:00') {
+      echo '<div class="online">';
+      echo '<div class="user-photo"><a href="#userPic"><img src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine"></a></div>';
       echo '<p class="name">'.$row['user_name'].'<span>('.$newDate.')<span></p>' ;
       echo '</div>';
     }

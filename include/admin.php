@@ -13,7 +13,7 @@ if ($_SESSION['u_level'] == 1) {
   if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
 
-      $url = '../'.$row['ad_url'];
+      $url = $row['ad_url'];
 
       echo '<h1>Admin Area</h1>
             <form action="include/advertise.php" method="post" enctype="multipart/form-data">
@@ -22,7 +22,7 @@ if ($_SESSION['u_level'] == 1) {
               <button type="submit" name="submit">Upload</button>
             </form>
             <p>Image width 250px</p></br>
-            <a href="'.$url.'"><img class="admin_img" src="sponsor/'.$_SESSION['u_name'].'_ad.png" alt="'.$_SESSION['u_name'].' advertisement"></a>';
+            <a href="'.$url.'"><img class="admin_img" src="uploads/'.$_SESSION['u_name'].'_ad.png" alt="'.$_SESSION['u_name'].' advertisement"></a>';
     }
   }
   else {
@@ -33,7 +33,7 @@ if ($_SESSION['u_level'] == 1) {
               <button type="submit" name="submit">Upload</button>
             </form>
             <p>No url selected!</p></br>
-            <img class="admin_img" src="sponsor/'.$_SESSION['u_name'].'_ad.png" alt="'.$_SESSION['u_name'].' advertisement">';
+            <img class="admin_img" src="uploads/'.$_SESSION['u_name'].'_ad.png" alt="'.$_SESSION['u_name'].' advertisement">';
   }
 }
 else {
@@ -45,9 +45,9 @@ else {
 
 
       $userName = $row['user_name'];
-      $url = '../'.$row['ad_url'];
+      $url = $row['ad_url'];
 
-      echo '<a href="'.$url.'" class="advertise"><img class="advertise_img" src="sponsor/'.$userName.'_ad.png" alt="'.$userName.' advertisement"></a>';
+      echo '<a href="'.$url.'" class="advertise"><img class="advertise_img" src="uploads/'.$userName.'_ad.png" alt="'.$userName.' advertisement"></a>';
 
     }
   }

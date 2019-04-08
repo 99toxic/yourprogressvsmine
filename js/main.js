@@ -8,11 +8,21 @@ $('document').ready(function () {
   chatBox();
   viewExercise();
   search();
-  //  schedule();
   mobileMenu();
   hide();
-  setInterval('rotateAd()', 30000);
-});
+  setInterval('rotateAd()', 5000000);
+}); // end ready
+
+$(document).idle({
+  onIdle: function () {
+    var submitLogout = 'submitLogout';
+    $.post('include/logout.php', {
+      submitLogout: submitLogout
+    });
+    window.location.href = "index.html";
+  },
+  idle: 1200000
+}); // end idle
 
 function autoFocus(focusField) {
   $(focusField).focus();
@@ -33,7 +43,6 @@ function autoClear() {
       $(this).val(defVal);
     } // end if
   }); // end blur anon function
-
 }
 
 function showContainer() {
@@ -58,6 +67,13 @@ function showContainer() {
       }, function (data, status) {
         $('.view').html(data);
       });
+
+      //    if ($(window).width() < 690) {
+      //      $('.view_content, .workout').css('display', 'block');
+      //      $('.view').css('width', '100%');
+      //      $('.profile_img').css('display', 'none');
+      //    }
+
     });
     $('#monday').click(function () {
       $('.desc_submit').attr('name', 'monday');
@@ -185,7 +201,7 @@ function validLogin() {
     buttonImageOnly: true,
     changeYear: true,
     showOtherMonths: true,
-    yearRange: '-50:+0'
+    yearRange: '-80:+0'
   }); // end datepicker
 } // end ValidLogin
 
@@ -216,7 +232,7 @@ function validSignup() {
       $('#signup .form-message p').css('visibility', 'visible');
 
       if ($('#signup .form-message p').text() === 'Signup Success!') {
-        window.location.href = "../";
+        window.location.href = "index.html";
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
@@ -259,8 +275,44 @@ function viewToday() {
   var now = new Date();
   var days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
   var today = '#' + days[now.getDay()];
+  var todayText = today.split('#')[1];
+
+  if (todayText == 'sunday') {
+    var todayNumber = 1;
+  }
+  if (todayText == 'monday') {
+    var todayNumber = 2;
+  }
+  if (todayText == 'tuesday') {
+    var todayNumber = 3;
+  }
+  if (todayText == 'wednesday') {
+    var todayNumber = 4;
+  }
+  if (todayText == 'thursday') {
+    var todayNumber = 5;
+  }
+  if (todayText == 'friday') {
+    var todayNumber = 6;
+  }
+  if (todayText == 'saturday') {
+    var todayNumber = 7;
+  }
 
   $(today).addClass('current_day');
+
+  if ($(today).hasClass('current_day')) {
+    var day = todayNumber;
+    var weekDay = todayText;
+    $.post('include/view.php', {
+      day: day,
+      weekDay: weekDay
+    }, function (data, status) {
+      $('.view').html(data);
+    });
+  }
+
+
   /* End Highlight The Day Of The Week */
 
 } // end viewToday
@@ -350,6 +402,10 @@ function viewExercise() {
   $('.done').click(function () {
     location.reload();
   });
+
+//  $('#details_tab .flex input[type=submit]').on('click', function () {
+//      $('#details_tab form').find('input:text').val('');
+//  });
 } // end viewExercise
 
 function search() {
@@ -371,6 +427,11 @@ function search() {
         var submit = thePath.split('#')[1];
         var wrkId = $(this).attr('id');
 
+        $.post('include/view-exercise.php', {
+          wrkid: wrkId,
+          submit: submit
+        });
+
         $(thePath).dialog({
           autoOpen: true,
           dialogClass: 'fixed-dialog',
@@ -380,11 +441,6 @@ function search() {
           width: 'auto'
         }); // end dialog
 
-        $.post('include/view-exercise.php', {
-          wrkid: wrkId,
-          submit: submit
-        });
-
         $('#viewSearch').load('include/view-exercise.php');
 
       });
@@ -393,23 +449,6 @@ function search() {
   });
 
 } // end search
-
-function schedule() {
-
-  var weekDay = $('#schedule').children();
-
-  $(weekDay).click(function () {
-
-    var weekChild = $(this).children().attr('class');
-
-    if (weekChild == 'view_day') {
-      alert('the day is full');
-    } else if (weekChild == 'add_day') {
-      alert('make day');
-    }
-  })
-
-} // end schedule
 
 function mobileMenu() {
 
@@ -457,7 +496,7 @@ function mobileMenu() {
 }
 
 function hide() {
-  var currentPhoto = $('.advertise.current');
+  $('.advertise:first').addClass('current');
   $('.advertise:not(:first)').css({
     opacity: 0.0
   });
@@ -466,6 +505,8 @@ function hide() {
 function rotateAd() {
   var currentPhoto = $('.advertise.current');
   var nextPhoto = currentPhoto.next();
+  nextPhoto.addClass('nextPhoto');
+
   if (nextPhoto.length == 0) {
     nextPhoto = $('.advertise:first');
   }
