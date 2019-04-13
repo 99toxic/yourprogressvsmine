@@ -110,4 +110,5 @@ INSERT INTO workout_type (type_id, type_name) VALUES
 (2, 'Cardio'),
 (3, 'Stretching'),
 (4, 'Plyometrics'),
-(5, 'Other');
+(5, 'Other'),
+(6, 'Rest');

@@ -69,6 +69,7 @@
                     <option value="3">Stretching</option>
                     <option value="4">Plyometrics</option>
                     <option value="5">Other</option>
+                    <option value="6">Rest</option>
                   </select>
                 </div>
               </div>
@@ -129,14 +130,67 @@
     <!--End Floating View Workout-->
 
     <div id="wrapper">
-      <header>
+
+
+      <!-- Navigation -->
+      <nav>
+
+        <div id="mobile_menu">
+            <input type="checkbox" id="nav" class="hidden" />
+            <label for="nav" class="nav-open"><i class="fa fa-bars"></i></label>
+            <div class="nav-container">
+              <ul>
+                <li><a href="#messenger" class="view_chat">Chat</a></li>
+                <li><a href="#find" class="view_find">Find a workout</a></li>
+                <li><a href="#schedule" class="view_schedule">Schedule</a></li>
+                <li><a href="#updates" class="view_update">Live Updates</a></li>
+                <li><a href="#online_users" class="view_online">Who's Online</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="contact.php">Contact</a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="logo">
+          <img src="images/logo.png" alt="">
+          <h1>Your Progress vs Mine</h1>
+        </div>
+
+        <div class="nav">
+          <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="contact.php">Contact</a></li>
+          </ul>
+
+
+<?php
+  if (isset($_SESSION['u_id'])) {
+
+    echo '<form action="include/logout.php" method="post">';
+    echo '<button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout '.$_SESSION['u_name'].' </span></button>
+          </form>';
+  }
+  else {
+    echo '<form action="include/logout.php" method="post">
+          <button type="submit" name="submitLogout"><i class="fa fa-sign-in"></i><span> Login</span></button>
+          </form>';
+  }
+
+  ?>
+        </div>
+      </nav>
+      <!-- End Navigation -->
+
+
+      <main>
+
+
+      <div class="top">
 
         <!-- View the profile image or default image if not logged in -->
 <?php
-  $fileExt = 'jpg' or 'jpeg' or 'png' or 'gif';
   if (isset($_SESSION['u_id'])) {
-    if (file_exists('uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt)) {
-      echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'"></a>';
+    if (file_exists('uploads/'.$_SESSION['u_name'].'_profile.jpg')) {
+      echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/'.$_SESSION['u_name'].'_profile.jpg" alt="'.$_SESSION['u_name'].'"></a>';
     }
     else {
       echo '<a href="#userPic" class="proPic"><img class="profile_img" src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine"></a>';
@@ -148,73 +202,11 @@
         <!-- View Workout -->
 <div class="view"></div>
         <!-- End View Workout -->
-      </header>
-
-      <!-- Navigation -->
-      <nav>
-        <img src="images/Group%203.png" alt="">
-
-        <div id="mobile_menu">
-          <nav>
-            <input type="checkbox" id="nav" class="hidden" />
-            <label for="nav" class="nav-open"><i class="fa fa-bars"></i></label>
-            <div class="nav-container">
-              <ul>
-                <li><a href="#find" class="view_find">Find a workout</a></li>
-                <li><a href="#schedule" class="view_schedule">Schedule</a></li>
-                <li><a href="#updates" class="view_update">Live Updates</a></li>
-                <li><a href="#online_users" class="view_online">Who's Online</a></li>
-                <li><a href="#messenger" class="view_chat">Chat</a></li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-
-<!--
-        <div class="week">
-          <h2>Week</h2>
-          <h2>4</h2>
-        </div>
-
-        <div class="rank">
-          <h2>Your Rank</h2>
-          <h2>33</h2>
-          <a>view</a>
-        </div>
-
-        <div class="follow">
-          <h2>Followers</h2>
-          <h2>24</h2>
-        </div>
--->
+      </div>
 
 <?php
   if (isset($_SESSION['u_id'])) {
-
-    echo '<form action="include/logout.php" method="post">';
-        if (file_exists('uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt)) {
-        echo '<img src="uploads/'.$_SESSION['u_name'].'_profile.'.$fileExt.'" alt="'.$_SESSION['u_name'].'">';
-        }
-        else {
-        echo '<img src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine">';
-        }
-    echo '<button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout</span></button>
-          </form>';
-  }
-  else {
-    echo '<form action="include/logout.php" method="post">
-          <button type="submit" name="submitLogout"><i class="fa fa-sign-in"></i><span> Login</span></button>
-          </form>';
-  }
-
   ?>
-      </nav>
-      <!-- End Navigation -->
-<?php
-  if (isset($_SESSION['u_id'])) {
-  ?>
-      <main>
-
         <!-- Schedule -->
         <div id="schedule">
           <div id="sunday">

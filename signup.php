@@ -32,12 +32,35 @@
 
   <body id="signup">
     <div id="wrapper">
-      <header>
-        <img src="images/header.jpg" alt="people fitness">
-        <h1>Your Progress Vs Mine</h1>
-      </header>
+      <!-- Navigation -->
+      <nav>
+
+        <div id="mobile_menu">
+            <input type="checkbox" id="nav" class="hidden" />
+            <label for="nav" class="nav-open"><i class="fa fa-bars"></i></label>
+            <div class="nav-container">
+              <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="contact.php">Contact</a></li>
+                <li><a href="signup.php">Signup</a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="logo">
+          <img src="images/Group%203.png" alt="">
+          <h1>Your Progress vs Mine</h1>
+        </div>
+
+        <div class="nav">
+          <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <li><a href="signup.php">Signup</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- End Navigation -->
       <main>
-        <a class="back" href="index.html"><i class="fa fa-caret-left"></i> Back</a>
         <h1>Sign up</h1>
         <div class="form-message">
           <p>JAVASCRIPT HERE</p>

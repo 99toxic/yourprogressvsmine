@@ -1,20 +1,5 @@
 #profile {
 
-  #wrapper {
-    background: rgba($bckCol, .9);
-    border: $border2;
-    margin: 0 auto;
-    width: 85%;
-  }
-
-
-
-
-
-
-
-
-
   /* Floating Add */
   .add {
     height: 430px;
@@ -145,13 +130,13 @@
 
 
   // Header
-  header {
+  .top {
     border: none;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin: 0;
-    padding: 10px 10px 0 10px;
+    padding: 20px 10px 40px 0;
     width: 100%;
   }
 
@@ -291,74 +276,6 @@
 
 
 
-  // Navigation
-  nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-
-    img {
-      width: 90px;
-      height: 90px;
-    }
-
-    form {
-      margin: 0;
-      padding-top: 15px;
-      padding-right: 0;
-      width: 160px;
-
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-top: 10px;
-      }
-    }
-
-    button {
-      background: none;
-      border: none;
-      color: $txtCol;
-      font-family: $font2;
-      font-size: 20px;
-      padding: 10px 10px 0 20px;
-      position: absolute;
-      text-shadow: 3px 3px 3px black;
-
-      span {
-        padding-left: 10px;
-      }
-    }
-
-    button:hover {
-      color: $hover;
-      cursor: pointer;
-    }
-  }
-
-  .week,
-  .rank,
-  .follow {
-    padding: 5px;
-    height: 70px;
-    text-align: center;
-    width: 90px;
-
-    h2 {
-      padding-bottom: 5px;
-    }
-  }
-
-  .rank {
-    border: $border;
-  }
-
-  #mobile_menu {
-    display: none;
-  }
-
-  // End Navigation
 
 
 
@@ -371,9 +288,8 @@
 
 
 
-  main {
-    padding: 10px;
-  }
+
+
 
 
 
@@ -398,7 +314,7 @@
   #saturday {
     border: $border;
     display: inline-block;
-    height: 190px;
+    height: 220px;
     text-align: center;
     width: 100%;
   }
@@ -408,7 +324,7 @@
 
     img {
       margin: 10px;
-      padding: 20px 0;
+      padding: 35px 0;
       width: 83px;
 
     }
@@ -969,7 +885,7 @@
   // Mobile Profile
   @media only screen and (max-width: 690px) {
 
-    header {
+    .top {
       padding: 0;
       height: auto;
     }
@@ -1010,20 +926,19 @@
     }
 
     nav {
-      border-bottom: $border3;
+      padding: 0 5px 10px 5px;
 
-      padding: 10px 5px;
-
-      h2 {
-        font-size: 15px;
+      h1 {
+        padding-top: 12px;
+        font-size: 20px;
       }
 
-      img {
+      .nav-img {
         display: none;
       }
 
       form {
-        padding: 0 3px 0 0;
+        padding-right: 5px;
         width: 28px;
       }
 
@@ -1033,7 +948,7 @@
 
       form button {
         font-size: 30px;
-        padding: 0;
+        margin-top: -8px;
       }
     }
 
@@ -1042,16 +957,16 @@
       display: block;
 
       .nav-container {
+        background: $mobile;
         border: $border;
-        position: absolute;
-        top: 353px;
+        height: 380px;
         left: 8px;
-        height: 480px;
+        opacity: 0;
+        position: absolute;
+        top: 59px;
+        transition: all 0.2s ease;
         width: 250px;
         z-index: -1;
-        background: $mobile;
-        opacity: 0;
-        transition: all 0.2s ease;
       }
 
       .nav-container ul {
@@ -1062,7 +977,7 @@
       }
 
       .nav-container ul li {
-        border-bottom: $border;
+        border-bottom: $border3;
         display: block;
         padding: 25px 0;
         width: 100%;

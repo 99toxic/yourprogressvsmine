@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
         $userLevel = $_SESSION['u_level'];
 
         //Puts image in folder location
-        $fileDestination = '../uploads/'.$userName.'_profile.'.$fileActualExt;
+        $fileDestination = '../uploads/'.$userName.'_profile.jpg';
         move_uploaded_file($fileTmpName, $fileDestination);
 
           header("Refresh:0; url= ../profile.php" );

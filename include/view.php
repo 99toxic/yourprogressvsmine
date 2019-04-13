@@ -37,6 +37,12 @@ if ( isset( $_POST[ 'day' ] ) ) {
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];
 
+
+      if ($row['type_id'] == '6') {
+        echo '<h2 style="font-size: 30px; padding-top: 100px;">Rest on '.$weekDay.'';
+      }
+      else {
+
       // Show workout field
       echo '<div class="view_schedule">
         <div class="view-icon">
@@ -61,7 +67,7 @@ if ( isset( $_POST[ 'day' ] ) ) {
               <th>Time</th>
             </tr>';
 
-    while ($row = mysqli_fetch_assoc($result)) {
+    foreach($result as $row) {
 
       //Call exercises
       $exeName = $row['exe_name'];
@@ -80,6 +86,7 @@ if ( isset( $_POST[ 'day' ] ) ) {
     }
     echo '</table>
       </div>';
+    }
     }
     // If no workouts have been created give message
     else {

@@ -19,7 +19,7 @@ $(document).idle({
     $.post('include/logout.php', {
       submitLogout: submitLogout
     });
-    window.location.href = "index.html";
+    window.location.href = "index.php";
   },
   idle: 1200000
 }); // end idle
@@ -46,7 +46,7 @@ function autoClear() {
 }
 
 function showContainer() {
-  $('.forgotPassword, .proPic, #schedule a').click(function () {
+  $('.forgotPassword, .proPic, #schedule a, .contact').click(function () {
     var linkPath = $(this).attr('href');
     var titleName = [];
 
@@ -56,6 +56,8 @@ function showContainer() {
       titleName = 'Reset Password';
     } else if (linkPath === '#add') {
       titleName = 'Create Workout';
+    } else if (linkPath === '#contact') {
+      titleName = 'Contact';
     }
     $('#sunday').click(function () {
       $('.desc_submit').attr('name', 'sunday');
@@ -157,7 +159,6 @@ function showContainer() {
 } // end showContainer
 
 function validLogin() {
-  $('.login .form-message p').css('visibility', 'hidden');
   /* Login Validation */
   $('.login form').submit(function (evt) {
     evt.preventDefault();
@@ -180,15 +181,18 @@ function validLogin() {
       }
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
+        $('#pwd').val('');
       }
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#pwd').val() == '') {
         $('#pwd').addClass('error');
+        $('#pwd').val('');
       }
       if ($('.login .form-message p').text() === 'Wrong Username!') {
-        $('#uid').addClass('error');
+        $('#uid').addClass('error').val('');
+        $('#pwd').val('');
       }
       if ($('.login .form-message p').text() === 'Wrong Password!') {
-        $('#pwd').addClass('error');
+        $('#pwd').addClass('error').val('');
       }
     }); // end load
 
@@ -232,37 +236,55 @@ function validSignup() {
       $('#signup .form-message p').css('visibility', 'visible');
 
       if ($('#signup .form-message p').text() === 'Signup Success!') {
-        window.location.href = "index.html";
+        window.location.href = "index.php";
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#email').val() == 'JonJoe@email.com') {
         $('#email').addClass('error');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#dob').val() == '10/20/1950') {
         $('#dob').addClass('error');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#pwd').val() == '') {
         $('#pwd').addClass('error');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#pwd_two').val() == '') {
         $('#pwd_two').addClass('error');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'That was an invalid username and email!') {
-        $('#uid, #email').addClass('error');
+        $('#uid, #email').addClass('error').val('');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'That was an invalid username!') {
-        $('#uid').addClass('error');
+        $('#uid').addClass('error').val('');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'That was an invalid email!') {
-        $('#email').addClass('error');
+        $('#email').addClass('error').val('');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
       if ($('#signup .form-message p').text() === 'Password does not match!') {
-        $('#pwd, #pwd_two').addClass('error');
+        $('#pwd, #pwd_two').addClass('error').val('');
       }
       if ($('#signup .form-message p').text() === 'The username or email already exist!') {
-        $('#uid, #email').addClass('error');
+        $('#uid, #email').addClass('error').val('');
+        $('#pwd').val('');
+        $('#pwd_two').val('');
       }
     }); // end load
 

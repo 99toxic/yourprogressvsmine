@@ -12,7 +12,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   $type = mysqli_real_escape_string( $conn, $_POST['type'] );
 
   // Prepare SQL
-  $sql = "SELECT w.user_id, wrk_name, w.type_id, wrk_sets, wrk_desc, u.user_id, user_name, t.type_id, type_name FROM workout_desc w LEFT JOIN users u ON w.user_id = u.user_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE wrk_name=? AND w.type_id=? ORDER BY wrk_name;";
+  $sql = "SELECT w.user_id, wrk_name, wrk_id, w.type_id, wrk_sets, wrk_desc, u.user_id, user_name, t.type_id, type_name FROM workout_desc w LEFT JOIN users u ON w.user_id = u.user_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE wrk_name=? AND w.type_id=? ORDER BY wrk_name;";
 
   $stmt = mysqli_stmt_init($conn);
   // Check if SQL connection fails
@@ -39,6 +39,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 
   while ($row = mysqli_fetch_assoc($result)) {
       $wrkName = $row['wrk_name'];
+      $wrkId = $row['wrk_id'];
       $wrkType = $row['type_name'];
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];

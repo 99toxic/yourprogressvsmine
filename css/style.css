@@ -224,6 +224,17 @@ body {
   color: #e1e1e1;
   font-family: cityburn, Impact, Charcoal, sans-serif; }
 
+#wrapper {
+  width: 100%; }
+
+main {
+  background: rgba(42, 42, 42, 0.9);
+  border-bottom: 8px solid rgba(105, 29, 6, 0.7);
+  border-right: 8px solid rgba(105, 29, 6, 0.7);
+  border-left: 8px solid rgba(105, 29, 6, 0.7);
+  min-height: 100vh;
+  padding: 10px; }
+
 h1 {
   font-family: cityburn, Impact, Charcoal, sans-serif;
   font-size: 35px;
@@ -304,6 +315,12 @@ select {
 .error {
   box-shadow: inset 0 0 10px #f00; }
 
+.form-message p {
+  visibility: hidden; }
+.form-message .showMessage {
+  visibility: visible;
+  margin-top: -20px; }
+
 textarea {
   background: #e1e1e1;
   font-family: cityburn, Impact, Charcoal, sans-serif;
@@ -366,35 +383,58 @@ input[type=submit]:active {
 .date {
   margin-right: 5%; }
 
-.back {
-  float: left;
-  margin-right: -80px;
-  font-size: 20px; }
+nav {
+  background: #2a2a2a;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.05);
+  border-left: 8px solid rgba(105, 29, 6, 0.7);
+  border-right: 8px solid rgba(105, 29, 6, 0.7);
+  border-top: 8px solid rgba(105, 29, 6, 0.7);
+  box-shadow: 5px 5px 5px white;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px; }
+  nav .logo {
+    display: flex;
+    justify-content: flex-start;
+    width: 400px; }
+  nav img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px; }
+  nav h1 {
+    font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
+    font-size: 20px;
+    padding: 12px 5px; }
+  nav .nav {
+    display: flex; }
+    nav .nav ul {
+      display: flex;
+      font-size: 20px;
+      padding: 10px 0; }
+    nav .nav li {
+      margin-right: 30px; }
+  nav form {
+    margin: 0;
+    text-align: right; }
+  nav button {
+    background: none;
+    border: none;
+    color: #e1e1e1;
+    font-family: cityburn, Impact, Charcoal, sans-serif;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 3px black; }
+    nav button span {
+      padding-left: 10px; }
+  nav button:hover {
+    color: #aba38a;
+    cursor: pointer; }
+
+#mobile_menu {
+  display: none; }
 
 /* End Global */
 /* Sign In / Sign Up Pages */
-#wrapper {
-  background: rgba(42, 42, 42, 0.9);
-  border: 8px solid rgba(105, 29, 6, 0.7);
-  min-height: 100vh; }
-
-header {
-  border-bottom: 8px solid rgba(105, 29, 6, 0.7);
-  border-radius: 3px;
-  position: relative;
-  text-align: center; }
-  header img {
-    display: block;
-    width: 100%; }
-  header h1 {
-    font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
-    font-size: 5vw;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%; }
-
 footer {
   margin: 10px 0 0 0;
   text-align: center;
@@ -404,67 +444,46 @@ footer {
     font-size: 20px; }
 
 @media only screen and (min-width: 900px) {
-  #wrapper {
-    background: none;
-    border: none;
-    margin: 0 auto;
-    width: 650px; }
-
-  header {
-    border: 8px solid rgba(105, 29, 6, 0.7);
-    margin: 10px 0; }
-    header h1 {
-      font-size: 40px; }
-
   #signin main {
-    background: rgba(42, 42, 42, 0.9);
-    border: 8px solid rgba(105, 29, 6, 0.7);
     display: flex;
-    height: 350px;
-    justify-content: center;
-    padding: 10px; }
-  #signin .content {
-    width: 80%; }
-    #signin .content h2 {
+    justify-content: space-around;
+    padding-top: 60px; }
+  #signin .login {
+    width: 30%; }
+    #signin .login h1 {
       font-size: 30px;
-      margin: 20px 0;
+      margin-bottom: 20px;
       text-align: center; }
-  #signin .logo {
-    position: relative;
-    right: 5px; }
-    #signin .logo img {
-      width: 130%;
-      z-index: 1; }
+  #signin .content {
+    width: 45%; }
+    #signin .content h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-align: left; }
+    #signin .content p {
+      line-height: 25px; }
   #signin footer {
-    float: left;
-    position: relative;
-    top: -80px;
-    right: 150px; }
+    margin-top: 50px; }
   #signin .submit {
     margin-top: 40px; }
 
   #signup main {
-    background: rgba(42, 42, 42, 0.9);
-    border: 8px solid rgba(105, 29, 6, 0.7);
-    height: 350px;
-    padding: 10px; }
+    padding-top: 60px; }
   #signup form {
-    width: 80%; }
+    width: 550px; }
   #signup .uid_email,
   #signup .pwd_pwd_two {
     display: flex;
-    justify-content: center; }
+    justify-content: space-between; }
   #signup .uid,
   #signup .email,
   #signup .pwd,
   #signup .pwd_two {
     width: 250px; }
-  #signup .uid {
-    margin-right: 5%; }
-  #signup .pwd {
-    margin-right: 5%; }
+  #signup .date, #signup .goal {
+    margin: 20px 0; }
   #signup .submit {
-    margin-top: 25px; } }
+    margin-top: 35px; } }
 @media only screen and (max-width: 900px) {
   .logo {
     display: none; }
@@ -491,11 +510,6 @@ footer {
   /* Who's Online */
   /* End Who's Online */
   /* End Social Media Area */ }
-  #profile #wrapper {
-    background: rgba(42, 42, 42, 0.9);
-    border: 8px solid rgba(105, 29, 6, 0.7);
-    margin: 0 auto;
-    width: 85%; }
   #profile .add {
     height: 430px;
     width: 600px; }
@@ -564,13 +578,13 @@ footer {
       color: #e1e1e1;
       font-family: cityburn, Impact, Charcoal, sans-serif;
       font-size: 20px; }
-  #profile header {
+  #profile .top {
     border: none;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     margin: 0;
-    padding: 10px 10px 0 10px;
+    padding: 20px 10px 40px 0;
     width: 100%; }
   #profile .profile_img {
     border: 1px solid #e1e1e1;
@@ -649,54 +663,6 @@ footer {
     #profile .view td:first-child {
       color: #e1e1e1;
       font-family: cityburn, Impact, Charcoal, sans-serif; }
-  #profile nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px; }
-    #profile nav img {
-      width: 90px;
-      height: 90px; }
-    #profile nav form {
-      margin: 0;
-      padding-top: 15px;
-      padding-right: 0;
-      width: 160px; }
-      #profile nav form img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-top: 10px; }
-    #profile nav button {
-      background: none;
-      border: none;
-      color: #e1e1e1;
-      font-family: cityburn, Impact, Charcoal, sans-serif;
-      font-size: 20px;
-      padding: 10px 10px 0 20px;
-      position: absolute;
-      text-shadow: 3px 3px 3px black; }
-      #profile nav button span {
-        padding-left: 10px; }
-    #profile nav button:hover {
-      color: #aba38a;
-      cursor: pointer; }
-  #profile .week,
-  #profile .rank,
-  #profile .follow {
-    padding: 5px;
-    height: 70px;
-    text-align: center;
-    width: 90px; }
-    #profile .week h2,
-    #profile .rank h2,
-    #profile .follow h2 {
-      padding-bottom: 5px; }
-  #profile .rank {
-    border: 1px solid #e1e1e1; }
-  #profile #mobile_menu {
-    display: none; }
-  #profile main {
-    padding: 10px; }
   #profile #sunday,
   #profile #monday,
   #profile #tuesday,
@@ -706,14 +672,14 @@ footer {
   #profile #saturday {
     border: 1px solid #e1e1e1;
     display: inline-block;
-    height: 190px;
+    height: 220px;
     text-align: center;
     width: 100%; }
   #profile #schedule {
     display: flex; }
     #profile #schedule img {
       margin: 10px;
-      padding: 20px 0;
+      padding: 35px 0;
       width: 83px; }
     #profile #schedule h4 {
       background: rgba(105, 29, 6, 0.7);
@@ -970,7 +936,7 @@ footer {
       #profile #find form input[type=submit] {
         font-size: 18px; } }
   @media only screen and (max-width: 690px) {
-    #profile header {
+    #profile .top {
       padding: 0;
       height: auto; }
     #profile .profile_img {
@@ -995,40 +961,40 @@ footer {
           padding: 20px 0;
           width: 110px; }
     #profile nav {
-      border-bottom: 1px solid rgba(225, 225, 225, 0.05);
-      padding: 10px 5px; }
-      #profile nav h2 {
-        font-size: 15px; }
-      #profile nav img {
+      padding: 0 5px 10px 5px; }
+      #profile nav h1 {
+        padding-top: 12px;
+        font-size: 20px; }
+      #profile nav .nav-img {
         display: none; }
       #profile nav form {
-        padding: 0 3px 0 0;
+        padding-right: 5px;
         width: 28px; }
       #profile nav form button span {
         display: none; }
       #profile nav form button {
         font-size: 30px;
-        padding: 0; }
+        margin-top: -8px; }
     #profile #mobile_menu {
       display: block; }
       #profile #mobile_menu .nav-container {
-        border: 1px solid #e1e1e1;
-        position: absolute;
-        top: 353px;
-        left: 8px;
-        height: 480px;
-        width: 250px;
-        z-index: -1;
         background: rgba(0, 0, 0, 0.9);
+        border: 1px solid #e1e1e1;
+        height: 380px;
+        left: 8px;
         opacity: 0;
-        transition: all 0.2s ease; }
+        position: absolute;
+        top: 59px;
+        transition: all 0.2s ease;
+        width: 250px;
+        z-index: -1; }
       #profile #mobile_menu .nav-container ul {
         position: absolute;
         top: 190px;
         transform: translateY(-50%);
         width: 100%; }
       #profile #mobile_menu .nav-container ul li {
-        border-bottom: 1px solid #e1e1e1;
+        border-bottom: 1px solid rgba(225, 225, 225, 0.05);
         display: block;
         padding: 25px 0;
         width: 100%;

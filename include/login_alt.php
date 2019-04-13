@@ -11,19 +11,18 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   $uid = mysqli_real_escape_string( $conn, $_POST[ 'uid' ] );
   $pwd = mysqli_real_escape_string( $conn, $_POST[ 'pwd' ] );
 
-  $var = array($uid, $pwd);
-
-  foreach ($var as $empty);
-
-    // Use error handler functions
-    if (emptyFields($empty) !== true ) {
-
+  if ( empty( $uid ) || empty($pwd)) {
+    header( "Location: ../?err=Please fill in all fields!" );
+    exit();
+  }
+  else {
       // Prepare SQL
       $sql = "SELECT * FROM users WHERE user_name =? OR user_email =?;";
       $stmt = mysqli_stmt_init($conn);
       // Check if SQL connection fails
       if (!mysqli_stmt_prepare($stmt, $sql)) {
-        echo '<p>Connection error!</p>';
+            header( "Location: ../?err=Sorry connection error" );
+            exit();
       }
       else {
         // Pass parameters and run inside the database
@@ -35,7 +34,8 @@ if ( isset( $_POST[ 'submit' ] ) ) {
           // Check if hashed password is correct
           $pwdCheck = password_verify($pwd, $row['user_pwd']);
           if ($pwdCheck == false) {
-            echo '<p>Wrong Password!</p>';
+            header( "Location: ../?err=Wrong Password!" );
+            exit();
           }
           else if ($pwdCheck == true) {
 
@@ -60,11 +60,13 @@ if ( isset( $_POST[ 'submit' ] ) ) {
             exit();
           }
           else {
-            echo '<p>Wrong Password!</p>';
+            header( "Location: ../?err=Wrong Password!" );
+            exit();
           }
         }
         else {
-            echo '<p>Wrong Username!</p>';
+            header( "Location: ../?err=Wrong Username!" );
+            exit();
         }
       }
     }

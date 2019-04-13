@@ -1,32 +1,4 @@
 
-#wrapper {
-  background: rgba($bckCol, .9);
-  border: $border2;
-  min-height: 100vh;
-}
-
-// login and signup header
-header {
-  border-bottom: $border2;
-  border-radius: 3px;
-  position: relative;
-  text-align: center;
-
-  img {
-    display: block;
-    width: 100%;
-  }
-
-  h1 {
-    font-family: $font1;
-    font-size: 5vw;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-  }
-}
 
 // End login and signup header
 footer {
@@ -42,58 +14,40 @@ footer {
 
 @media only screen and (min-width: 900px) {
 
-  #wrapper {
-    background: none;
-    border: none;
-    margin: 0 auto;
-    width: 650px;
-  }
-
-  header {
-    border: $border2;
-    margin: 10px 0;
-
-    h1 {
-      font-size: 40px;
-    }
-  }
-
   #signin {
 
     main {
-      background: rgba($bckCol, .9);
-      border: $border2;
       display: flex;
-      height: 350px;
-      justify-content: center;
-      padding: 10px;
+      justify-content: space-around;
+      padding-top: 60px;
     }
 
-    .content {
-      width: 80%;
+    .login {
+      width: 30%;
 
-      h2 {
+      h1 {
         font-size: 30px;
-        margin: 20px 0;
+        margin-bottom: 20px;
         text-align: center;
       }
     }
 
-    .logo {
-      position: relative;
-      right: 5px;
+    .content {
+      width: 45%;
 
-      img {
-        width: 130%;
-        z-index: 1;
+      h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+
+      p {
+        line-height: 25px;
       }
     }
 
     footer {
-      float: left;
-      position: relative;
-      top: -80px;
-      right: 150px;
+      margin-top: 50px;
     }
 
     .submit {
@@ -105,20 +59,17 @@ footer {
   #signup {
 
     main {
-      background: rgba($bckCol, .9);
-      border: $border2;
-      height: 350px;
-      padding: 10px;
+      padding-top: 60px;
     }
 
     form {
-      width: 80%;
+      width: 550px;
     }
 
     .uid_email,
     .pwd_pwd_two {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
     }
 
     .uid,
@@ -128,16 +79,15 @@ footer {
       width: 250px;
     }
 
-    .uid {
-      margin-right: 5%;
+    .uid, .pwd {
     }
 
-    .pwd {
-      margin-right: 5%;
+    .date, .goal {
+      margin: 20px 0;
     }
 
     .submit {
-      margin-top: 25px;
+      margin-top: 35px;
     }
   }
 

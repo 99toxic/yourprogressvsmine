@@ -29,7 +29,14 @@
       $wrkDesc = $row['wrk_desc'];
       $wrkDay = $row['day'];
 
-      echo '<div class="view_day">
+      if ($row['type_id'] == '6') {
+        echo '<div class="rest_day">
+          <p>Sunday</p>
+            <h1>Rest</h1>
+          </div>';
+      }
+      else {
+        echo '<div class="view_day">
               <p>'.$weekDay.'</p>
               <a href="#view">
               <img src="images/icon/'.$wrkType.'.png" alt="'.$wrkType.'">
@@ -38,6 +45,7 @@
               </div>
               </a>
             </div>';
+      }
     }
     else {
       echo '<div class="add_day">
@@ -48,8 +56,3 @@
             </div>';
     }
   }
-
-//          <div class="rest_day">
-//          <p>Sunday</p>
-//            <h1>Rest</h1>
-//          </div>
