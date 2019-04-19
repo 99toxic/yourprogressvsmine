@@ -36,15 +36,13 @@
           </div>';
       }
       else {
-        echo '<div class="view_day">
-              <p>'.$weekDay.'</p>
+        echo '<p>'.$weekDay.'</p>
               <a href="#view">
               <img src="images/icon/'.$wrkType.'.png" alt="'.$wrkType.'">
               <div>
                 <h4>'.$wrkType.'</h4>
               </div>
-              </a>
-            </div>';
+              </a>';
       }
     }
     else {

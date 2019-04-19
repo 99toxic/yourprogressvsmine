@@ -1,4 +1,5 @@
 $('document').ready(function () {
+  captcha();
   autoFocus('#uid');
   autoClear();
   showContainer();
@@ -10,7 +11,7 @@ $('document').ready(function () {
   search();
   mobileMenu();
   hide();
-  setInterval('rotateAd()', 5000000);
+  setInterval('rotateAd()', 50000);
 }); // end ready
 
 $(document).idle({
@@ -19,10 +20,21 @@ $(document).idle({
     $.post('include/logout.php', {
       submitLogout: submitLogout
     });
-    window.location.href = "index.php";
+    setTimeout(location.reload.bind(location), 6000);
   },
   idle: 1200000
 }); // end idle
+
+function captcha() {
+  grecaptcha.ready(function () {
+    grecaptcha.execute('6Le4D58UAAAAAPoeAmzni9MqhWq6Ae-AGTSm6ASM', {
+      action: 'homepage'
+    }).then(function (token) {
+      var recaptchaResponse = document.getElementById('recaptchaResponse');
+      recaptchaResponse.value = token;
+    });
+  });
+}
 
 function autoFocus(focusField) {
   $(focusField).focus();
@@ -55,7 +67,13 @@ function showContainer() {
     } else if (linkPath === '#reset') {
       titleName = 'Reset Password';
     } else if (linkPath === '#add') {
-      titleName = 'Create Workout';
+
+      if ($('#desc_tab').show()) {
+        titleName = 'Create The Workout';
+      } else if ($('#details_tab').show()) {
+        titleName = 'Create Your Exercises';
+      }
+
     } else if (linkPath === '#contact') {
       titleName = 'Contact';
     }
@@ -243,12 +261,12 @@ function validSignup() {
         $('#pwd').val('');
         $('#pwd_two').val('');
       }
-      if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#email').val() == 'JonJoe@email.com') {
+      if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#email').val() == '') {
         $('#email').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
       }
-      if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#dob').val() == '10/20/1950') {
+      if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#dob').val() == '') {
         $('#dob').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
@@ -341,21 +359,21 @@ function viewToday() {
 
 function chatBox() {
 
-  $('.chatlogs').scrollTop($('.chatlogs')[0].scrollHeight);
-
   $('.chat-form').submit(function (evt) {
     evt.preventDefault();
-    $('.chatlogs').scrollTop($('.chatlogs')[0].scrollHeight);
     var chat = $('.chat-form textarea').val();
-    $.post('include/chat-add.php', {
-      message: chat
-    });
-    $('.chatlogs').load('include/chat.php');
+    if ($('.chat-form textarea').val() == '') {} else {
+      $.post('include/chat-add.php', {
+        message: chat
+      });
+      $('.chatlogs').load('include/chat.php');
+      $('.chat-form textarea').val('').focus();
+    }
   });
 
   setInterval(function () {
     $('.users').load('include/user-online.php');
-    $('.chatlogs').load('include/chat.php').scrollTop($('.chatlogs')[0].scrollHeight);
+    $('.chatlogs').load('include/chat.php');
   }, 1000);
 } // end chatBox
 
@@ -365,8 +383,6 @@ function viewExercise() {
 
   $('#desc_tab form').submit(function (evt) {
     evt.preventDefault();
-    $('#desc_tab').hide();
-    $('#details_tab').show();
 
     var name = $('#desc_tab .name input').val();
     var type = $('#desc_tab .add_top select').val();
@@ -396,6 +412,13 @@ function viewExercise() {
       saturday: saturday
     });
 
+    if ($('#desc_tab .add_top select').val() == 6) {
+      location.reload();
+    } else {
+      $('#desc_tab').hide();
+      $('#details_tab').show();
+    }
+
   });
 
   // To view exercises in add execerises section
@@ -405,7 +428,7 @@ function viewExercise() {
     var exeEquip = $('#details_tab .equipment input').val();
     var exeSets = $('#details_tab .sets_two input').val();
     var exeReps = $('#details_tab .reps input').val();
-    var exeTime = $('#details_tab .time input').val();
+    var exeTime = $('#details_tab .time select').val();
     var submit = $('#details_tab .flex input[type=submit]').val();
     $.post('include/exe-details.php', {
       name: exeName,
@@ -418,16 +441,13 @@ function viewExercise() {
     $('.exe').load('include/view-workout.php');
   });
   setInterval(function () {
-    $('.exe').load('include/view-workout.php');
+    $('.exe').load('include/view-workout.php').scrollTop($('.exe')[0].scrollHeight);
   }, 1000);
 
   $('.done').click(function () {
     location.reload();
   });
 
-//  $('#details_tab .flex input[type=submit]').on('click', function () {
-//      $('#details_tab form').find('input:text').val('');
-//  });
 } // end viewExercise
 
 function search() {
@@ -515,7 +535,7 @@ function mobileMenu() {
       $('.nav-container').addClass('hidden');
     });
   }
-}
+} // end MobileMenu
 
 function hide() {
   $('.advertise:first').addClass('current');

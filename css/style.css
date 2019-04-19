@@ -5,6 +5,9 @@
 @font-face {
   src: url(../fonts/cityburn.ttf);
   font-family: cityburn; }
+@font-face {
+  src: url(../fonts/Transformers.ttf);
+  font-family: Transformers; }
 /* End Fonts */
 /* CSS Reset */
 html,
@@ -392,15 +395,16 @@ nav {
   box-shadow: 5px 5px 5px white;
   display: flex;
   justify-content: space-between;
-  padding: 5px; }
+  padding: 5px 10px; }
   nav .logo {
     display: flex;
     justify-content: flex-start;
     width: 400px; }
   nav img {
     width: 50px;
-    height: 50px;
-    margin-right: 10px; }
+    height: 40px;
+    margin-right: 10px;
+    margin-top: 3px; }
   nav h1 {
     font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
     font-size: 20px;
@@ -412,9 +416,9 @@ nav {
       font-size: 20px;
       padding: 10px 0; }
     nav .nav li {
-      margin-right: 30px; }
+      margin-left: 30px; }
   nav form {
-    margin: 0;
+    margin: 0 0 0 30px;
     text-align: right; }
   nav button {
     background: none;
@@ -440,30 +444,30 @@ footer {
   text-align: center;
   width: 100%; }
   footer a {
-    padding-left: 10px;
+    padding: 5px;
     font-size: 20px; }
 
 @media only screen and (min-width: 900px) {
   #signin main {
     display: flex;
     justify-content: space-around;
-    padding-top: 60px; }
+    padding-top: 70px; }
   #signin .login {
-    width: 30%; }
+    width: 300px; }
     #signin .login h1 {
       font-size: 30px;
       margin-bottom: 20px;
       text-align: center; }
-  #signin .content {
+  #signin #about {
     width: 45%; }
-    #signin .content h1 {
+    #signin #about h1 {
       font-size: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       text-align: left; }
-    #signin .content p {
+    #signin #about p {
       line-height: 25px; }
   #signin footer {
-    margin-top: 50px; }
+    margin-top: 40px; }
   #signin .submit {
     margin-top: 40px; }
 
@@ -484,20 +488,6 @@ footer {
     margin: 20px 0; }
   #signup .submit {
     margin-top: 35px; } }
-@media only screen and (max-width: 900px) {
-  .logo {
-    display: none; }
-
-  form {
-    width: 280px; }
-    form .pwd_two {
-      margin-top: 10px; } }
-@media only screen and (max-width: 500px) {
-  header h1 {
-    font-size: 29px; }
-
-  form {
-    width: 90%; } }
 /* End Sign In / Sign Up Pages */
 /* Profile Pages */
 #profile {
@@ -511,7 +501,7 @@ footer {
   /* End Who's Online */
   /* End Social Media Area */ }
   #profile .add {
-    height: 430px;
+    height: 390px;
     width: 600px; }
     #profile .add input[type=submit] {
       background: none;
@@ -540,7 +530,8 @@ footer {
   #profile .reps {
     width: 50px; }
   #profile .time {
-    width: 100px; }
+    width: 120px;
+    margin-left: 60px; }
   #profile .workout {
     height: 150px;
     margin: 0 auto;
@@ -559,6 +550,7 @@ footer {
     padding-bottom: 20px; }
   #profile td {
     border-right: 1px solid #e1e1e1;
+    letter-spacing: 3px;
     padding: 10px; }
     #profile td a {
       color: #e1e1e1; }
@@ -573,7 +565,8 @@ footer {
     border-right: 0px; }
   #profile .done {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+    margin-top: 20px; }
     #profile .done a {
       color: #e1e1e1;
       font-family: cityburn, Impact, Charcoal, sans-serif;
@@ -598,7 +591,13 @@ footer {
     display: block;
     height: 315px;
     margin: 0 auto;
+    position: relative;
     width: 560px; }
+    #profile .view h1 {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%); }
     #profile .view .view_schedule {
       display: flex;
       text-align: left; }
@@ -631,8 +630,10 @@ footer {
         width: 60%; }
     #profile .view .view_content {
       padding: 15px; }
+      #profile .view .view_content h2 {
+        padding-bottom: 10px; }
     #profile .view .workout {
-      height: 45%;
+      height: 180px;
       overflow: scroll; }
     #profile .view .workout::-webkit-scrollbar {
       width: 10px; }
@@ -672,19 +673,27 @@ footer {
   #profile #saturday {
     border: 1px solid #e1e1e1;
     display: inline-block;
-    height: 220px;
+    height: 210px;
     text-align: center;
-    width: 100%; }
+    width: 100%;
+    position: relative; }
   #profile #schedule {
     display: flex; }
     #profile #schedule img {
-      margin: 10px;
-      padding: 35px 0;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
       width: 83px; }
     #profile #schedule h4 {
       background: rgba(105, 29, 6, 0.7);
       padding: 5px 0;
-      text-shadow: none; }
+      position: absolute;
+      text-shadow: none;
+      left: 0%;
+      top: 100%;
+      transform: translate(0%, -100%);
+      width: 100%; }
     #profile #schedule p {
       border-bottom: 1px solid #e1e1e1;
       color: #e1e1e1;
@@ -692,31 +701,41 @@ footer {
       margin: 0px;
       padding: 3px;
       text-align: center; }
-  #profile .view_day:hover,
-  #profile .add_day:hover {
+  #profile #sunday:hover,
+  #profile #monday:hover,
+  #profile #tuesday:hover,
+  #profile #wednesday:hover,
+  #profile #thursday:hover,
+  #profile #friday:hover,
+  #profile #saturday:hover {
     box-shadow: 0 0 15px #e1e1e1;
     cursor: pointer; }
   #profile .current_day {
     background: rgba(0, 0, 0, 0.3); }
-  #profile .view_day {
-    height: 100%; }
   #profile .add_day {
-    height: 100%; }
+    height: 100%;
+    padding: 0; }
     #profile .add_day h1 {
       font-size: 120px;
-      margin: 0; }
+      left: 50%;
+      position: absolute;
+      top: 30%;
+      transform: translate(-50%, -30%); }
   #profile .rest_day h1 {
-    padding-top: 40%; }
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%); }
   #profile .flex {
     display: flex;
     justify-content: space-between;
     clear: both; }
   #profile #find,
-  #profile .leader {
+  #profile .admin {
     border: 1px solid #e1e1e1;
     height: 250px;
     margin: 80px 0px;
-    width: 45%; }
+    width: 40%; }
   #profile #find h1 {
     border-bottom: 1px solid #e1e1e1;
     font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
@@ -742,16 +761,16 @@ footer {
     margin-left: 1px;
     height: 50px;
     width: 30%; }
-  #profile .leader {
+  #profile .admin {
     text-align: center;
     position: relative; }
-    #profile .leader h1 {
+    #profile .admin h1 {
       border-bottom: 1px solid #e1e1e1;
       font-family: ACIDLABEL, Impact, Charcoal, sans-serif;
       font-size: 25px;
       margin: 0;
       padding: 5px; }
-    #profile .leader input[type=text] {
+    #profile .admin input[type=text] {
       background: #e1e1e1;
       border: none;
       border-radius: 3px;
@@ -762,33 +781,23 @@ footer {
       margin: 5px;
       padding: 5px;
       width: 35%; }
-    #profile .leader .advertise_img {
+    #profile .admin .advertise_img {
       width: 100%;
       height: 100%; }
-    #profile .leader .advertise {
+    #profile .admin .advertise {
       bottom: 0;
       left: 0;
       position: absolute;
       right: 0;
       top: 0;
       z-index: 1; }
-    #profile .leader .admin_img {
+    #profile .admin .admin_img {
       width: 50%;
       height: 45%; }
-    #profile .leader .current {
+    #profile .admin .current {
       z-index: 19; }
-    #profile .leader input[type=file] {
+    #profile .admin input[type=file] {
       width: 35%; }
-  #profile .score {
-    height: 180px;
-    padding: 10px 10px 10px 20px;
-    overflow-x: hidden;
-    overflow-y: scroll; }
-  #profile .score::-webkit-scrollbar {
-    width: 10px; }
-  #profile .score::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px; }
   #profile .social {
     border: 1px solid #e1e1e1;
     display: flex;
@@ -801,6 +810,9 @@ footer {
       text-align: center; }
     #profile .social aside {
       flex-basis: 30%; }
+  #profile .user-photo img {
+    width: 100%;
+    object-fit: cover; }
   #profile .update {
     height: 500px;
     overflow-x: hidden;
@@ -836,7 +848,9 @@ footer {
     overflow-x: hidden;
     overflow-y: scroll;
     padding: 10px;
-    width: 100%; }
+    width: 100%;
+    transform: rotate(180deg);
+    direction: rtl; }
   #profile .chatlogs::-webkit-scrollbar {
     width: 10px; }
   #profile .chatlogs::-webkit-scrollbar-thumb {
@@ -845,21 +859,25 @@ footer {
   #profile .chat {
     align-items: flex-start;
     display: flex;
-    margin-bottom: 10px; }
+    margin-bottom: 10px;
+    transform: rotate(180deg);
+    direction: ltr; }
     #profile .chat .user-photo {
       background: #ccc;
       border-radius: 50%;
       height: 60px;
       overflow: hidden;
       width: 60px; }
-    #profile .chat .user-photo img {
-      width: 100%; }
     #profile .chat .chat-message {
       border: 1px solid #e1e1e1;
       border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
       margin: 5px 10px 0;
       padding: 15px;
       width: 80%; }
+      #profile .chat .chat-message span {
+        font-size: 10px; }
   #profile .friend .chat-message {
     background: rgba(0, 0, 0, 0.7); }
   #profile .self .chat-message {
@@ -908,8 +926,6 @@ footer {
       height: 50px;
       overflow: hidden;
       width: 50px; }
-    #profile .online .user-photo img {
-      width: 100%; }
     #profile .online .name {
       margin: 5px 0px 0px 10px;
       padding: 5px;
@@ -918,23 +934,38 @@ footer {
         font-size: 10px;
         padding-left: 10px; }
   @media only screen and (max-width: 980px) {
-    #profile #wrapper {
-      width: 100%;
-      box-sizing: border-box; }
     #profile .view {
       width: 450px; }
+    #profile #sunday,
+    #profile #monday,
+    #profile #tuesday,
+    #profile #wednesday,
+    #profile #thursday,
+    #profile #friday,
+    #profile #saturday {
+      height: 150px; }
+    #profile #schedule img {
+      width: 60px; }
+    #profile .add_day h1 {
+      font-size: 110px; }
     #profile .social aside:first-child {
       display: none; }
     #profile #messenger {
       border-left: none;
       flex-basis: 70%; }
     #profile #find,
-    #profile .leader {
+    #profile .admin {
       width: 50%; }
     #profile #find form {
       width: 100%; }
       #profile #find form input[type=submit] {
         font-size: 18px; } }
+  @media only screen and (max-width: 850px) {
+    #profile .flex {
+      display: block; }
+    #profile #find,
+    #profile .admin {
+      width: 100%; } }
   @media only screen and (max-width: 690px) {
     #profile .top {
       padding: 0;
@@ -949,6 +980,8 @@ footer {
     #profile .view {
       flex: 0 0 50%;
       height: 250px; }
+      #profile .view h1 {
+        font-size: 25px; }
       #profile .view .view-icon {
         border: none;
         width: 100%; }
@@ -958,87 +991,8 @@ footer {
         #profile .view .view-icon a {
           font-size: 20px; }
         #profile .view .view-icon img {
-          padding: 20px 0;
-          width: 110px; }
-    #profile nav {
-      padding: 0 5px 10px 5px; }
-      #profile nav h1 {
-        padding-top: 12px;
-        font-size: 20px; }
-      #profile nav .nav-img {
-        display: none; }
-      #profile nav form {
-        padding-right: 5px;
-        width: 28px; }
-      #profile nav form button span {
-        display: none; }
-      #profile nav form button {
-        font-size: 30px;
-        margin-top: -8px; }
-    #profile #mobile_menu {
-      display: block; }
-      #profile #mobile_menu .nav-container {
-        background: rgba(0, 0, 0, 0.9);
-        border: 1px solid #e1e1e1;
-        height: 380px;
-        left: 8px;
-        opacity: 0;
-        position: absolute;
-        top: 59px;
-        transition: all 0.2s ease;
-        width: 250px;
-        z-index: -1; }
-      #profile #mobile_menu .nav-container ul {
-        position: absolute;
-        top: 190px;
-        transform: translateY(-50%);
-        width: 100%; }
-      #profile #mobile_menu .nav-container ul li {
-        border-bottom: 1px solid rgba(225, 225, 225, 0.05);
-        display: block;
-        padding: 25px 0;
-        width: 100%;
-        text-align: left; }
-      #profile #mobile_menu .nav-container ul li:nth-child(1) a {
-        transition-delay: 0.2s; }
-      #profile #mobile_menu .nav-container ul li:nth-child(2) a {
-        transition-delay: 0.3s; }
-      #profile #mobile_menu .nav-container ul li:nth-child(3) a {
-        transition-delay: 0.4s; }
-      #profile #mobile_menu .nav-container ul li:nth-child(4) a {
-        transition-delay: 0.5s; }
-      #profile #mobile_menu .nav-container ul li:not(:first-child) {
-        margin-left: 0; }
-      #profile #mobile_menu .nav-container ul li a {
-        padding: 10px 25px;
-        opacity: 0;
-        color: #e1e1e1;
-        font-size: 25px;
-        font-weight: 200;
-        letter-spacing: 3px;
-        transform: translateY(-20px);
-        transition: all 0.2s ease; }
-      #profile #mobile_menu .nav-open {
-        cursor: pointer;
-        font-size: 30px;
-        z-index: 9999; }
-      #profile #mobile_menu #nav:checked ~ .nav-container {
-        z-index: 9990;
-        opacity: 1; }
-      #profile #mobile_menu #nav:checked ~ .nav-container ul li a {
-        opacity: 1;
-        transform: translateY(0); }
-    #profile .week,
-    #profile .rank,
-    #profile .follow {
-      padding: 5px;
-      height: 60px;
-      text-align: center;
-      width: 90px; }
-      #profile .week h2,
-      #profile .rank h2,
-      #profile .follow h2 {
-        padding-bottom: 5px; }
+          padding: 49px 0;
+          width: 90px; }
     #profile main {
       padding: 0; }
     #profile #schedule {
@@ -1053,20 +1007,24 @@ footer {
     #profile #thursday,
     #profile #friday,
     #profile #saturday {
-      margin-bottom: 35px;
-      width: 200px; }
-    #profile .leader {
+      margin: 25px 0;
+      width: 45%; }
+    #profile .admin {
       display: none; }
     #profile #find,
-    #profile #updates,
-    #profile #online_users {
+    #profile #updates {
       border: none;
-      height: 480px;
+      height: 100vh;
       margin: 0;
       width: 100%;
       z-index: 5; }
+    #profile #online_users {
+      height: 100vh;
+      margin-top: 20px; }
     #profile #messenger {
       border-right: none; }
+    #profile .chatbox {
+      height: 100vh; }
     #profile .social h2,
     #profile #find h1 {
       display: none; }
@@ -1082,7 +1040,104 @@ footer {
     #profile .workout {
       height: 410px;
       width: 100%; } }
+  @media only screen and (max-width: 400px) {
+    #profile .profile_img,
+    #profile .view {
+      height: 200px; } }
 
 /* End Profile Pages */
+@media only screen and (max-width: 980px) {
+  #about {
+    display: none; }
+
+  .login main, #signup main {
+    padding-top: 20px; }
+  .login form, #signup form {
+    width: 380px; }
+    .login form .pwd_two, #signup form .pwd_two {
+      margin-top: 10px; } }
+@media only screen and (max-width: 690px) {
+  .hidden {
+    display: none; }
+
+  nav {
+    padding-bottom: 10px; }
+    nav .nav ul {
+      display: none; }
+    nav .logo {
+      display: flex;
+      justify-content: center;
+      padding-right: 15px; }
+      nav .logo h1 {
+        display: none; }
+    nav form {
+      padding-right: 5px;
+      width: 28px; }
+    nav form button span {
+      display: none; }
+    nav form button {
+      font-size: 30px;
+      margin-top: -8px; }
+
+  #mobile_menu {
+    display: block; }
+    #mobile_menu .nav-container {
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #e1e1e1;
+      left: 8px;
+      opacity: 0;
+      position: absolute;
+      top: 68px;
+      transition: all 0.2s ease;
+      width: 250px;
+      z-index: -1; }
+    #mobile_menu .nav-container ul li {
+      border-bottom: 1px solid rgba(225, 225, 225, 0.05);
+      display: block;
+      padding: 25px 0;
+      width: 100%;
+      text-align: left; }
+    #mobile_menu .nav-container ul li:nth-child(1) a {
+      transition-delay: 0.2s; }
+    #mobile_menu .nav-container ul li:nth-child(2) a {
+      transition-delay: 0.3s; }
+    #mobile_menu .nav-container ul li:nth-child(3) a {
+      transition-delay: 0.4s; }
+    #mobile_menu .nav-container ul li:nth-child(4) a {
+      transition-delay: 0.5s; }
+    #mobile_menu .nav-container ul li:nth-child(5) a {
+      transition-delay: 0.6s; }
+    #mobile_menu .nav-container ul li:nth-child(6) a {
+      transition-delay: 0.7s; }
+    #mobile_menu .nav-container ul li:nth-child(7) a {
+      transition-delay: 0.8s; }
+    #mobile_menu .nav-container ul li:not(:first-child) {
+      margin-left: 0; }
+    #mobile_menu .nav-container ul li a {
+      padding: 10px 25px;
+      opacity: 0;
+      color: #e1e1e1;
+      font-size: 25px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      transform: translateY(-20px);
+      transition: all 0.2s ease; }
+    #mobile_menu .nav-open {
+      cursor: pointer;
+      font-size: 30px;
+      z-index: 9999; }
+    #mobile_menu #nav:checked ~ .nav-container {
+      z-index: 9990;
+      opacity: 1; }
+    #mobile_menu #nav:checked ~ .nav-container ul li a {
+      opacity: 1;
+      transform: translateY(0); } }
+@media only screen and (max-width: 500px) {
+  .login,
+  #signup {
+    width: 100%; }
+    .login form,
+    #signup form {
+      width: 90%; } }
 
 /*# sourceMappingURL=style.css.map */

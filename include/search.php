@@ -51,7 +51,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
               <td>'.$wrkSets.'</td>
               <td>'.$wrkDesc.'</td>
               <td>'.$userName.'</td>
-              <td><a class="viewSearch" href="#workout'.$wrkId.'>View</a></td>
+              <td><a class="viewSearch" id="'.$wrkId.'" href="#viewSearch">view</a></td>
             </tr>';
     }
     echo '</table>';
@@ -69,7 +69,6 @@ if ( isset( $_POST[ 'submit' ] ) ) {
                 <th>Sets</th>
                 <th>Description</th>
                 <th>By</th>
-                <th></th>
               </tr>';
 
       while ($row = mysqli_fetch_assoc($result)) {
@@ -86,7 +85,6 @@ if ( isset( $_POST[ 'submit' ] ) ) {
               <td>'.$wrkSets.'</td>
               <td>'.$wrkDesc.'</td>
               <td>'.$userName.'</td>
-              <td><a class="viewSearch" id="'.$wrkId.'" href="#viewSearch">view</a></td>
             </tr>';
       }
 

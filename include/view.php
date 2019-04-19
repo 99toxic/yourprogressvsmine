@@ -37,9 +37,8 @@ if ( isset( $_POST[ 'day' ] ) ) {
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];
 
-
       if ($row['type_id'] == '6') {
-        echo '<h2 style="font-size: 30px; padding-top: 100px;">Rest on '.$weekDay.'';
+        echo '<h1>Rest on '.$weekDay.'</h1>';
       }
       else {
 
@@ -48,9 +47,6 @@ if ( isset( $_POST[ 'day' ] ) ) {
         <div class="view-icon">
           <p>'.$weekDay.'</p>
           <img src="images/icon/'.$wrkType.'.png" alt="'.$wrkType.'">
-          <div class="edit">
-            <a href="#view">View</a> <a href="#">Edit</a>
-          </div>
           <h4>'.$wrkType.'</h4>
         </div>
         <div class="view_content">
@@ -90,12 +86,7 @@ if ( isset( $_POST[ 'day' ] ) ) {
     }
     // If no workouts have been created give message
     else {
-      echo '<h2 style="font-size: 30px; padding-top: 100px;">No workout for '.$weekDay.' has been added</h2>';
+      echo '<h1>No workout for '.$weekDay.' has been added</h1>';
     }
   }
 }
-
-//          <div class="rest_day">
-//          <p>Sunday</p>
-//            <h1>Rest</h1>
-//          </div>

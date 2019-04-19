@@ -1,0 +1,138 @@
+@media only screen and (max-width: 690px) {
+  .hidden {
+    display: none;
+  }
+
+  nav {
+    padding-bottom: 10px;
+
+    .nav ul {
+      display: none;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      padding-right: 15px;
+
+      h1 {
+        display: none;
+      }
+    }
+
+    form {
+      padding-right: 5px;
+      width: 28px;
+    }
+
+    form button span {
+      display: none;
+    }
+
+    form button {
+      font-size: 30px;
+      margin-top: -8px;
+    }
+  }
+
+  // Mobile Menu
+  #mobile_menu {
+    display: block;
+
+    .nav-container {
+      background: $mobile;
+      border: $border;
+      left: 8px;
+      opacity: 0;
+      position: absolute;
+      top: 68px;
+      transition: all 0.2s ease;
+      width: 250px;
+      z-index: -1;
+    }
+
+    .nav-container ul li {
+      border-bottom: $border3;
+      display: block;
+      padding: 25px 0;
+      width: 100%;
+      text-align: left;
+    }
+
+    .nav-container ul li:nth-child(1) a {
+      transition-delay: 0.2s;
+    }
+
+    .nav-container ul li:nth-child(2) a {
+      transition-delay: 0.3s;
+    }
+
+    .nav-container ul li:nth-child(3) a {
+      transition-delay: 0.4s;
+    }
+
+    .nav-container ul li:nth-child(4) a {
+      transition-delay: 0.5s;
+    }
+
+    .nav-container ul li:nth-child(5) a {
+      transition-delay: 0.6s;
+    }
+
+    .nav-container ul li:nth-child(6) a {
+      transition-delay: 0.7s;
+    }
+
+    .nav-container ul li:nth-child(7) a {
+      transition-delay: 0.8s;
+    }
+
+    .nav-container ul li:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .nav-container ul li a {
+      padding: 10px 25px;
+      opacity: 0;
+      color: $txtCol;
+      font-size: 25px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      transform: translateY(-20px);
+      transition: all 0.2s ease;
+    }
+
+    .nav-open {
+      cursor: pointer;
+      font-size: 30px;
+      z-index: 9999;
+    }
+
+    #nav:checked ~ .nav-container {
+      z-index: 9990;
+      opacity: 1;
+    }
+
+    #nav:checked ~ .nav-container ul li a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  }
+
+  // end Mobiel Menu
+
+  // End Navigation
+}
+
+@media only screen and (max-width: 500px) {
+
+  .login,
+  #signup {
+    width: 100%;
+
+    form {
+      width: 90%;
+    }
+  }
+}

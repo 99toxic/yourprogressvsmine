@@ -224,7 +224,7 @@ input[type=submit]:active {
     box-shadow: 5px 5px 5px white;
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    padding: 5px 10px;
 
 
   .logo {
@@ -235,8 +235,9 @@ input[type=submit]:active {
 
     img {
       width: 50px;
-      height: 50px;
+      height: 40px;
       margin-right: 10px;
+      margin-top: 3px;
     }
 
 
@@ -255,12 +256,12 @@ input[type=submit]:active {
         padding: 10px 0;
       }
       li {
-        margin-right: 30px;
+        margin-left: 30px;
       }
     }
 
     form {
-      margin: 0;
+      margin: 0 0 0 30px;
       text-align: right;
     }
 
@@ -287,8 +288,6 @@ input[type=submit]:active {
   #mobile_menu {
     display: none;
   }
-
-  // End Navigation
 /* End Global */
 
 /* Sign In / Sign Up Pages */
@@ -298,3 +297,11 @@ input[type=submit]:active {
 /* Profile Pages */
 @import 'partials/profile';
 /* End Profile Pages */
+
+// Tablet
+@import 'partials/tablet';
+// End Tablet
+
+  // Mobile
+@import 'partials/mobile';
+// End Mobile

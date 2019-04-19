@@ -1,39 +1,8 @@
 <?php
   session_start();
   include_once 'include/dbh.php';
+  include 'header.php';
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <title>Your Progress VS Mine</title>
-    <meta charset="utf-8">
-
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <!--End Stylesheets-->
-
-    <!--Favicon-->
-      <link href="images/Group%203.png" rel="icon" type="image/x-icon">
-    <!--End Favicon-->
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--End Font Awesome-->
-
-    <!--JavaScript-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.idle.js"></script>
-    <script src="js/main.js"></script>
-    <!--JavaScript-->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Nick's Creative Design">
-    <meta name="Description" content="A short description goes here">
-  </head>
 
   <body id="profile">
     <!--Floating Add Image Form-->
@@ -50,16 +19,12 @@
       <div class="add">
         <div id="add_tab">
           <div class="form-message">JAVASCRIPT HERE!</div>
-          <ul class="add_heading">
-            <li><a href="#desc_tab">Workout Description</a></li>
-            <li><a href="#details_tab">Workout Details</a></li>
-          </ul>
           <div id="desc_tab">
             <form action="include/workout-desc.php" method="post">
               <div class="add_top">
                 <div class="name">
                   <label>Name:</label>
-                  <input type="text" name="name" autofocus>
+                  <input type="text" name="name" placeholder="Name of Workout" autofocus>
                 </div>
                 <div>
                   <label>Type:</label>
@@ -80,7 +45,7 @@
               <div class="flex">
                 <div class="desc">
                   <label>Description:</label>
-                  <textarea name="desc"></textarea>
+                  <textarea name="desc" placeholder="Short discription of today's workout"></textarea>
                 </div>
                 <input  class="desc_submit" type="submit" name="submit" value="Next">
               </div>
@@ -91,11 +56,11 @@
               <div class="add_top">
                 <div class="name">
                   <label>Name:</label>
-                  <input type="text" name="name" autofocus>
+                  <input type="text" name="name" placeholder="Name of Exercise" autofocus>
                 </div>
                 <div class="equipment">
                   <label>Equipment:</label>
-                  <input type="text" name="equip">
+                  <input type="text" name="equip" placeholder="ie Dumbbell, Barbell, Kettlebell etc.">
                 </div>
               </div>
               <div class="flex">
@@ -109,7 +74,33 @@
                 </div>
                 <div class="time">
                   <label>Time:</label>
-                  <input type="text" name="time">
+                  <select name="time">
+                    <option value="0">Select</option>
+                    <option value="10">10secs</option>
+                    <option value="20">20secs</option>
+                    <option value="30">30secs</option>
+                    <option value="40">40secs</option>
+                    <option value="50">50secs</option>
+                    <option value="100">1min</option>
+                    <option value="130">1min 30secs</option>
+                    <option value="200">2mins</option>
+                    <option value="230">2mins 30 secs</option>
+                    <option value="300">3mins</option>
+                    <option value="330">3mins 30secs</option>
+                    <option value="400">4mins</option>
+                    <option value="430">4mins 30secs</option>
+                    <option value="500">5mins</option>
+                    <option value="530">5mins 30secs</option>
+                    <option value="600">6mins</option>
+                    <option value="630">6mins 30secs</option>
+                    <option value="700">7mins</option>
+                    <option value="730">7mins 30secs</option>
+                    <option value="800">8mins</option>
+                    <option value="830">8mins 30secs</option>
+                    <option value="900">9mins</option>
+                    <option value="930">9mins 30secs</option>
+                    <option value="1000">10mins</option>
+                  </select>
                 </div>
                 <input type="submit" name="submit" value="Next">
               </div>
@@ -146,7 +137,12 @@
                 <li><a href="#updates" class="view_update">Live Updates</a></li>
                 <li><a href="#online_users" class="view_online">Who's Online</a></li>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="contact.php">Contact</a></li>
+<?php
+if (isset($_SESSION['u_id'])) {
+  echo '<li><a href="profile.php">Profile</a></li>';
+}
+?>
+<!--                <li><a href="contact.php">Contact</a></li>-->
               </ul>
             </div>
         </div>
@@ -158,21 +154,23 @@
         <div class="nav">
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="contact.php">Contact</a></li>
-          </ul>
+<?php
+if (isset($_SESSION['u_id'])) {
+  echo '<li><a href="profile.php">Profile</a></li>';
+}
+?>
+<!--            <li><a href="contact.php">Contact</a></li>-->
 
 
 <?php
   if (isset($_SESSION['u_id'])) {
 
-    echo '<form action="include/logout.php" method="post">';
+    echo '</ul><form action="include/logout.php" method="post">';
     echo '<button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout '.$_SESSION['u_name'].' </span></button>
           </form>';
   }
   else {
-    echo '<form action="include/logout.php" method="post">
-          <button type="submit" name="submitLogout"><i class="fa fa-sign-in"></i><span> Login</span></button>
-          </form>';
+    echo '<li><a href="signup.php">Signup</a></li></ul>';
   }
 
   ?>
@@ -180,9 +178,11 @@
       </nav>
       <!-- End Navigation -->
 
+<?php
+  if (isset($_SESSION['u_id'])) {
+  ?>
 
       <main>
-
 
       <div class="top">
 
@@ -204,9 +204,6 @@
         <!-- End View Workout -->
       </div>
 
-<?php
-  if (isset($_SESSION['u_id'])) {
-  ?>
         <!-- Schedule -->
         <div id="schedule">
           <div id="sunday">
@@ -282,7 +279,7 @@
           <!-- End User Info -->
 
           <!-- Leader Board -->
-          <div class="leader">
+          <div class="admin">
             <?php
     include 'include/admin.php';
   ?>
@@ -298,10 +295,9 @@
           <aside id="updates">
             <h2>Live Update</h2>
             <div class="update">
-              <div class="user_update">
-                <p class="name"><span>Nick Simpson:</span> Added a new workout today! <a href="#">View</a>
-                </p>
-              </div>
+              <?php
+  include 'include/live-update.php';
+?>
             </div>
           </aside>
           <!-- End Live Updates -->
@@ -341,9 +337,31 @@
 <?php
         }
       else {
-        echo '<main><p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        echo '<main style="padding-top: 100px;"><h1>You are logged out!</h1>';
+         echo '<div class="login">
+          <div class="form-message">
+            <p>Javascript Here!</p>';
 
-  <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</main></p>';
+  if (isset($_GET['err'])) {
+  echo '<p class="showMessage">'.$_GET['err'].'</p>';
+  }
+  echo  '</div>
+          <form action="include/login_alt.php" method="post" style="width: 300px;">
+            <label for="uid">Username:</label>
+            <input id="uid" type="text" name="uid" autofocus>
+            <label for="pwd">Password:</label>
+            <input id="pwd" type="password" name="pwd">
+<!--            <a href="#">Forgot Password?</a>-->
+            <div class="submit">
+              <input type="submit" name="submit" value="Enter">
+            </div>
+          </form>
+
+      <footer>
+        <p>Dont have an account?<a href="signup.php">Sign up!</a></p>
+        <a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+      </footer>
+        </div></main>';
       }
   ?>
     </div>

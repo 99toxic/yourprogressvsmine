@@ -11,7 +11,7 @@
   <!--End Stylesheets-->
 
   <!--Favicon-->
-  <link href="php/img/favicon.ico" rel="icon" type="image/x-icon">
+  <link href="images/favicon.png" rel="icon" type="image/x-icon">
   <!--End Favicon-->
 
   <!--Font Awesome-->
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="logo">
-          <img src="images/Group%203.png" alt="">
+          <img src="images/logo.png" alt="">
           <h1>Your Progress vs Mine</h1>
         </div>
 
@@ -77,6 +77,9 @@
           </div>
         </div>
         <div class="message">
+         <label for="subject">Subject:</label>
+            <input id="email" type="text" name="subject">
+          <label for="message">Message:</label>
           <textarea name="message" id=""></textarea>
         </div>
         <div class="submit"><input type="submit" name="submit" value="Enter"></div>

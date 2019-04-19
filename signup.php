@@ -1,34 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <title>Your Progress VS Mine</title>
-    <meta charset="utf-8">
-
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    <!--End Stylesheets-->
-
-    <!--Favicon-->
-    <link href="php/img/favicon.ico" rel="icon" type="image/x-icon">
-    <!--End Favicon-->
-
-    <!--Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--End Font Awesome-->
-
-    <!--JavaScript-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/jquery.validate.js"></script>
-    <script src="js/main.js"></script>
-    <!--JavaScript-->
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Nick's Creative Design">
-    <meta name="Description" content="A short description goes here">
-  </head>
+<?php
+  session_start();
+  include_once 'include/dbh.php';
+  include 'header.php';
+?>
 
   <body id="signup">
     <div id="wrapper">
@@ -41,20 +15,20 @@
             <div class="nav-container">
               <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="contact.php">Contact</a></li>
+<!--                <li><a href="contact.php">Contact</a></li>-->
                 <li><a href="signup.php">Signup</a></li>
               </ul>
             </div>
         </div>
         <div class="logo">
-          <img src="images/Group%203.png" alt="">
+          <img src="images/logo.png" alt="">
           <h1>Your Progress vs Mine</h1>
         </div>
 
         <div class="nav">
           <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="contact.php">Contact</a></li>
+<!--            <li><a href="contact.php">Contact</a></li>-->
             <li><a href="signup.php">Signup</a></li>
           </ul>
         </div>
@@ -69,17 +43,17 @@
           <div class="uid_email">
             <div class="uid">
               <label for="uid">Username:</label>
-              <input id="uid" type="text" name="uid" autofocus>
+              <input id="uid" type="text" name="uid" placeholder="Username123" autofocus>
             </div>
             <div class="email">
               <label for="email">Email:</label>
-              <input id="email" type="text" name="email" value="JonJoe@email.com">
+              <input id="email" type="text" name="email" placeholder="JonJoe@email.com">
             </div>
           </div>
           <div class="date_goal">
             <div class="date">
               <label for="dob">Date of Birth:</label>
-              <input type="text" name="dob" id="dob" value="10/20/1950">
+              <input type="text" name="dob" id="dob" placeholder="10/20/1950">
             </div>
             <div class="goal">
               <label for="goal">Goal:</label>

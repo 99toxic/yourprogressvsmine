@@ -1,13 +1,13 @@
 
 
-// End login and signup header
+
 footer {
   margin: 10px 0 0 0;
   text-align: center;
   width: 100%;
 
   a {
-    padding-left: 10px;
+    padding: 5px;
     font-size: 20px;
   }
 }
@@ -19,11 +19,11 @@ footer {
     main {
       display: flex;
       justify-content: space-around;
-      padding-top: 60px;
+      padding-top: 70px;
     }
 
     .login {
-      width: 30%;
+      width: 300px;
 
       h1 {
         font-size: 30px;
@@ -32,12 +32,12 @@ footer {
       }
     }
 
-    .content {
+    #about {
       width: 45%;
 
       h1 {
         font-size: 30px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         text-align: left;
       }
 
@@ -47,7 +47,7 @@ footer {
     }
 
     footer {
-      margin-top: 50px;
+      margin-top: 40px;
     }
 
     .submit {
@@ -91,30 +91,4 @@ footer {
     }
   }
 
-}
-
-@media only screen and (max-width: 900px) {
-  .logo {
-    display: none;
-  }
-
-  form {
-    width: 280px;
-
-    .pwd_two {
-      margin-top: 10px;
-    }
-  }
-}
-
-@media only screen and (max-width: 500px) {
-    header{
-    h1 {
-      font-size: 29px;
-    }
-  }
-
-  form {
-    width: 90%;
-  }
 }

@@ -42,7 +42,12 @@ if ( isset( $_POST[ 'sunday' ] ) || isset( $_POST[ 'monday' ] ) || isset( $_POST
   $userId = $_SESSION['u_id'];
   $active = '1';
 
-  $var = array($name, $desc);
+  if ($type == '6') {
+    $var = array($type);
+  }
+  else {
+    $var = array($name, $desc);
+  }
 
   foreach ($var as $input);
 
