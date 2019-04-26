@@ -15,18 +15,18 @@ body {
   font-family: $font2;
 }
 
-  #wrapper {
-    width: 100%;
-  }
+#wrapper {
+  width: 100%;
+}
 
-  main {
-    background: rgba($bckCol, .9);
-    border-bottom: $border2;
-    border-right: $border2;
-    border-left: $border2;
-    min-height: 100vh;
-    padding: 10px;
-  }
+main {
+  background: rgba($bckCol, .9);
+  border-bottom: $border2;
+  border-right: $border2;
+  border-left: $border2;
+  min-height: 100vh;
+  padding: 10px;
+}
 
 h1 {
   font-family: $font2;
@@ -47,12 +47,16 @@ p {
 th {
   color: $txtCol;
   font-family: $font2;
+  font-size: 15px;
   letter-spacing: 3px;
+  padding: 10px;
+  text-decoration: underline;
 }
 
 td {
   color: $txtCol;
   font-family: $font2;
+  font-size: 12px;
 }
 
 a {
@@ -99,6 +103,7 @@ main {
 
 form {
   margin: 10px auto;
+
   a {
     float: right;
   }
@@ -130,13 +135,13 @@ select {
 
 .form-message {
   p {
-  visibility: hidden;
+    visibility: hidden;
   }
 
-.showMessage {
-  visibility: visible;
-  margin-top: -20px;
-}
+  .showMessage {
+    visibility: visible;
+    margin-top: -20px;
+  }
 }
 
 textarea {
@@ -176,7 +181,7 @@ textarea:focus {
 }
 
 .submit {
-  margin-top: 60px;
+  margin: 60px 0;
   text-align: center;
 }
 
@@ -214,17 +219,16 @@ input[type=submit]:active {
   margin-right: 5%;
 }
 
-  // Navigation
-  nav {
-    background: $bckCol;
-    border-bottom: $border3;
-    border-left: $border2;
-    border-right: $border2;
-    border-top: $border2;
-    box-shadow: 5px 5px 5px white;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
+// Navigation
+nav {
+  background: $bckCol;
+  border-bottom: $border3;
+  border-left: $border2;
+  border-right: $border2;
+  border-top: $border2;
+  box-shadow: 5px 5px 5px white;
+  display: flex;
+  justify-content: space-between;
 
 
   .logo {
@@ -233,61 +237,72 @@ input[type=submit]:active {
     width: 400px;
   }
 
-    img {
-      width: 50px;
-      height: 40px;
-      margin-right: 10px;
-      margin-top: 3px;
-    }
+  img {
+    width: 50px;
+    height: 40px;
+    margin: 3px 5px 0 10px;
+  }
 
 
-      h1 {
+  h1 {
 
     font-family: $font1;
     font-size: 20px;
-        padding: 12px 5px;
-      }
+    padding: 12px 5px;
+  }
 
-    .nav {
+  .nav {
+    display: flex;
+
+    ul {
       display: flex;
-      ul {
-        display: flex;
-        font-size: 20px;
-        padding: 10px 0;
-      }
-      li {
-        margin-left: 30px;
-      }
-    }
-
-    form {
-      margin: 0 0 0 30px;
-      text-align: right;
-    }
-
-    button {
-      background: none;
-      border: none;
-      color: $txtCol;
-      font-family: $font2;
       font-size: 20px;
-      letter-spacing: 3px;
-      text-shadow: 3px 3px 3px black;
+    }
 
-      span {
-        padding-left: 10px;
+    li {
+      padding-top: 13px;
+
+      a {
+        padding: 0 20px;
       }
+
     }
 
-    button:hover {
-      color: $hover;
-      cursor: pointer;
+    .highlight {
+      background: $high;
     }
   }
 
-  #mobile_menu {
-    display: none;
+  form {
+    margin: 0 0 0 30px;
+    text-align: right;
+    margin-right: 10px;
   }
+
+  button {
+    background: none;
+    border: none;
+    color: $txtCol;
+    font-family: $font2;
+    font-size: 20px;
+    letter-spacing: 3px;
+    text-shadow: 3px 3px 3px black;
+
+    span {
+      padding-left: 10px;
+    }
+  }
+
+  button:hover {
+    color: $hover;
+    cursor: pointer;
+  }
+}
+
+#mobile_menu {
+  display: none;
+}
+
 /* End Global */
 
 /* Sign In / Sign Up Pages */
@@ -298,10 +313,14 @@ input[type=submit]:active {
 @import 'partials/profile';
 /* End Profile Pages */
 
+/* Profile Pages */
+@import 'partials/404';
+/* End Profile Pages */
+
 // Tablet
 @import 'partials/tablet';
 // End Tablet
 
-  // Mobile
+// Mobile
 @import 'partials/mobile';
 // End Mobile

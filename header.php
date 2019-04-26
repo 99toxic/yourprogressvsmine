@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+<?php
+echo '<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Your Progress VS Mine</title>
+  <title>'.$title.'</title>
   <meta charset="utf-8">
 
   <!--Stylesheets-->
@@ -19,14 +20,27 @@
   <!--End Font Awesome-->
 
   <!--JavaScript-->
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/jquery.idle.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?render=6Le4D58UAAAAAPoeAmzni9MqhWq6Ae-AGTSm6ASM"></script>
-  <script src="js/main.js"></script>
-  <!--JavaScript-->
+  '.$javaScript.'
+  <!--End JavaScript-->
 
+  <!--Meta Tags-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="Nick's Creative Design">
-  <meta name="Description" content="A short description goes here">
-</head>
+  <meta name="author" content="Nicks Creative Design">
+  <meta name="Description" content="Your Progress VS Mine is a fitness social platform where you can engage in conversation and compete for a leaderboard based on your progress and the number of workouts shared.">
+  <!--End Meta Tags-->
+
+  <!--Social Meta Tags-->
+  <meta property="og:title" content="Your Progress VS Mine">
+  <meta property="og:description" content="Your Progress VS Mine is a fitness social platform where you can engage in conversation and compete for a leaderboard based on your progress and the number of workouts shared.">
+  <meta property="og:image" content="https://www.yourprogressvsmine.com/images/ypvm.jpg">
+  <meta property="og:url" content="http://yourprogressvsmine.com">
+  <meta name="twitter:card" content="Your Progress VS Mine">
+  <!--End Social Meta Tags-->
+
+  	<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>';

@@ -1,6 +1,13 @@
 <?php
   session_start();
   include_once 'include/dbh.php';
+
+  $title = 'Your Progress VS Mine';
+  $javaScript = '<script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/main.js" async></script>
+  <script src="https://www.google.com/recaptcha/api.js" defer></script>';
+
   include 'header.php';
 ?>
 
@@ -24,12 +31,11 @@
           <img src="images/logo.png" alt="">
           <h1>Your Progress vs Mine</h1>
         </div>
-
         <div class="nav">
           <ul>
             <li><a href="index.php">Home</a></li>
 <!--            <li><a href="contact.php">Contact</a></li>-->
-            <li><a href="signup.php">Signup</a></li>
+            <li class="highlight"><a href="signup.php">Signup</a></li>
           </ul>
         </div>
       </nav>
@@ -39,7 +45,14 @@
         <div class="form-message">
           <p>JAVASCRIPT HERE</p>
         </div>
-        <form action="include/signup.php" method="post">
+        <form action="include/signup_alt.php" method="post">
+
+         <div id="recaptcha" class="g-recaptcha"
+            data-sitekey="6LeZHaAUAAAAAGwhqte3qMRtEheMn-2hdfNYrgCh"
+            data-callback="onSubmit"
+            data-size="invisible">
+          </div>
+
           <div class="uid_email">
             <div class="uid">
               <label for="uid">Username:</label>

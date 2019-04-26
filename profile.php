@@ -1,12 +1,25 @@
 <?php
   session_start();
   include_once 'include/dbh.php';
+  if (isset($_SESSION['u_id'])) {
+    $title = 'Your Progress VS Mine | Profile';
+  }
+  else {
+    $title = 'Your Progress VS Mine | Login';
+  }
+  $javaScript = '<script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/jquery.idle.js"></script>
+  <script src="js/main.js" async></script>
+  <script src="https://www.google.com/recaptcha/api.js" defer></script>';
+
   include 'header.php';
 ?>
 
   <body id="profile">
     <!--Floating Add Image Form-->
     <div class="container" id="userPic">
+      <div class="form-message"><p>JAVASCRIPT HERE!</p></div>
       <form action="include/upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="file">
         <button type="submit" name="submit">Upload</button>
@@ -18,13 +31,13 @@
     <div class="container" id="add">
       <div class="add">
         <div id="add_tab">
-          <div class="form-message">JAVASCRIPT HERE!</div>
+          <div class="form-message"><p>JAVASCRIPT HERE!</p></div>
           <div id="desc_tab">
             <form action="include/workout-desc.php" method="post">
               <div class="add_top">
                 <div class="name">
                   <label>Name:</label>
-                  <input type="text" name="name" placeholder="Name of Workout" autofocus>
+                  <input type="text" name="name" placeholder="Name of Workout" required autofocus >
                 </div>
                 <div>
                   <label>Type:</label>
@@ -56,7 +69,7 @@
               <div class="add_top">
                 <div class="name">
                   <label>Name:</label>
-                  <input type="text" name="name" placeholder="Name of Exercise" autofocus>
+                  <input type="text" name="name" placeholder="Name of Exercise" required autofocus>
                 </div>
                 <div class="equipment">
                   <label>Equipment:</label>
@@ -116,10 +129,6 @@
     </div>
     <!--End Floating Add Workout Form-->
 
-    <!--Floating View Workout-->
-    <div class="container" id="viewSearch"></div>
-    <!--End Floating View Workout-->
-
     <div id="wrapper">
 
 
@@ -132,7 +141,7 @@
             <div class="nav-container">
               <ul>
                 <li><a href="#messenger" class="view_chat">Chat</a></li>
-                <li><a href="#find" class="view_find">Find a workout</a></li>
+                <li><a href="#find" class="view_find">Find Workout</a></li>
                 <li><a href="#schedule" class="view_schedule">Schedule</a></li>
                 <li><a href="#updates" class="view_update">Live Updates</a></li>
                 <li><a href="#online_users" class="view_online">Who's Online</a></li>
@@ -153,24 +162,19 @@ if (isset($_SESSION['u_id'])) {
 
         <div class="nav">
           <ul>
-            <li><a href="index.php">Home</a></li>
+
 <?php
 if (isset($_SESSION['u_id'])) {
-  echo '<li><a href="profile.php">Profile</a></li>';
-}
-?>
-<!--            <li><a href="contact.php">Contact</a></li>-->
-
-
-<?php
-  if (isset($_SESSION['u_id'])) {
+  echo '<li><a href="index.php">Home</a></li>
+  <li class="highlight"><a href="profile.php">Profile</a></li>';
 
     echo '</ul><form action="include/logout.php" method="post">';
     echo '<button type="submit" name="submitLogout"><i class="fa fa-sign-out"></i><span>Logout '.$_SESSION['u_name'].' </span></button>
           </form>';
   }
   else {
-    echo '<li><a href="signup.php">Signup</a></li></ul>';
+    echo '<li class="highlight"><a href="index.php">Home</a></li>
+    <li><a href="signup.php">Signup</a></li></ul>';
   }
 
   ?>
@@ -278,13 +282,13 @@ if (isset($_SESSION['u_id'])) {
           </div>
           <!-- End User Info -->
 
-          <!-- Leader Board -->
+          <!-- Admin Board -->
           <div class="admin">
             <?php
     include 'include/admin.php';
   ?>
           </div>
-          <!-- End Leader Board -->
+          <!-- End Admin Board -->
 
         </div>
 
@@ -348,7 +352,7 @@ if (isset($_SESSION['u_id'])) {
   echo  '</div>
           <form action="include/login_alt.php" method="post" style="width: 300px;">
             <label for="uid">Username:</label>
-            <input id="uid" type="text" name="uid" autofocus>
+            <input id="uid" type="text" name="uid" placeholder="Username or Email" autofocus>
             <label for="pwd">Password:</label>
             <input id="pwd" type="password" name="pwd">
 <!--            <a href="#">Forgot Password?</a>-->
@@ -357,10 +361,10 @@ if (isset($_SESSION['u_id'])) {
             </div>
           </form>
 
-      <footer>
+      <div class="social_signup">
         <p>Dont have an account?<a href="signup.php">Sign up!</a></p>
         <a href="#"><i class="fa fa-instagram"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
-      </footer>
+      </div>
         </div></main>';
       }
   ?>

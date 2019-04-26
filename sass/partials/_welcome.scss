@@ -1,8 +1,4 @@
-
-
-
-footer {
-  margin: 10px 0 0 0;
+.social_signup {
   text-align: center;
   width: 100%;
 
@@ -12,55 +8,51 @@ footer {
   }
 }
 
-@media only screen and (min-width: 900px) {
+#signin,
+#signup {
+  main {
+    padding-top: 90px;
+  }
+}
 
-  #signin {
+#signin {
 
-    main {
-      display: flex;
-      justify-content: space-around;
-      padding-top: 70px;
-    }
-
-    .login {
-      width: 300px;
-
-      h1 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-    }
-
-    #about {
-      width: 45%;
-
-      h1 {
-        font-size: 30px;
-        margin-bottom: 40px;
-        text-align: left;
-      }
-
-      p {
-        line-height: 25px;
-      }
-    }
-
-    footer {
-      margin-top: 40px;
-    }
-
-    .submit {
-      margin-top: 40px;
-    }
-
+  main {
+    display: flex;
+    justify-content: space-around;
   }
 
-  #signup {
-
-    main {
-      padding-top: 60px;
+  .login {
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      text-align: center;
     }
+
+  form {
+    width: 300px;
+  }
+  }
+
+
+  #about {
+    width: 45%;
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    p {
+      line-height: 25px;
+    }
+  }
+}
+
+@media only screen and (min-width: 900px) {
+
+  #signup {
 
     form {
       width: 550px;
@@ -79,15 +71,12 @@ footer {
       width: 250px;
     }
 
-    .uid, .pwd {
-    }
+    .uid,
+    .pwd {}
 
-    .date, .goal {
+    .date,
+    .goal {
       margin: 20px 0;
-    }
-
-    .submit {
-      margin-top: 35px;
     }
   }
 

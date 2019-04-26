@@ -1,5 +1,4 @@
 $('document').ready(function () {
-  captcha();
   autoFocus('#uid');
   autoClear();
   showContainer();
@@ -25,20 +24,9 @@ $(document).idle({
   idle: 1200000
 }); // end idle
 
-function captcha() {
-  grecaptcha.ready(function () {
-    grecaptcha.execute('6Le4D58UAAAAAPoeAmzni9MqhWq6Ae-AGTSm6ASM', {
-      action: 'homepage'
-    }).then(function (token) {
-      var recaptchaResponse = document.getElementById('recaptchaResponse');
-      recaptchaResponse.value = token;
-    });
-  });
-}
-
 function autoFocus(focusField) {
   $(focusField).focus();
-}
+} // end autoFocus
 
 function autoClear() {
   var elements = $('input:text, textarea');
@@ -55,7 +43,7 @@ function autoClear() {
       $(this).val(defVal);
     } // end if
   }); // end blur anon function
-}
+} // end autoClear
 
 function showContainer() {
   $('.forgotPassword, .proPic, #schedule a, .contact').click(function () {
@@ -68,10 +56,13 @@ function showContainer() {
       titleName = 'Reset Password';
     } else if (linkPath === '#add') {
 
-      if ($('#desc_tab').show()) {
+        var width = $(window).width();
+
+  if (width > 690) {
         titleName = 'Create The Workout';
-      } else if ($('#details_tab').show()) {
-        titleName = 'Create Your Exercises';
+      } else  {
+        linkPath = '';
+        alert('Sorry, this feature will be available to mobile users in version 2.');
       }
 
     } else if (linkPath === '#contact') {
@@ -87,13 +78,6 @@ function showContainer() {
       }, function (data, status) {
         $('.view').html(data);
       });
-
-      //    if ($(window).width() < 690) {
-      //      $('.view_content, .workout').css('display', 'block');
-      //      $('.view').css('width', '100%');
-      //      $('.profile_img').css('display', 'none');
-      //    }
-
     });
     $('#monday').click(function () {
       $('.desc_submit').attr('name', 'monday');
@@ -200,21 +184,19 @@ function validLogin() {
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
         $('#pwd').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#pwd').val() == '') {
         $('#pwd').addClass('error');
         $('#pwd').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('.login .form-message p').text() === 'Wrong Username!') {
         $('#uid').addClass('error').val('');
         $('#pwd').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('.login .form-message p').text() === 'Wrong Password!') {
         $('#pwd').addClass('error').val('');
-      }
+      } else {grecaptcha.execute();}
     }); // end load
-
-
 
   }); // end submit
   /* End Login Validation */
@@ -260,50 +242,50 @@ function validSignup() {
         $('#uid').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#email').val() == '') {
         $('#email').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#dob').val() == '') {
         $('#dob').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#pwd').val() == '') {
         $('#pwd').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#pwd_two').val() == '') {
         $('#pwd_two').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'That was an invalid username and email!') {
         $('#uid, #email').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'That was an invalid username!') {
         $('#uid').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'That was an invalid email!') {
         $('#email').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'Password does not match!') {
         $('#pwd, #pwd_two').addClass('error').val('');
-      }
+      } else {grecaptcha.execute();}
       if ($('#signup .form-message p').text() === 'The username or email already exist!') {
         $('#uid, #email').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      }
+      } else {grecaptcha.execute();}
     }); // end load
 
   }); // end submit
@@ -438,6 +420,7 @@ function viewExercise() {
       time: exeTime,
       submit: submit
     });
+    $('#details_tab input[type=text], #details_tab select').val('');
     $('.exe').load('include/view-workout.php');
   });
   setInterval(function () {
@@ -514,7 +497,7 @@ function mobileMenu() {
       $('#find').removeClass('hidden');
       $('#workout').removeClass('hidden');
       $('.nav-container').addClass('hidden');
-      $('.workout').show();
+      $('.search').show();
     });
 
     $('.view_update').click(function () {

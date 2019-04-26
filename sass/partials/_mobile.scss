@@ -21,6 +21,7 @@
     }
 
     form {
+      margin-top: 8px;
       padding-right: 5px;
       width: 28px;
     }
@@ -38,6 +39,7 @@
   // Mobile Menu
   #mobile_menu {
     display: block;
+    margin-left: 10px;
 
     .nav-container {
       background: $mobile;
@@ -127,12 +129,24 @@
 
 @media only screen and (max-width: 500px) {
 
-  .login,
+  #signin .login {
+    form {
+      width: 95%;
+
+      label {
+        font-size: 12px;
+      }
+    }
+  }
+
   #signup {
-    width: 100%;
 
     form {
-      width: 90%;
+      width: 95%;
+
+      label {
+        font-size: 12px;
+      }
     }
   }
 }

@@ -21,7 +21,7 @@ if ($_SESSION['u_level'] == 1) {
               <input type="text" name="url" value="url for ad here!">
               <button type="submit" name="submit">Upload</button>
             </form>
-            <p>Image width 250px</p></br>
+            <p>Image width 250px</p>
             <a href="'.$url.'"><img class="admin_img" src="uploads/'.$_SESSION['u_name'].'_ad.png" alt="'.$_SESSION['u_name'].' advertisement"></a>';
     }
   }
@@ -29,7 +29,7 @@ if ($_SESSION['u_level'] == 1) {
     echo '<h1>Admin Area</h1>
             <form action="include/advertise.php" method="post" enctype="multipart/form-data">
               <input type="file" name="file">
-              <input type="text" name="url" value="url for ad here!">
+              <input type="text" name="url" placeholder="url for ad here!">
               <button type="submit" name="submit">Upload</button>
             </form>
             <p>No url selected!</p></br>

@@ -46,7 +46,7 @@ if ( isset( $_POST[ 'sunday' ] ) || isset( $_POST[ 'monday' ] ) || isset( $_POST
     $var = array($type);
   }
   else {
-    $var = array($name, $desc);
+    $var = array($name);
   }
 
   foreach ($var as $input);

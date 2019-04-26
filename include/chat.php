@@ -40,12 +40,12 @@ if(!isset($_SESSION)) {
         else if ($_SESSION['u_id'] !== $row['user_id'] & file_exists('../uploads/'.$row['user_name'].'_profile.'.$fileExt)) {
           $message = '<div class="chat friend"> <div class="user-photo">';
           $message .= '<a href="#userPic"><img src="uploads/'.$row['user_name'].'_profile.'.$fileExt.'" alt="'.$row['user_name'].'"></a></div>';
-          $message .= '<p class="chat-message">'.$theMessage.' <span>('.$newDate.')<span></p></div>';
+          $message .= '<p class="chat-message">'.$theMessage.' <span>('.$newDate.')</span></p></div>';
         }
         else if ($_SESSION['u_id'] !== $row['user_id']) {
           $message = '<div class="chat friend"> <div class="user-photo">';
           $message .= '<a href="#userPic"><img src="uploads/profiledefault.png" alt="Default profile image for Your Progress vs Mine"></a></div>';
-          $message .= '<p class="chat-message">'.$theMessage.' <span>('.$newDate.')<span></p></div>';
+          $message .= '<p class="chat-message">'.$theMessage.' <span>('.$newDate.')</span></p></div>';
         }
 
           echo $message;

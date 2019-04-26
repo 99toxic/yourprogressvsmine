@@ -18,9 +18,9 @@ if (isset($_POST['submit'])) {
   // convert date to mysql
   $dob = date('Y-m-d', strtotime($date));
 
-  $var = array($uid, $email, $date, $pwd, $pwd_two);
+    $var = array($uid, $email, $date, $pwd, $pwd_two);
 
-  foreach ($var as $empty);
+    foreach ($var as $empty);
 
   // Use error handler functions
   if (validFields($empty, $email, $uid, $pwd, $pwd_two) != true) {
@@ -57,7 +57,6 @@ if (isset($_POST['submit'])) {
           mysqli_stmt_execute( $stmt );
 
           echo '<p style="color:green;">Signup Success!</p>';
-//          header( 'Location: ../?msg="Success"' );
           exit();
          }
       }
@@ -65,9 +64,9 @@ if (isset($_POST['submit'])) {
       // mysqli_stmt_close( $stmt );
       mysqli_close( $conn );
   }
-
-
 }
+
+
 // if submit not clicked send back to front page
 else {
   header( 'Location: ../' );

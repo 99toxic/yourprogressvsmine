@@ -21,14 +21,11 @@ $border3: 1px solid rgba($txtCol, .05);
   font-family: ACIDLABEL;
 }
 @font-face {
-  src: url(../fonts/cityburn.ttf);
-  font-family: cityburn;
-}
-@font-face {
-  src: url(../fonts/Transformers.ttf);
-  font-family: Transformers;
+  src: url(../fonts/CoolCrayon.ttf);
+  font-family: CoolCrayon;
 }
 
 $font1: ACIDLABEL, Impact, Charcoal, sans-serif;
-$font2: cityburn, Impact, Charcoal, sans-serif;
+$font2: CoolCrayon, Impact, Charcoal, sans-serif;
+$font3: Impact, Charcoal, sans-serif;
 /* End Fonts */

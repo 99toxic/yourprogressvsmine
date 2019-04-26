@@ -61,10 +61,12 @@
     height: 150px;
     margin: 0 auto;
     overflow: scroll;
+    -ms-overflow-style: none;
+
   }
 
   .workout::-webkit-scrollbar {
-    width: 10px;
+    width: 0;
   }
 
   .workout::-webkit-scrollbar-thumb {
@@ -214,17 +216,14 @@
     }
 
     .workout {
-      height: 180px;
+      height: 173px;
       overflow: scroll;
+      -ms-overflow-style: none;
+
     }
 
     .workout::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    .workout::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, .1);
-      border-radius: 5px;
+      width: 0;
     }
 
     table {
@@ -335,14 +334,14 @@
 
   .add_day {
     height: 100%;
-    padding: 0;
 
     h1 {
+      font-family: $font2;
       font-size: 120px;
       left: 50%;
       position: absolute;
-      top: 30%;
-      transform: translate(-50%, -30%);
+      top: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
@@ -490,6 +489,7 @@
 
   .user-photo img {
     width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
@@ -498,16 +498,13 @@
     height: 500px;
     overflow-x: hidden;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+
     padding: 10px 10px 10px 20px;
   }
 
   .update::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .update::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, .1);
-    border-radius: 5px;
+    width: 0;
   }
 
   .user_update {
@@ -540,26 +537,20 @@
 
   .chatbox {
     display: grid;
-    padding: 0 20px 0 10px;
+    padding: 0 10px 0 30px;
   }
 
   .chatlogs {
-    height: 453px;
+    height: 473px;
     overflow-x: hidden;
     overflow-y: scroll;
-    padding: 10px;
+    -ms-overflow-style: none;
     width: 100%;
     transform: rotate(180deg);
-    direction: rtl;
   }
 
   .chatlogs::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .chatlogs::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, .1);
-    border-radius: 5px;
+    width: 0;
   }
 
 
@@ -568,7 +559,6 @@
     display: flex;
     margin-bottom: 10px;
     transform: rotate(180deg);
-    direction: ltr;
 
     .user-photo {
       background: #ccc;
@@ -635,7 +625,7 @@
       color: $txtCol;
       font-family: $font1;
       font-size: 20px;
-      padding: 10px 20px;
+      padding: 11px 20px;
 
     }
 
@@ -652,20 +642,16 @@
     height: 500px;
     overflow-x: hidden;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+
     padding: 10px 10px 10px 20px;
   }
 
   .users::-webkit-scrollbar {
-    width: 10px;
-  }
-
-  .users::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, .1);
-    border-radius: 5px;
+    width: 0;
   }
 
   .online {
-    align-items: flex-start;
     display: flex;
     margin-bottom: 20px;
 
@@ -679,7 +665,7 @@
 
 
     .name {
-      margin: 5px 0px 0px 10px;
+      margin: 10px 0px 0px 10px;
       padding: 5px;
       width: 80%;
 
@@ -732,6 +718,10 @@
     #messenger {
       border-left: none;
       flex-basis: 70%;
+    }
+
+    .chatbox {
+      padding-left: 10px;
     }
 
     #find,
@@ -808,7 +798,7 @@
         }
 
         img {
-          padding: 49px 0;
+          padding: 48px 0;
           width: 90px;
         }
       }
@@ -845,23 +835,22 @@
     #find,
     #updates {
       border: none;
-      height: 100vh;
+      height: auto;
       margin: 0;
       width: 100%;
       z-index: 5;
     }
 
-    #online_users {
-      height: 100vh;
-      margin-top: 20px;
+    .social aside:first-child {
+      display: block;
+    }
+
+    .search {
+      min-height: 100vh;
     }
 
     #messenger {
       border-right: none;
-    }
-
-    .chatbox {
-      height: 100vh;
     }
 
     .social h2,
@@ -884,18 +873,27 @@
       margin-bottom: 0;
     }
 
-    .workout {
-      height: 410px;
-      width: 100%;
+    .chatlogs {
     }
-
   }
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 500px) {
+
+    .view {
+      .view-icon {
+        img {
+          padding: 23px 0;
+        }
+      }
+    }
 
     .profile_img,
     .view {
       height: 200px;
+    }
+
+    .chatlogs {
+      width: auto;
     }
   }
 
