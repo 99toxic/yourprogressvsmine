@@ -1,6 +1,6 @@
 // Theme Color
 $bckCol: #2a2a2a;
-$brdCol: rgba(105, 29, 6, 0.7);;
+$brdCol: rgba(105, 29, 6, 0.7);
 $butCol: #8e320b;
 $errCol: #f00;
 $hover: #aba38a;
@@ -20,6 +20,7 @@ $border3: 1px solid rgba($txtCol, .05);
   src: url(../fonts/ACIDL___.otf);
   font-family: ACIDLABEL;
 }
+
 @font-face {
   src: url(../fonts/CoolCrayon.ttf);
   font-family: CoolCrayon;

@@ -34,10 +34,10 @@ if ( isset( $_POST[ 'saturday' ] ) ) {
 // Check if user clicked a submit button.
 if ( isset( $_POST[ 'sunday' ] ) || isset( $_POST[ 'monday' ] ) || isset( $_POST[ 'tuesday' ] ) || isset( $_POST[ 'wednesday' ] ) || isset( $_POST[ 'thursday' ] ) || isset( $_POST[ 'friday' ] ) || isset( $_POST[ 'saturday' ] ) ) {
 
-  $name = mysqli_real_escape_string( $conn, $_POST[ 'name' ] );
-  $type = mysqli_real_escape_string( $conn, $_POST[ 'type' ] );
-  $sets = mysqli_real_escape_string( $conn, $_POST[ 'sets' ] );
-  $desc = mysqli_real_escape_string( $conn, $_POST[ 'desc' ] );
+  $name = mysqli_real_escape_string( $conn, htmlspecialchars($_POST[ 'name' ]) );
+  $type = mysqli_real_escape_string( $conn, htmlspecialchars($_POST[ 'type' ]) );
+  $sets = mysqli_real_escape_string( $conn, htmlspecialchars($_POST[ 'sets' ]) );
+  $desc = mysqli_real_escape_string( $conn, htmlspecialchars($_POST[ 'desc' ]) );
 
   $userId = $_SESSION['u_id'];
   $active = '1';

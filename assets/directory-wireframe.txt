@@ -1,0 +1,121 @@
+Folder PATH listing for volume Data
+Volume serial number is 663A-3812
+D:.
+|   .gitignore
+|   404.php
+|   header.php
+|   index.php
+|   profile.php
+|   robots.txt
+|   signup.php
+|   ypvm.zip
+|   
++---.sass-cache
+|   +---726577142548256ed72fbacb9f1cb21961942c3d
+|   |       style.scssc
+|   |       
+|   \---d42990d256cf0c71f51e9e3fd476bf13ba6185c1
+|           reset.scssc
+|           _404.scssc
+|           _desktop.scssc
+|           _desktop_profile.scssc
+|           _desktop_signin.scssc
+|           _mobile.scssc
+|           _mobile_signin.scssc
+|           _myjqueryui.scssc
+|           _profile.scssc
+|           _reset.scssc
+|           _tablet.scssc
+|           _tablet_signin.scssc
+|           _variables.scssc
+|           _welcome.scssc
+|           
++---assets
+|       database-final.sql
+|       dbw.jpg
+|       index.php
+|       media-sources.docx
+|       
++---css
+|   |   jquery-ui.css
+|   |   style.css
+|   |   style.css.map
+|   |   
+|   \---images
+|           ui-icons_444444_256x240.png
+|           ui-icons_555555_256x240.png
+|           ui-icons_777620_256x240.png
+|           ui-icons_777777_256x240.png
+|           ui-icons_cc0000_256x240.png
+|           ui-icons_ffffff_256x240.png
+|           
++---fonts
+|       ACIDL___.otf
+|       CoolCrayon.ttf
+|       
++---images
+|   |   background.jpg
+|   |   favicon.png
+|   |   htaccess
+|   |   logo.png
+|   |   ypvm.jpg
+|   |   
+|   \---icon
+|           Abs.png
+|           Cardio.png
+|           Other.png
+|           Plyometrics.png
+|           Strength.png
+|           Stretching.png
+|           
++---include
+|       admin.php
+|       advertise.php
+|       chat-add.php
+|       chat.php
+|       dbh.php
+|       exe-details.php
+|       functions.php
+|       live-update.php
+|       login.php
+|       login_alt.php
+|       logout.php
+|       schedule.php
+|       search.php
+|       signup.php
+|       signup_alt.php
+|       upload.php
+|       user-online.php
+|       view-exercise.php
+|       view-workout.php
+|       view.php
+|       workout-desc.php
+|       
++---js
+|       ajax.js
+|       jquery-3.3.1.min.js
+|       jquery-ui.js
+|       jquery.idle.js
+|       jquery.scrollbar.min.js
+|       main.js
+|       
++---sass
+|   |   style.scss
+|   |   
+|   \---partials
+|           _404.scss
+|           _mobile.scss
+|           _myjqueryui.scss
+|           _profile.scss
+|           _reset.scss
+|           _tablet.scss
+|           _variables.scss
+|           _welcome.scss
+|           
+\---uploads
+        admin2_ad.png
+        admin2_profile.jpg
+        admin_ad.png
+        admin_profile.jpg
+        profiledefault.png
+        

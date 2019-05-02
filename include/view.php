@@ -1,18 +1,18 @@
 <?php
 
-  // Call connection to database
-  include_once 'dbh.php';
-
+// Call connection to database
+include_once 'dbh.php';
+// Check if session has been started if not start session
 if(!isset($_SESSION)) {
   session_start();
 }
-
+// If user clicked a day in schedule
 if ( isset( $_POST[ 'day' ] ) ) {
 
   $userId = $_SESSION['u_id'];
 
-  $day = mysqli_real_escape_string($conn, $_POST['day']);
-  $weekDay = mysqli_real_escape_string($conn, $_POST['weekDay']);
+  $day = mysqli_real_escape_string($conn, htmlspecialchars($_POST['day']));
+  $weekDay = mysqli_real_escape_string($conn, htmlspecialchars($_POST['weekDay']));
 
   // Prepare SQL
   $sql = "SELECT w.wrk_id, wrk_name, w.type_id, t.type_id, type_name, wrk_sets, wrk_desc, user_id, day, exe_name, exe_equip, exe_sets, exe_reps, exe_time, e.wrk_id FROM workout_desc w LEFT JOIN workout_type t ON w.type_id = t.type_id LEFT JOIN exe_details e ON w.wrk_id = e.wrk_id WHERE user_id=? AND day=?;";

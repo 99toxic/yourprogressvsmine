@@ -36,17 +36,23 @@ if (isset($_POST['submit'])) {
         //Puts image in folder location
         $fileDestination = '../uploads/'.$userName.'_profile.jpg';
         move_uploaded_file($fileTmpName, $fileDestination);
-
+          // Rrefresh browser to show image
           header("Refresh:0; url= ../profile.php" );
           header("Cache-Control: no-cache, must-revalidate");
 
-      } else {
+      }
+      // If file size is too big let user know
+      else {
         echo '<p>Your file is to big. Please try a different image.</p>';
              }
-    } else {
+    }
+    // If there was an error let user know
+    else {
       echo '<p>There was an error uploading your file. Please try again.</p>';
     }
-  } else {
+  }
+  // If that was the wrong file type let user know
+  else {
     echo '<p>You are not allowed to upload this filetype.</p>';
   }
 }

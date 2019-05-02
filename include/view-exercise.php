@@ -1,17 +1,17 @@
 <?php
-
+// Call connection to database
 include_once 'dbh.php';
-
+// Check if session has been started if not start session
 if(!isset($_SESSION)) {
   session_start();
 }
-
+// Check if user clicked a submit button.
 if ( isset( $_POST[ 'submit' ] ) ) {
 
   $wrkId = $_POST['wrkid'];
-
+  // Prepare SQL
   $sql = "SELECT w.wrk_id, wrk_name, w.type_id, wrk_sets, wrk_desc, day, e.wrk_id, exe_name, exe_equip, exe_sets, exe_reps, exe_time, t.type_id, type_name FROM workout_desc w LEFT JOIN exe_details e ON w.wrk_id = e.wrk_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE w.wrk_id=$wrkId;";
-
+  // Check if get result from database.
   $result = mysqli_query($conn, $sql);
    $row = mysqli_fetch_assoc($result);
 

@@ -28,13 +28,14 @@
       $wrkSets = $row['wrk_sets'];
       $wrkDesc = $row['wrk_desc'];
       $wrkDay = $row['day'];
-
+      //If user selected Rest from workout type display this style
       if ($row['type_id'] == '6') {
         echo '<div class="rest_day">
           <p>Sunday</p>
             <h1>Rest</h1>
           </div>';
       }
+      // if user selects any other workout type display this style
       else {
         echo '<p>'.$weekDay.'</p>
               <a href="#view">
@@ -45,6 +46,7 @@
               </a>';
       }
     }
+    // If the user has no workouts display this style
     else {
       echo '<div class="add_day">
               <p>'.$weekDay.'</p>

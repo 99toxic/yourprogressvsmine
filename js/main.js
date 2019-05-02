@@ -56,11 +56,11 @@ function showContainer() {
       titleName = 'Reset Password';
     } else if (linkPath === '#add') {
 
-        var width = $(window).width();
+      var width = $(window).width();
 
-  if (width > 690) {
+      if (width > 690) {
         titleName = 'Create The Workout';
-      } else  {
+      } else {
         linkPath = '';
         alert('Sorry, this feature will be available to mobile users in version 2.');
       }
@@ -184,18 +184,26 @@ function validLogin() {
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#uid').val() == '') {
         $('#uid').addClass('error');
         $('#pwd').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('.login .form-message p').text() === 'Please fill in all fields!' & $('#pwd').val() == '') {
         $('#pwd').addClass('error');
         $('#pwd').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('.login .form-message p').text() === 'Wrong Username!') {
         $('#uid').addClass('error').val('');
         $('#pwd').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('.login .form-message p').text() === 'Wrong Password!') {
         $('#pwd').addClass('error').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
     }); // end load
 
   }); // end submit
@@ -242,50 +250,70 @@ function validSignup() {
         $('#uid').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#email').val() == '') {
         $('#email').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#dob').val() == '') {
         $('#dob').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#pwd').val() == '') {
         $('#pwd').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'Please fill in all fields!' & $('#pwd_two').val() == '') {
         $('#pwd_two').addClass('error');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'That was an invalid username and email!') {
         $('#uid, #email').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'That was an invalid username!') {
         $('#uid').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'That was an invalid email!') {
         $('#email').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'Password does not match!') {
         $('#pwd, #pwd_two').addClass('error').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
       if ($('#signup .form-message p').text() === 'The username or email already exist!') {
         $('#uid, #email').addClass('error').val('');
         $('#pwd').val('');
         $('#pwd_two').val('');
-      } else {grecaptcha.execute();}
+      } else {
+        grecaptcha.execute();
+      }
     }); // end load
 
   }); // end submit

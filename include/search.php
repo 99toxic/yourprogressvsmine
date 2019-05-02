@@ -8,8 +8,8 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   include 'functions.php';
 
   // Fetch information from form.
-  $search = mysqli_real_escape_string( $conn, $_POST['search'] );
-  $type = mysqli_real_escape_string( $conn, $_POST['type'] );
+  $search = mysqli_real_escape_string( $conn, htmlspecialchars($_POST['search']));
+  $type = mysqli_real_escape_string( $conn, htmlspecialchars($_POST['type']));
 
   // Prepare SQL
   $sql = "SELECT w.user_id, wrk_name, wrk_id, w.type_id, wrk_sets, wrk_desc, u.user_id, user_name, t.type_id, type_name FROM workout_desc w LEFT JOIN users u ON w.user_id = u.user_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE wrk_name=? AND w.type_id=? ORDER BY wrk_name;";
@@ -24,7 +24,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
     mysqli_stmt_bind_param($stmt, 'ss', $search, $type);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    // Check if get result from database.
+    // Check if get result from database to what user typed in search.
     if (mysqli_num_rows($result) > 0) {
 
       echo '<table>
@@ -58,6 +58,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
     // Prepare SQL
     $sql = "SELECT w.user_id, wrk_id, wrk_name, w.type_id, wrk_sets, wrk_desc, u.user_id, user_name, t.type_id, type_name FROM workout_desc w LEFT JOIN users u ON w.user_id = u.user_id LEFT JOIN workout_type t ON w.type_id = t.type_id WHERE w.type_id=$type ORDER BY wrk_name;";
     $result = mysqli_query($conn, $sql);
+    // If no results found show search results based on workout type.
     if (mysqli_num_rows($result) > 0) {
 
       echo '<table>
@@ -88,6 +89,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 
       echo '</table>';
   }
+  // If they were no workouts created for type diplay message.
   else {
     echo '<p>Sorry that type of workout has not been created yet!</p>';
   }

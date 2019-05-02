@@ -30,7 +30,7 @@
 // Main Jquery UI Dialog box
 .ui-dialog {
   background: linear-gradient(rgba($bckCol, .9), rgba($bckCol, .9)), url(../images/background.jpg);
-  border: $border2!important;
+  border: $border2 !important;
 }
 
 // fixes dialog box to stay in center of screen
@@ -39,6 +39,7 @@
   top: 50px;
   left: 50px;
 }
+
 /* End Jquery UI Dialog Box */
 
 /* Jquery UI Tabs */
@@ -57,7 +58,7 @@
   border: none !important;
 }
 
-.ui-tabs-anchor{
+.ui-tabs-anchor {
   background: none;
   border: none;
 }
@@ -66,6 +67,7 @@
   background: none;
   border: none;
 }
+
 /* End Jquery UI Tabs */
 
 /* Jquery UI Datepicker */
@@ -94,12 +96,15 @@
   line-height: 30px;
 }
 
-.ui-datepicker-next, .ui-datepicker-prev {
+.ui-datepicker-next,
+.ui-datepicker-prev {
   background: $txtCol;
 }
 
-.ui-datepicker-next:hover, .ui-datepicker-prev:hover {
+.ui-datepicker-next:hover,
+.ui-datepicker-prev:hover {
   background: $hover;
   border: none;
 }
+
 /* End Jquery UI Datepicker */

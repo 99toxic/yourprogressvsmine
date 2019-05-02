@@ -8,8 +8,8 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   include 'functions.php';
 
   // Fetch information from form.
-  $uid = mysqli_real_escape_string( $conn, $_POST[ 'uid' ] );
-  $pwd = mysqli_real_escape_string( $conn, $_POST[ 'pwd' ] );
+  $uid = mysqli_real_escape_string( $conn, htmlspecialchars($_POST[ 'uid' ]));
+  $pwd = mysqli_real_escape_string( $conn, htmlspecialchars($_POST[ 'pwd' ]));
 
   $var = array($uid, $pwd);
 

@@ -3,12 +3,12 @@
     display: none;
   }
 
-  #signin
-  #about {
+  #signin #about {
     width: 80%;
   }
 
-  .login, #signup {
+  .login,
+  #signup {
 
     form {
       width: 380px;

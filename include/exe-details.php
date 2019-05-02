@@ -5,22 +5,22 @@ if ( isset( $_POST[ 'submit' ] ) ) {
   // Call connection to database and functions
   include_once 'dbh.php';
   include 'functions.php';
-
+  // if user is admin show upload input
   if(!isset($_SESSION)) {
   session_start();
   }
-
-  $name = mysqli_real_escape_string( $conn, $_POST[ 'name' ] );
-  $equip = mysqli_real_escape_string( $conn, $_POST[ 'equip' ] );
-  $sets = mysqli_real_escape_string( $conn, $_POST[ 'sets' ] );
-  $reps = mysqli_real_escape_string( $conn, $_POST[ 'reps' ] );
-  $time = mysqli_real_escape_string( $conn, $_POST[ 'time' ] );
+  // Fetch information from form.
+  $name = mysqli_real_escape_string($conn, htmlspecialchars($_POST[ 'name' ]));
+  $equip = mysqli_real_escape_string($conn, htmlspecialchars($_POST[ 'equip' ]));
+  $sets = mysqli_real_escape_string($conn, htmlspecialchars($_POST[ 'sets' ]));
+  $reps = mysqli_real_escape_string($conn, htmlspecialchars($_POST[ 'reps' ]));
+  $time = mysqli_real_escape_string($conn, htmlspecialchars($_POST[ 'time' ]));
 
   $userId = $_SESSION['u_id'];
-
+  // Prepare SQL
   $sqll = 'SELECT wrk_id FROM workout_desc WHERE active=1 AND user_id='.$userId.'';
   $result = $conn->query($sqll);
-
+  // Check if get result from database.
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       $wrkId = $row['wrk_id'];
@@ -33,6 +33,7 @@ if ( isset( $_POST[ 'submit' ] ) ) {
 
   // Use error handler functions
   if (emptyFields($empty) != true) {
+
     // Prepare SQL
     $sql = 'SELECT * FROM exe_details WHERE exe_name=?';
     $stmt = mysqli_stmt_init( $conn );

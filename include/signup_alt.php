@@ -49,12 +49,12 @@ if (isset($_POST['submit'])) {
   include 'functions.php';
 
   // Fetch information from form.
-  $uid = mysqli_real_escape_string($conn, $_POST['uid']);
-  $email = mysqli_real_escape_string($conn, $_POST['email']);
-  $date = mysqli_real_escape_string($conn, $_POST['dob']);
-  $goal = mysqli_real_escape_string($conn, $_POST['goal']);
-  $pwd = mysqli_real_escape_string($conn, $_POST['pwd']);
-  $pwd_two = mysqli_real_escape_string($conn, $_POST['pwd_two']);
+  $uid = mysqli_real_escape_string($conn, htmlspecialchars($_POST['uid']));
+  $email = mysqli_real_escape_string($conn, htmlspecialchars($_POST['email']));
+  $date = mysqli_real_escape_string($conn, htmlspecialchars($_POST['dob']));
+  $goal = mysqli_real_escape_string($conn, htmlspecialchars($_POST['goal']));
+  $pwd = mysqli_real_escape_string($conn, htmlspecialchars($_POST['pwd']));
+  $pwd_two = mysqli_real_escape_string($conn, htmlspecialchars($_POST['pwd_two']));
 
   // convert date to mysql
   $dob = date('Y-m-d', strtotime($date));

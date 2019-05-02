@@ -1,24 +1,24 @@
 <?php
-
+// Call connection to database
 include_once 'dbh.php';
-
+// Check if session has been started if not start session
 if(!isset($_SESSION)) {
   session_start();
 }
 
 $userId = $_SESSION['u_id'];
-
+// Prepare SQL to display workout
 $sqll = 'SELECT wrk_id FROM workout_desc WHERE active=1 AND user_id='.$userId.'';
 $result = $conn->query($sqll);
-
+// Check if get result from database.
 if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     $wrkId = $row['wrk_id'];
   }
-
+  // Prepare SQL to display exercises
   $sql = 'SELECT * FROM exe_details WHERE wrk_id='.$wrkId.'';
   $result = mysqli_query($conn, $sql);
-
+  // Check if get result from database.
   if (mysqli_num_rows($result) > 0) {
 
     echo '<table>

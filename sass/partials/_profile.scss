@@ -60,19 +60,18 @@
   .workout {
     height: 150px;
     margin: 0 auto;
-    overflow: scroll;
-    -ms-overflow-style: none;
-
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
 
   .workout::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
   }
 
-  .workout::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, .1);
-    border-radius: 5px;
-  }
+.workout::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
 
   table {
     margin: 0 auto;
@@ -217,14 +216,18 @@
 
     .workout {
       height: 173px;
-      overflow: scroll;
-      -ms-overflow-style: none;
-
+      overflow-x: hidden;
+      overflow-y: scroll;
     }
 
-    .workout::-webkit-scrollbar {
-      width: 0;
-    }
+  .workout::-webkit-scrollbar {
+    width: 10px;
+  }
+
+.workout::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
 
     table {
       border-collapse: collapse;
@@ -368,7 +371,7 @@
     border: $border;
     height: 250px;
     margin: 80px 0px;
-    width: 40%;
+    width: 600px;
   }
 
   #find {
@@ -472,7 +475,11 @@
   .social {
     border: $border;
     display: flex;
-    height: 566px;
+    height: auto;
+
+    form {
+      margin: 0;
+    }
 
     h2 {
       border-bottom: $border;
@@ -498,14 +505,17 @@
     height: 500px;
     overflow-x: hidden;
     overflow-y: scroll;
-    -ms-overflow-style: none;
-
     padding: 10px 10px 10px 20px;
   }
 
   .update::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
   }
+
+.update::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
 
   .user_update {
     align-items: flex-start;
@@ -537,28 +547,33 @@
 
   .chatbox {
     display: grid;
-    padding: 0 10px 0 30px;
   }
 
   .chatlogs {
+    direction: rtl;
     height: 473px;
     overflow-x: hidden;
     overflow-y: scroll;
-    -ms-overflow-style: none;
     width: 100%;
     transform: rotate(180deg);
   }
 
   .chatlogs::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
   }
+
+.chatlogs::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
 
 
   .chat {
     align-items: flex-start;
     display: flex;
-    margin-bottom: 10px;
+    padding: 10px;
     transform: rotate(180deg);
+    direction: ltr;
 
     .user-photo {
       background: #ccc;
@@ -573,7 +588,7 @@
       border-radius: 10px;
       display: flex;
       justify-content: space-between;
-      margin: 5px 10px 0;
+      margin: 5px 20px 0;
       padding: 15px;
       width: 80%;
 
@@ -642,14 +657,17 @@
     height: 500px;
     overflow-x: hidden;
     overflow-y: scroll;
-    -ms-overflow-style: none;
-
     padding: 10px 10px 10px 20px;
   }
 
   .users::-webkit-scrollbar {
-    width: 0;
+    width: 10px;
   }
+
+.users::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, .1);
+  border-radius: 5px;
+}
 
   .online {
     display: flex;
@@ -720,10 +738,6 @@
       flex-basis: 70%;
     }
 
-    .chatbox {
-      padding-left: 10px;
-    }
-
     #find,
     .admin {
       width: 50%;
@@ -734,7 +748,7 @@
         width: 100%;
 
         input[type=submit] {
-          font-size: 18px;
+          font-size: 15px;
         }
       }
     }
@@ -865,15 +879,11 @@
     .social {
       border: none;
       display: block;
-      height: auto;
     }
 
     .chat-form {
       border: $border;
       margin-bottom: 0;
-    }
-
-    .chatlogs {
     }
   }
 

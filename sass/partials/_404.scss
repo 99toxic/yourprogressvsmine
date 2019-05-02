@@ -1,4 +1,5 @@
-#error {
+#error,
+#assets {
   * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -14,13 +15,27 @@
     height: 100vh;
   }
 
-  #notfound .notfound {
+  #notfound .notfound,
+  .assets {
     position: absolute;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+  }
+
+  .assets {
+    border: $border;
+    padding: 10px;
+
+    li {
+      margin: 20px 0;
+
+      a {
+        text-decoration: underline;
+      }
+    }
   }
 
   .notfound {
